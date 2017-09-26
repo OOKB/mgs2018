@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { isObject } from 'lodash'
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+import ReactCSSTransitionGroup from 'react-transition-group/Transition'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
@@ -8,7 +9,6 @@ import SlideNavigation from './SlideNavigation'
 import SlideThumb from './SlideThumb'
 
 class Slideshow extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -243,7 +243,6 @@ class Slideshow extends Component {
       </div>
     )
   }
-
 }
 
 // TODO: real proptypes

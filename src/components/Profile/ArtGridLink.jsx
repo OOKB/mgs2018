@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'redux-history-component'
 import css from 'cape-style'
 // import Icon from './Icon'
@@ -11,7 +12,11 @@ function ArtEdit({ id, isActive, onDelete, title, image }) {
         {image && image.url && <img src={`${image.url}?w=100`} alt={title} />}
         <p style={css('ml1')}>{title || 'Untitled'}</p>
       </Link>
-      {onDelete && <button className="delete" onClick={onDelete}><i className="fa fa-trash-o fa-2x"></i></button>}
+      {onDelete && (
+        <button className="delete" onClick={onDelete}>
+          <i className="fa fa-trash-o fa-2x" />
+        </button>
+      )}
     </li>
   )
 }
