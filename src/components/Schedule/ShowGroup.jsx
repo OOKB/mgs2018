@@ -11,8 +11,8 @@ export const linkMap = propertyOf({
   recnt8Oz3oN0HBKSH: 'recdoBpSFrFhf1WwX',
 })
 
-export function getLink({ id, key }) {
-  return `/details/${key || linkMap(id) || id}`
+export function getShowId({ id, key }) {
+  return key || linkMap(id) || id
 }
 
 function Reception({ date, extra }) {
@@ -30,10 +30,10 @@ Reception.propTypes = {
 }
 
 function ShowGroup({ extraChild, name, program, reception, showDate, ...props }) {
-  const link = getLink(props)
+  const showId = getShowId(props)
   return (
     <div className="showItem item">
-      <Link href={link} className="block black" style={css('textReset')}>
+      <Link routeId="details" showId={showId} lassName="block black" style={css('textReset')}>
         <h1 style={css('m0 mb1')}>{ name }</h1>
         {showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2>}
         {reception && <Reception date={reception} extra={extraChild && extraChild.reception} />}

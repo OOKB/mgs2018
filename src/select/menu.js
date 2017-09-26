@@ -2,7 +2,7 @@ import { flow, partial, property } from 'lodash'
 import { createStructuredSelector } from 'reselect'
 import { bindActionCreators } from 'redux'
 import { createObj } from 'cape-lodash'
-import { getRouteId } from 'cape-react-app'
+import { getRouteId } from 'cape-router'
 import { auth, logout } from 'cape-firebase'
 import { filterPerms } from './perms'
 

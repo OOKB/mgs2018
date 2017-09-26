@@ -1481,25 +1481,27 @@ cape-mixer@^2.2.0:
     simple-sha1 "^2.1.0"
     tinycolor2 "^1.4.1"
 
-cape-react-app@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cape-react-app/-/cape-react-app-1.1.0.tgz#ce9b5fe7cab73861da701f739821e5f5d37d67c7"
+cape-react-app@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cape-react-app/-/cape-react-app-2.0.0.tgz#40aa521844b1dd076537c39001db6669341b6e6a"
   dependencies:
-    cape-firebase "^1.0.8"
+    cape-firebase "^1.0.9"
     cape-redux-reducer "^3.11.3"
+    cape-router-component "^0.0.6"
     cape-select "^2.4.0"
-    location-info "^4.0.3"
+    location-info "^4.5.0"
     lodash "^4.17.4"
-    prop-types "^15.5.8"
-    react "^15.5.4"
-    react-dom "^15.5.4"
-    react-redux "^5.0.4"
-    redux "^3.6.0"
+    prop-types "^15.5.10"
+    react "^15.6.1"
+    react-dom "^15.6.1"
+    react-redux "^5.0.6"
+    redux "^3.7.2"
+    redux-devtools-extension "^2.13.2"
     redux-graph "^2.13.1"
-    redux-history-sync "^3.2.1"
+    redux-history-sync "^3.2.2"
     redux-thunk "^2.2.0"
     redux-windowsize "^1.3.1"
-    reselect "^3.0.0"
+    reselect "^3.0.1"
 
 cape-redux-auth@^4.0.0:
   version "4.0.0"
@@ -1569,7 +1571,18 @@ cape-redux@^3.2.0:
     lodash "^4.17.2"
     redux "^3.6.0"
 
-cape-router@^1.1.5:
+cape-router-component@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/cape-router-component/-/cape-router-component-0.0.6.tgz#02d4affa85fb0ef1ffe6ea4c2c043cc933f6c700"
+  dependencies:
+    cape-router "^1.1.4"
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
+    react "^15.6.1"
+    react-dom "^15.6.1"
+    react-redux "^5.0.6"
+
+cape-router@^1.1.4, cape-router@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/cape-router/-/cape-router-1.1.5.tgz#3db35b757490dc1e6a62a70c600e233a36f787bb"
   dependencies:
@@ -2635,7 +2648,7 @@ eslint@3.16.1:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-eslint@^4.3.0:
+"eslint@^3.19.0 || ^4.3.0":
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.7.2.tgz#ff6f5f5193848a27ee9b627be3e73fb9cb5e662e"
   dependencies:
@@ -5474,6 +5487,15 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-dom@^15.6.1:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
+
 react-dom@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
@@ -5731,6 +5753,10 @@ redux-devtools-dock-monitor@^1.1.1:
     react-dock "^0.2.4"
     react-pure-render "^1.0.2"
 
+redux-devtools-extension@^2.13.2:
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+
 redux-devtools-instrument@^1.0.1:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/redux-devtools-instrument/-/redux-devtools-instrument-1.8.0.tgz#db1840ed3d8152af6792913698e3424c119de9aa"
@@ -5813,7 +5839,7 @@ redux-history-component@^2.1.3, redux-history-component@^2.1.6:
     redux-history-sync "^3.2.2"
     reselect "^3.0.1"
 
-redux-history-sync@^3.1.0, redux-history-sync@^3.2.1:
+redux-history-sync@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/redux-history-sync/-/redux-history-sync-3.2.1.tgz#8299bd916812c992ade00d3dcda80f2191622b33"
   dependencies:

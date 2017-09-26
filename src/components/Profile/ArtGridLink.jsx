@@ -8,7 +8,7 @@ function ArtEdit({ id, isActive, onDelete, title, image }) {
   const style = isActive ? css('ba bw0p25 bgGray') : null
   return (
     <li className="artwork" key={id} style={style}>
-      <Link href={`/me/${id}`} style={css('block flex')}>
+      <Link routeId="me" id={id} style={css('block flex')}>
         {image && image.url && <img src={`${image.url}?w=100`} alt={title} />}
         <p style={css('ml1')}>{title || 'Untitled'}</p>
       </Link>
