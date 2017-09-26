@@ -19,10 +19,11 @@ export default {
   },
   firebase: {
     config: {
-      apiKey: 'AIzaSyB4ZUWrwOLk0AcIlJvRjX2Npw4VWuAHjO0',
-      authDomain: 'mica2017-18d52.firebaseapp.com',
-      databaseURL: 'https://mica2017-18d52.firebaseio.com',
-      storageBucket: 'mica2017-18d52.appspot.com',
+      apiKey: 'AIzaSyCR07Rd2BM6p5wtbidGR-AlblMUmpx8XiU',
+      authDomain: 'mgs-2018.firebaseapp.com',
+      databaseURL: 'https://mgs-2018.firebaseio.com',
+      projectId: 'mgs-2018',
+      storageBucket: 'mgs-2018.appspot.com',
     },
     entityType: {
       CreativeWork: true,
