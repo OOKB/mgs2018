@@ -1,0 +1,7 @@
+export { default as colors } from './ColorStripes'
+export { default as details } from './Detail/Detail'
+export { default as home } from './App'
+export { default as me } from './Profile/Me'
+export { default as studentList } from './StudentList/StudentList'
+export { default as filmfest } from './FilmFest/FilmFest'
+export { default as studentDetail } from './StudentDetail/StudentDetail'

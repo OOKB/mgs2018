@@ -1,0 +1,21 @@
+
+flex {
+  display:flex;
+}
+
+flex > div {
+  flex: 1;
+}
+
+#profile flex {
+  min-height: 100vh;
+}
+
+#profile > main {
+  box-shadow: none;
+}
+
+#profile #blurb,
+#profile footer {
+  display: none;
+}
