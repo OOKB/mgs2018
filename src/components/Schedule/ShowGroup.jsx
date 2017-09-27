@@ -33,7 +33,7 @@ function ShowGroup({ extraChild, name, program, reception, showDate, ...props })
   const showId = getShowId(props)
   return (
     <div className="showItem item">
-      <Link routeId="details" showId={showId} lassName="block black" style={css('textReset')}>
+      <Link routeId="details" showId={showId} className="block black" style={css('textReset')}>
         <h1 style={css('m0 mb1')}>{ name }</h1>
         {showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2>}
         {reception && <Reception date={reception} extra={extraChild && extraChild.reception} />}

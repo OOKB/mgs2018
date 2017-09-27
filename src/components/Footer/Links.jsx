@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import classnames from 'classnames'
 import css from 'cape-style'
-import LinkEl from 'cape-mixer/lib/Link'
+import LinkEl from 'cape-mixer/lib/Link/Link'
 
 function Links({ className, links, title, siteId }) {
   return (

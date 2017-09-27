@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { get } from 'lodash'
 import css from 'cape-style'
-import LinkEl from 'cape-mixer/lib/Link'
+import LinkEl from 'cape-mixer/lib/Link/Link'
 import Select from 'cape-mixer/lib/SelectEl'
 // import './Student.css'
-import { getLink } from '../Schedule/ShowGroup'
+import { getShowId } from '../Schedule/ShowGroup'
 import StudentLink from '../StudentLink'
 
 function StudentEl(props) {
@@ -30,7 +30,9 @@ function StudentEl(props) {
         <i>{ program.name }</i>
       </span>
       <span className="show">
-        {show && <p><LinkEl href={getLink(showGroup)} internal>{ showGroup.name }</LinkEl></p>}
+        {show && (
+          <p><LinkEl routeId="details" showId={getShowId(showGroup)}>{ showGroup.name }</LinkEl></p>
+        )}
         {shows && <Select options={shows} onChange={saveShow} value={get(show, 'id')} />}
       </span>
       <span className="social">

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import css from 'cape-style'
-import LinkEl from 'cape-mixer/lib/Link'
+import LinkEl from 'cape-mixer/lib/Link/Link'
 
 function StudentInfo(props) {
   const {

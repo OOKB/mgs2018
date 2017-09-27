@@ -2,19 +2,18 @@ import { find, get } from 'lodash'
 import React from 'react'
 import PropTypes from 'prop-types'
 import css from 'cape-style'
-import LinkEl from 'cape-mixer/lib/Link'
+import LinkEl from 'cape-mixer/lib/Link/Link'
 // import { getLink } from '../Schedule/ShowGroup'
 
-function getLocName(loc) {
-  return get(find(loc), 'name')
-}
+const getLocName = loc => get(find(loc), 'name')
+const getShowId = showGroup => get(find(showGroup), 'id')
+
 function ShowDetails({ location, showGroup }) {
-  const showHref = `/details/${get(find(showGroup), 'id')}`
   return (
     <ul className="show-details" style={css('m0 p0 lsNone')}>
       <li className="name">
         <h2>
-          <LinkEl href={showHref} internal>
+          <LinkEl href={getShowId(showGroup)}>
             { get(find(showGroup), 'name') }
           </LinkEl>
         </h2>
