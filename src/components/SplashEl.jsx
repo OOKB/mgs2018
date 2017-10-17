@@ -20,10 +20,9 @@ Splash.propTypes = {
     name: PropTypes.string.isRequired,
   }).isRequired,
   loginAction: PropTypes.func.isRequired,
-  siteName: PropTypes.string,
+  siteName: PropTypes.string.isRequired,
 }
 Splash.defaultProps = {
-  siteName: 'MICA Grad Show',
 }
 
 export default Splash

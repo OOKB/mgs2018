@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
-import { property } from 'lodash'
 import { structuredSelector } from 'cape-select'
 import { getSizeId } from 'cape-style'
 import Component from './HeaderEl'
+import { getSiteName } from '../../select/site'
 
 export const getState = structuredSelector({
   sizeId: getSizeId,
-  siteName: property('db.siteName'),
+  siteName: getSiteName,
   // widthRem: getWidthRem,
   // widthPx: getWidthPx,
 })
