@@ -6,10 +6,11 @@ export const routes = {
   colors: '/colors',
   filmfest: '/details/recPkxpU5hm2lfIWC',
   details: '/details/:showId',
-  home: '/',
+  home: '/home',
   me: '/me(/:artId)',
   studentList: '/students',
   studentDetail: '/students/:studentId',
+  splash: '/',
 }
 export const locInfo = reducer(undefined, addRoutes(routes))
 
