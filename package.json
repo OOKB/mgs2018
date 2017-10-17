@@ -56,7 +56,7 @@
     "css": "babel-node src/styleDumper.js",
     "deploy": "npm run build && npm run upload",
     "eject": "react-scripts eject",
-    "upload": "b2 sync --delete --replaceNewer build b2://cape-io/mgs2017",
+    "upload": "b2 sync --delete --replaceNewer build b2://cape-io/mgs2018",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
   }
