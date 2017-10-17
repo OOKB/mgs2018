@@ -4,9 +4,11 @@ import { bindActionCreators } from 'redux'
 import { createObj } from 'cape-lodash'
 import { getRouteId } from 'cape-router'
 import { auth, logout } from 'cape-firebase'
+import { select } from 'cape-select'
 import { filterPerms } from './perms'
 
 export const getMenu = property('db.menu')
+export const getAuth = select(getMenu, 'auth')
 
 export const menuItems = filterPerms(getMenu)
 
