@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { isObject } from 'lodash'
-import ReactCSSTransitionGroup from 'react-transition-group/Transition'
+import { isObject, map } from 'lodash'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
@@ -106,14 +106,13 @@ class Slideshow extends Component {
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
     const { associatedMedia, id, image, title } = slideItem
     const { currentPosition } = this.state
+    const { width } = this.props
     const videoInfo = {}
     let imgSrc
     // work is sometimes undefined. check for info in work.url and set the
     // image source.
-    if (image) {
-      if (image.url) {
-        imgSrc = image.url
-      }
+    if (image && image.url) {
+      imgSrc = image.url
     }
     // If it's an embeddable thing with html and the active slide
     if (isObject(associatedMedia)) {
@@ -140,6 +139,7 @@ class Slideshow extends Component {
           last: slideIndex === lastPosition,
           active: slideIndex === currentPosition,
         }}
+        width={width}
       />
     )
   }
@@ -148,10 +148,9 @@ class Slideshow extends Component {
   generateIndicators() {
     const { collection } = this.props
     const { currentPosition } = this.state
-    const slideIndicators = []
-    for (let index = 0; index < collection.length; index++) {
+    const slideIndicators = map(collection, (item, index) => {
       const activeSlide = index === currentPosition
-      slideIndicators.push(
+      return (
         <li
           key={index}
           onClick={() => this.moveToSlide(index)}
@@ -164,7 +163,7 @@ class Slideshow extends Component {
           }
         </li>
       )
-    }
+    })
     return (
       <ul className="thumbs-indicator">
         {slideIndicators}
@@ -209,29 +208,25 @@ class Slideshow extends Component {
     })
   }
 
+  // Only generate thumbs and slide indicators if we have a collection that
+  // is both defined and has length greater than zero
   render() {
     const { collection } = this.props
     const { animation } = this.state
     const collectionExists = collection && collection.length > 0
-    let thumbEl
-    let slideIndicators
-    // Only generate thumbs and slide indicators if we have a collection that
-    // is both defined and has length greater than zero
-    if (collectionExists) {
-      thumbEl = this.getThumbs(collection)
-      slideIndicators = this.generateIndicators()
-    }
+    const thumbEl = this.getThumbs(collection)
+    const slideIndicators = this.generateIndicators()
 
     return (
       <div id="slideshow">
         <ul className="thumbs">
-          <ReactCSSTransitionGroup
+          <CSSTransitionGroup
             transitionName={animation}
             transitionEnterTimeout={500}
             transitionLeaveTimeout={300}
           >
             {thumbEl}
-          </ReactCSSTransitionGroup>
+          </CSSTransitionGroup>
         </ul>
         { collectionExists &&
           <SlideNavigation
@@ -247,9 +242,21 @@ class Slideshow extends Component {
 
 // TODO: real proptypes
 Slideshow.propTypes = {
-  collection: PropTypes.arrayOf(PropTypes.object).isRequired,
+  collection: PropTypes.arrayOf(PropTypes.shape({
+    associatedMedia: PropTypes.shape({
+      html: PropTypes.string,
+    }),
+    id: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      id: PropTypes.string,
+      url: PropTypes.string,
+    }),
+    title: PropTypes.string,
+  })).isRequired,
+  width: PropTypes.string,
 }
 Slideshow.defaultProps = {
+  width: '1200',
 }
 
 export default Slideshow

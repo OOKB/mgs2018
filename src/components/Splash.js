@@ -4,8 +4,10 @@ import { createStructuredSelector } from 'reselect'
 import Component from './SplashEl'
 import { getAuth } from '../select/menu'
 import { getSiteName } from '../select/site'
+import { splashArt } from '../select/art'
 
 const getState = createStructuredSelector({
+  art: splashArt,
   login: getAuth,
   siteName: getSiteName,
 })

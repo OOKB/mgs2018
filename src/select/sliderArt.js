@@ -13,6 +13,10 @@ const buildArtItem = flow(
   pick(['student', 'image', 'id', 'title'])
 )
 
+function rmUsers({ student: { id } }) {
+  return id !== 'Y6dg66IQmUcHS13nvN2cGb6rVVD3' && id !== 'iB0TJ517wnM3NzkVmcIAmLvxy112'
+}
+
 function getArt(state) {
   return flow(
     getArtItems,
