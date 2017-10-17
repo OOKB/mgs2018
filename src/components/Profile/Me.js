@@ -1,15 +1,15 @@
 import { connect } from 'react-redux'
 import { filter, map, property } from 'lodash'
 import { createSelector, createStructuredSelector } from 'reselect'
-import { entityTypeSelector, getFullEntity } from 'redux-graph'
+import { getFullEntity } from 'redux-graph'
 import { select } from 'cape-select'
 import { isAnonymous, isAuthenticated, selectUser } from 'cape-redux-auth'
 import { auth } from 'cape-firebase'
 import Component from './Me.jsx'
 import { hasMicaEmail, isStudent } from '../../select/perms'
+import { getArtItems } from '../../select/art'
 
 export const userIsAgentOf = select(selectUser, 'rangeIncludes.agent')
-export const getArtItems = entityTypeSelector('CreativeWork')
 
 export function getArtRefs(refs, arts) {
   const getArt = item => arts[item.id] || item

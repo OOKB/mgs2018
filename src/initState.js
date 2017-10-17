@@ -27,6 +27,7 @@ export default {
       storageBucket: 'mgs-2018.appspot.com',
     },
     entityType: {
+      Art: true,
       CreativeWork: true,
       ImageObject: true,
       MediaObject: true,
