@@ -1,20 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { map, random } from 'lodash'
+import { Wrapper } from './styles'
+import ImageContainer from './ImageContainer'
 
-const Collage = ({ art }) => {
+const Collage = ({ collection }) => {
+
+  let getPos = () => {
+    return {
+      current: {
+        x: random(0,50),
+        y: random(0,50)
+      },
+      to: {
+        x: random(50,400),
+        y: random(50,400)
+      }
+    }
+  }
+
   return (
     <Wrapper>
-      <Image></Image>
+      {collection && map( collection, item =>
+        <ImageContainer item={item} position={getPos()} />
+      )}
     </Wrapper>
   )
 }
 
 Collage.propTypes = {
-  art: PropTypes.array.isRequired,
+  collection: PropTypes.array.isRequired
 }
 
 Collage.defaultProps = {
-  art: [],
+  collection: null
 }
 
 export default Collage

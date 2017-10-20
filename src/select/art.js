@@ -32,7 +32,7 @@ export function addStudentArt(graphSlice, student) {
 }
 export const splashArt = flow(
   entityTypeSelector('Art'),
-  sampleSize(10)
+  sampleSize(3)
 )
 // export const getArtwork = createSelector(userIsAgentOf, getArtItems, getArtRefs)
 // artwork: state => map(getArtwork(state), item => getFullEntity(state, item)),
