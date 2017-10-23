@@ -5,6 +5,7 @@ import mgsLogo from '../mgs2018logo.svg'
 import Blurb from './Blurb/Blurb'
 import Logo from './Logo/Logo'
 import Menu from './Header/Menu'
+import Footer from './Footer/Footer'
 import Collage from './Collage/Collage'
 
 function Splash({ art, siteName }) {
@@ -16,6 +17,7 @@ function Splash({ art, siteName }) {
       <Menu />
       <h2>{siteName}</h2>
       {/* <LinkEl action={loginAction} {...login} /> */}
+      <Footer />
     </div>
   )
 }
