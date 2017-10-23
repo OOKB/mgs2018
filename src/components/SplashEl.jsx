@@ -1,16 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // import LinkEl from 'cape-mixer/lib/Link/Link'
-import mgsBlock from '../mgs2017LogoBlock.svg'
+import mgsLogo from '../mgs2018logo.svg'
 import Blurb from './Blurb/Blurb'
+import Logo from './Logo/Logo'
 import Menu from './Header/Menu'
 import Collage from './Collage/Collage'
 
 function Splash({ art, siteName }) {
   return (
     <div>
+      {siteName && <Logo mgsLogo={mgsLogo} siteName={siteName} />}
       {art && art.length > 0 && <Collage collection={art} />}
-      {siteName && <Blurb mgsBlock={mgsBlock} siteName={siteName} />}
+      {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
       <Menu />
       <h2>{siteName}</h2>
       {/* <LinkEl action={loginAction} {...login} /> */}

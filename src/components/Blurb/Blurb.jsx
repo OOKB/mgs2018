@@ -1,28 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import css from 'cape-style'
-// import './Blurb.css'
+import { Wrapper, Tagline, Description, EventDate } from './styles'
 
-function Blurb({ description, tagline, siteName, mgsBlock }) {
+const Blurb = ({ description, tagline, eventDate }) => {
   return (
-    <section id="blurb" className="bg-white" style={css('pt2 pb2')}>
-      <div className="wrapper" style={css('mlrauto flex')}>
-        <div className="flexItem" style={css('p1')}>
-          <img src={mgsBlock} alt={siteName} title={siteName} className="mgsLogo" />
-        </div>
-        <div className="flexItem" style={css('p1')}>
-          <h1 style={css('m0 mb1 fs2')}>{tagline}</h1>
-          {description.map((pText, index) => <p key={index}>{pText}</p>)}
-        </div>
+    <Wrapper>
+      <div>
+        <Tagline>{tagline}</Tagline>
+        <EventDate>{eventDate}</EventDate>
       </div>
-    </section>
+      <div>
+        {description.map((pText, index) => <Description key={index}>{pText}</Description>)}
+      </div>
+    </Wrapper>
   )
 }
+
 Blurb.propTypes = {
   description: PropTypes.array.isRequired,
   tagline: PropTypes.string.isRequired,
-  mgsBlock: PropTypes.string.isRequired,
-  siteName: PropTypes.string.isRequired,
+  eventDate: PropTypes.string.isRequired,
 }
 Blurb.defaultProps = {
   description: [
@@ -31,5 +28,7 @@ Blurb.defaultProps = {
     `Join us for a season of innovative and inspiring events and exhibitions featuring the culminating work of more than 150 of MICA's graduate students from the College's internationally renowned programs.`,
   ],
   tagline: 'Meet the next generation of creative thinkers.',
+  eventDate: 'February 23 – July 27, 2018',
 }
+
 export default Blurb
