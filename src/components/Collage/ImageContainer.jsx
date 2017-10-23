@@ -1,7 +1,7 @@
 import React from 'react'
+import { render } from 'react-dom'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion';
-import MeasureIt from 'react-measure-it'
 import { map, random } from 'lodash'
 import { Image } from './styles'
 
@@ -12,11 +12,25 @@ class ImageContainer extends React.Component {
       pos: null,
       stiffness: 10,
       damping: 20,
+      width: null,
+      height: null,
       currentX: 0,
       currentY: 0,
       toX: 0,
       toY: 0
     };
+  }
+
+  saveRef = (ref) => this.containerNode = ref
+
+  measure() {
+    console.log('ping')
+    const {clientWidth, clientHeight} = this.containerNode
+
+    this.setState({
+      width: clientWidth,
+      height: clientHeight,
+    })
   }
 
   initialPos() {
@@ -49,12 +63,14 @@ class ImageContainer extends React.Component {
   }
 
   componentWillMount() {
-    this.setState(this.initialPos())
+    this.measure()
+  }
+
+  componentDidMount() {
+    this.measure()
   }
 
   render() {
-
-    console.log(this.props.containerWidth)
 
     return (
       <Motion
@@ -64,11 +80,11 @@ class ImageContainer extends React.Component {
         onRest={ () => { this.updatePos() }}>
 
         { style =>
-        <Image src={`${this.props.item.image.url}?w=100`} style={style}></Image>
+        <Image src={`${this.props.item.image.url}?w=100`} ref={this.saveRef} style={style}></Image>
         }
       </Motion>
     )
   }
 }
 
-export default MeasureIt()(ImageContainer)
+export default ImageContainer
