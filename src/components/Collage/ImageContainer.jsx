@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import sizeMe from 'react-sizeme'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion';
 import { map, random } from 'lodash'
@@ -21,21 +21,11 @@ class ImageContainer extends React.Component {
     };
   }
 
-  saveRef = (ref) => this.containerNode = ref
-
   measure() {
-    console.log('ping')
-    const {clientWidth, clientHeight} = this.containerNode
 
-    this.setState({
-      width: clientWidth,
-      height: clientHeight,
-    })
   }
 
   initialPos() {
-    console.log(this.props.pos)
-
     return {
       stiffness: random(10,20),
       damping: random(10,40),
@@ -63,28 +53,28 @@ class ImageContainer extends React.Component {
   }
 
   componentWillMount() {
-    this.measure()
+    this.setState(this.initialPos())
   }
 
   componentDidMount() {
-    this.measure()
   }
 
   render() {
 
+    console.log( this.props.size )
+    
     return (
       <Motion
         key={this.props.item.id}
         defaultStyle={{ left: this.state.currentX, top: this.state.currentY }}
         style={{ left: spring( this.state.toX, {stiffness: this.state.stiffness, damping: this.state.damping} ), top: spring( this.state.toY, {stiffness: this.state.stiffness, damping: this.state.damping}) }}
         onRest={ () => { this.updatePos() }}>
-
         { style =>
-        <Image src={`${this.props.item.image.url}?w=100`} ref={this.saveRef} style={style}></Image>
+        <Image src={`${this.props.item.image.url}?w=100`} style={style}></Image>
         }
       </Motion>
     )
   }
 }
 
-export default ImageContainer
+export default sizeMe({})(ImageContainer)
