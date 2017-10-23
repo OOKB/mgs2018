@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 	padding-top: 60%;
 	position: relative;
 	margin: 4rem;
+	background: red;
 `
 
 export const Image = styled.img`
