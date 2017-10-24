@@ -1,8 +1,8 @@
 import React from 'react'
 // import sizeMe from 'react-sizeme'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
-import { map, random } from 'lodash'
+import { random } from 'lodash'
 import { Image } from './styles'
 
 class ImageContainer extends React.Component {
@@ -21,19 +21,11 @@ class ImageContainer extends React.Component {
     }
   }
 
-  measure() {
-
+  componentWillMount() {
+    this.setState(this.initialPos())
   }
 
-  initialPos() {
-    return {
-      stiffness: random(10, 20),
-      damping: random(10, 40),
-      currentX: random(0, 50),
-      currentY: random(0, 50),
-      toX: random(50, 100),
-      toY: random(50, 100),
-    }
+  componentDidMount() {
   }
 
   updatePos() {
@@ -52,16 +44,18 @@ class ImageContainer extends React.Component {
     }, 0)
   }
 
-  componentWillMount() {
-    this.setState(this.initialPos())
-  }
-
-  componentDidMount() {
+  initialPos() {
+    return {
+      stiffness: random(10, 20),
+      damping: random(10, 40),
+      currentX: random(0, 50),
+      currentY: random(0, 50),
+      toX: random(50, 100),
+      toY: random(50, 100),
+    }
   }
 
   render() {
-    console.log(this.props.size)
-
     return (
       <Motion
         key={this.props.item.id}

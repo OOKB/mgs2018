@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LogoEl } from './styles'
 
-const Logo = ({ logoSrc, siteName, primary }) => {
-  console.log(primary)
+function Logo({ logoSrc, siteName, primary }) {
   return (
     <LogoEl primary={primary} src={logoSrc} alt={siteName} title={siteName} />
   )
@@ -12,6 +11,11 @@ const Logo = ({ logoSrc, siteName, primary }) => {
 export default Logo
 
 Logo.propTypes = {
-  mgsLogo: PropTypes.string.isRequired,
+  logoSrc: PropTypes.string.isRequired,
   siteName: PropTypes.string.isRequired,
+  primary: PropTypes.boolean,
+}
+
+Logo.defaultProps = {
+  primary: false,
 }
