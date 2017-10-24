@@ -4,16 +4,18 @@ import { map } from 'lodash'
 import classnames from 'classnames'
 import css from 'cape-style'
 import LinkEl from 'cape-mixer/lib/Link/Link'
+import { Chunk } from './styles'
+
 
 function Links({ className, links, title, siteId }) {
   return (
     <section className={classnames('column', className)}>
       {title && <h3 style={css('fs1 m0')}>{title}</h3>}
-      <ul style={css('lsNone m0 p0')}>
+      <Chunk style={css('lsNone m0 p0')}>
         {map(links, (item, index) =>
           <li key={index}><LinkEl {...item} siteId={siteId} /></li>
         )}
-      </ul>
+      </Chunk>
     </section>
   )
 }

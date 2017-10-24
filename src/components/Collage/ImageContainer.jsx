@@ -1,5 +1,5 @@
 import React from 'react'
-import sizeMe from 'react-sizeme'
+// import sizeMe from 'react-sizeme'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
 import { map, random } from 'lodash'
@@ -31,8 +31,8 @@ class ImageContainer extends React.Component {
       damping: random(10, 40),
       currentX: random(0, 50),
       currentY: random(0, 50),
-      toX: random(50, 400),
-      toY: random(50, 400),
+      toX: random(50, 100),
+      toY: random(50, 100),
     }
   }
 
@@ -42,8 +42,8 @@ class ImageContainer extends React.Component {
       damping: random(10, 40),
       currentX: random(0, 50),
       currentY: random(0, 50),
-      toX: random(50, 400),
-      toY: random(50, 400),
+      toX: random(50, 100),
+      toY: random(50, 100),
     }
     // https://github.com/chenglou/react-motion/issues/322
     // issue with react-motion changing state onRest
@@ -77,4 +77,5 @@ class ImageContainer extends React.Component {
   }
 }
 
-export default sizeMe({})(ImageContainer)
+// export default sizeMe({})(ImageContainer)
+export default ImageContainer
