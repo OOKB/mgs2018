@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Motion, spring } from 'react-motion'
-import { random } from 'lodash'
+import { random, round } from 'lodash'
 import { Image } from './styles'
 
 /* global window */
@@ -17,9 +17,11 @@ export function initialPos() {
     toY: random(50, 100),
   }
 }
+export const getImgHeight = (height, width, resizeWidth) => round((height / width) * resizeWidth)
+
 export function getImgProps({ image: { height, url, width } }, resizeWidth) {
   return {
-    height: (height / width) * resizeWidth,
+    height: getImgHeight(height, width, resizeWidth),
     width: resizeWidth,
     src: `${url}?w=${resizeWidth}`,
   }
@@ -77,7 +79,7 @@ class ImageContainer extends React.Component {
         onRest={() => { this.updatePos() }}
       >
         { styles =>
-          <Image {...getImgProps(item, 200)} style={styles} />
+          <Image {...getImgProps(item, 300)} style={styles} />
         }
       </Motion>
     )
