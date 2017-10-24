@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import css from 'cape-style'
-import micaLogo from '../../micalogo.svg'
+import micaLogo from '../../micaLogo18.svg'
 // import './Footer.css'
 import Links from './Links'
 import Menu from '../Header/Menu'
