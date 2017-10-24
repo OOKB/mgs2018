@@ -3,11 +3,14 @@ import colors from '../../util'
 
 export const Wrapper = styled.div`
 	display: flex;
-	margin: -4rem 4rem 4rem 4rem;
+	justify-content: space-between;
+	margin: -4rem auto 4rem;
 `
-export const Tagline = styled.a`
+export const Tagline = styled.h1`
+	margin: 0;
 	font-size: 4.25rem;
 	color: ${colors.alt.green};
+	max-width: 43rem;
 `
 export const Description = styled.p`
 	font-size: 1.25rem;
