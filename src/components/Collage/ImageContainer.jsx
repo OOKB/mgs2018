@@ -5,6 +5,7 @@ import { Motion, spring } from 'react-motion'
 import { map, random } from 'lodash'
 import { Image } from './styles'
 
+/* global window */
 class ImageContainer extends React.Component {
   constructor(props) {
     super(props)
