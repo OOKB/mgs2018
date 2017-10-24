@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LogoEl } from './styles'
 
-const Logo = ({ mgsLogo, siteName }) => {
+const Logo = ({ logoSrc, siteName, primary }) => {
+  console.log(primary)
   return (
-    <LogoEl src={mgsLogo} alt={siteName} title={siteName} />
+    <LogoEl primary={primary} src={logoSrc} alt={siteName} title={siteName} />
   )
 }
 

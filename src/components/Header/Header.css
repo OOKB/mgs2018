@@ -56,7 +56,6 @@
 .menu .me,
 .menu .logout {
   text-align: right;
-  position: absolute;
   right: 1rem;
 }
 
