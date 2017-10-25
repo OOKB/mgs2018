@@ -37,6 +37,7 @@ Splash.propTypes = {
 }
 Splash.defaultProps = {
   art: null,
+  siteName: 'MICA Grad Show 2018',
 }
 
 export default Splash

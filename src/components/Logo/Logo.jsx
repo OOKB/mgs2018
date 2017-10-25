@@ -8,8 +8,6 @@ function Logo({ logoSrc, siteName, primary }) {
   )
 }
 
-export default Logo
-
 Logo.propTypes = {
   logoSrc: PropTypes.string.isRequired,
   siteName: PropTypes.string.isRequired,
@@ -19,3 +17,5 @@ Logo.propTypes = {
 Logo.defaultProps = {
   primary: false,
 }
+
+export default Logo

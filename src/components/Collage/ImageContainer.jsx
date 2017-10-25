@@ -6,26 +6,17 @@ import { Image } from './styles'
 
 /* global window */
 
-// Return some random settings.
-export function initialPos() {
-  return {
-    stiffness: random(10, 20),
-    damping: random(10, 40),
-    currentX: random(0, 50),
-    currentY: random(0, 50),
-    toX: random(50, 100),
-    toY: random(50, 100),
-  }
-}
 export const getImgHeight = (height, width, resizeWidth) => round((height / width) * resizeWidth)
 
 export function getImgProps({ image: { height, url, width } }, resizeWidth) {
   return {
     height: getImgHeight(height, width, resizeWidth),
     width: resizeWidth,
+    aspectRatio: (height / width),
     src: `${url}?w=${resizeWidth}`,
   }
 }
+
 class ImageContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -33,8 +24,8 @@ class ImageContainer extends React.Component {
       pos: null,
       stiffness: 10,
       damping: 20,
-      width: null,
-      height: null,
+      parentWidth: null,
+      parentHeight: null,
       currentX: 0,
       currentY: 0,
       toX: 0,
@@ -43,20 +34,70 @@ class ImageContainer extends React.Component {
   }
 
   componentWillMount() {
-    this.setState(initialPos())
+    // console.log(this.props)
+    // this.setState(initialPos())
   }
 
   componentDidMount() {
+    // grab dimensions of the wrapper element
+    this.setState(this.initialPos())
   }
-  // measure() {}
-  updatePos() {
-    const newState = {
-      stiffness: random(10, 20),
+
+  // Return some random settings.
+  initialPos() {
+    let wrapHeight = 0
+    let wrapWidth = 0
+    let imageHeight = 0
+    let imageWidth = 0
+
+    if (this.wrapContainer && this.wrapContainer.parentNode) {
+      wrapHeight = this.wrapContainer.parentNode.offsetHeight
+      wrapWidth = this.wrapContainer.parentNode.offsetWidth
+    }
+    if (this.imageEl.props.aspectRatio && this.imageEl.props.aspectRatio < 1) {
+      imageWidth = wrapWidth * 0.6
+      imageHeight = round(imageWidth * this.imageEl.props.aspectRatio)
+    } else {
+      imageHeight = wrapHeight * 0.9
+      imageWidth = round(imageHeight / this.imageEl.props.aspectRatio)
+    }
+
+    const xBound = (wrapWidth - imageWidth) * 0.1
+    const yBound = (wrapHeight - imageHeight)
+    const left = 0
+    const center = (wrapWidth / 2) - (imageWidth / 2) - xBound
+    const right = wrapWidth - imageWidth - xBound
+    const xpos = [left, center, right]
+
+    const startingX = xpos[this.imageEl.props.pos]
+    const finalX = (startingX + xBound)
+    // const startingY = 0
+
+    return {
+      stiffness: random(40, 80),
       damping: random(10, 40),
-      currentX: random(0, 50),
-      currentY: random(0, 50),
-      toX: random(50, 100),
-      toY: random(50, 100),
+      currentX: 0,
+      currentY: 0,
+      toX: random(startingX, finalX),
+      toY: random(0, yBound),
+      parentWidth: wrapWidth,
+      parentHeight: wrapHeight,
+      xMin: startingX,
+      xMax: finalX,
+      yMin: 0,
+      yMax: yBound,
+    }
+  }
+
+  updatePos() {
+    console.log(this.state)
+    const newState = {
+      stiffness: random(40, 80),
+      damping: random(10, 40),
+      currentX: this.state.toX,
+      currentY: this.state.toY,
+      toX: random(this.state.xMin, this.state.xMax),
+      toY: random(this.state.yMin, this.state.yMax),
     }
     // https://github.com/chenglou/react-motion/issues/322
     // issue with react-motion changing state onRest
@@ -72,16 +113,18 @@ class ImageContainer extends React.Component {
       top: spring(toY, { stiffness, damping }),
     }
     return (
-      <Motion
-        key={item.id}
-        defaultStyle={{ left: currentX, top: currentY }}
-        style={style}
-        onRest={() => { this.updatePos() }}
-      >
-        { styles =>
-          <Image {...getImgProps(item, 300)} style={styles} />
-        }
-      </Motion>
+      <span ref={el => {this.wrapContainer = el} }>
+        <Motion
+          key={item.id}
+          defaultStyle={{ left: currentX, top: currentY }}
+          style={style}
+          onRest={() => { this.updatePos() }}
+        >
+          { styles =>
+            <Image {...getImgProps(item, 300)} pos={this.props.pos} style={styles} ref={ref => {this.imageEl = ref} }/>
+          }
+        </Motion>
+      </span>
     )
   }
 }
