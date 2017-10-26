@@ -7,9 +7,10 @@ import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
 import Collage from '../Collage/Collage'
+import ArtAll from './ArtAll'
 import { Wrapper, LogoWrapper } from './styles'
 
-function Splash({ art, siteName }) {
+function Splash({ art, artAll, siteName }) {
   return (
     <Wrapper>
       <LogoWrapper>
@@ -18,22 +19,29 @@ function Splash({ art, siteName }) {
       </LogoWrapper>
       {art && art.length > 0 && <Collage collection={art} />}
       {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
+      {artAll && artAll.length && <ArtAll collection={artAll} /> }
       {/* <LinkEl action={loginAction} {...login} /> */}
       <Footer />
     </Wrapper>
   )
 }
 
-Splash.propTypes = {
-  art: PropTypes.arrayOf(PropTypes.shape({
+const artPropType = PropTypes.shape({
+  id: PropTypes.string,
+  image: PropTypes.shape({
     id: PropTypes.string,
-    image: PropTypes.shape({
-      id: PropTypes.string,
-      url: PropTypes.string,
-    }),
-    title: PropTypes.string,
-  })),
+    url: PropTypes.string,
+  }),
+  title: PropTypes.string,
+})
+Splash.propTypes = {
+  art: PropTypes.arrayOf(artPropType),
+  artAll: PropTypes.objectOf(artPropType),
   siteName: PropTypes.string.isRequired,
+}
+Splash.defaultProps = {
+  art: null,
+  artAll: null,
 }
 Splash.defaultProps = {
   art: null,
