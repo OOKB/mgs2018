@@ -6,20 +6,21 @@ import micaLogo from '../../micalogo-small.svg'
 import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
-import Collage from '../Collage/Collage'
+// import Collage from '../Collage/Collage'
 import ArtAll from './ArtAll'
 import { Wrapper, LogoWrapper } from './styles'
 
 function Splash({ art, artAll, siteName }) {
+  console.log(artAll)
   return (
     <Wrapper>
       <LogoWrapper>
         {siteName && <Logo primary logoSrc={mgsLogo} siteName={siteName} />}
         <Logo logoSrc={micaLogo} siteName={siteName} />
       </LogoWrapper>
-      {art && art.length > 0 && <Collage collection={art} />}
+      {/* {art && art.length > 0 && <Collage collection={art} />} */}
+      {artAll && <ArtAll collection={artAll} /> }
       {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
-      {artAll && artAll.length && <ArtAll collection={artAll} /> }
       {/* <LinkEl action={loginAction} {...login} /> */}
       <Footer />
     </Wrapper>
