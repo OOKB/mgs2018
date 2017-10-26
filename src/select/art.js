@@ -5,7 +5,7 @@ import { buildFullEntity, entityTypeSelector, getGraphNode } from 'redux-graph'
 import { getGraphSlice } from './util'
 
 export const getArtItems = entityTypeSelector('CreativeWork')
-
+export const getSplashArt = entityTypeSelector('Art')
 // Needed to build refs.
 export const artGraph = getGraphSlice(['CreativeWork', 'ImageObject', 'MediaObject'])
 
@@ -31,7 +31,7 @@ export function addStudentArt(graphSlice, student) {
   )(student)
 }
 export const splashArt = flow(
-  entityTypeSelector('Art'),
+  getSplashArt,
   sampleSize(3)
 )
 // export const getArtwork = createSelector(userIsAgentOf, getArtItems, getArtRefs)
