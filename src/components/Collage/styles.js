@@ -1,10 +1,15 @@
 import styled from 'styled-components'
+import { sizes } from '../../util'
 
 export const Wrapper = styled.div`
   height: 0px;
-  padding-top: 60%;
+  top: 2rem;
+  padding-top: 90%;
   position: relative;
-  margin: 2rem 1rem;
+  margin: 0 0.75rem;
+  @media (min-width: ${sizes.medium}) {
+    padding-top: 60%;
+  }
 `
 
 export const Image = styled.img`

@@ -33,11 +33,11 @@ function FooterEl({ archive, siteId, social }) {
           </ul>
         </Chunk>
         <Chunk>
-          {archive && <Links className="archive" title="Archive" links={archive} siteId={siteId} />}
+          {archive && <Links title="Archive" links={archive} siteId={siteId} />}
         </Chunk>
         <Chunk columns>
           <Menu />
-          {social && <Links className="social" links={social} />}
+          {social && <Links links={social} />}
         </Chunk>
       </Footer>
     </Wrapper>

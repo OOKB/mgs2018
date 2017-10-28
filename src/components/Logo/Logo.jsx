@@ -4,7 +4,9 @@ import { LogoEl } from './styles'
 
 function Logo({ logoSrc, siteName, primary }) {
   return (
-    <LogoEl primary={primary} src={logoSrc} alt={siteName} title={siteName} />
+    <LogoEl primary={primary} type="image/svg+xml" data={logoSrc} alt={siteName} title={siteName} >
+      {siteName}
+    </LogoEl>
   )
 }
 
