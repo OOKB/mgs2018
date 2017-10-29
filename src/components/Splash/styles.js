@@ -7,5 +7,5 @@ export const Wrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   position: relative;
-  margin: 1.5rem 0;
+  margin: ${props => (props.top ? '1.5rem 0' : '-4rem 0')};
 `

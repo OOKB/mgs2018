@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // import LinkEl from 'cape-mixer/lib/Link/Link'
 import mgsLogo from '../../mgs2018logo.svg'
+import yearLogo from '../../mgs2018year.svg'
 import micaLogo from '../../micalogo-small.svg'
 import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
@@ -12,11 +13,14 @@ import { Wrapper, LogoWrapper } from './styles'
 function Splash({ art, siteName }) {
   return (
     <Wrapper>
-      <LogoWrapper>
-        {siteName && <Logo primary logoSrc={mgsLogo} siteName={siteName} />}
-        <Logo logoSrc={micaLogo} siteName={siteName} />
+      <LogoWrapper top>
+        {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
+        <Logo right logoSrc={micaLogo} siteName={siteName} />
       </LogoWrapper>
       {art && art.length > 0 && <Collage collection={art} />}
+      <LogoWrapper>
+        <Logo primary right logoSrc={yearLogo} siteName={siteName} />
+      </LogoWrapper>
       {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
       {/* <LinkEl action={loginAction} {...login} /> */}
       <Footer />

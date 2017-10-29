@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   position: relative;
   margin: 0 0.75rem;
   @media (min-width: ${sizes.medium}) {
-    padding-top: 60%;
+    padding-top: 55%;
   }
 `
 

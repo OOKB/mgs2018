@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LogoEl } from './styles'
 
-function Logo({ logoSrc, siteName, primary }) {
+function Logo({ logoSrc, siteName, primary, left, right }) {
   return (
-    <LogoEl primary={primary} type="image/svg+xml" data={logoSrc} alt={siteName} title={siteName} >
+    <LogoEl primary={primary} left={left} right={right} type="image/svg+xml" data={logoSrc} alt={siteName} title={siteName} >
       {siteName}
     </LogoEl>
   )
