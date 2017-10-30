@@ -24,6 +24,7 @@ class ImageContainer extends React.Component {
       pos: null,
       stiffness: 10,
       damping: 20,
+      precision: 0.5,
       parentWidth: null,
       parentHeight: null,
       currentX: 0,
@@ -89,13 +90,21 @@ class ImageContainer extends React.Component {
     }
   }
 
+  runTest(progress) {
+    if(progress >= .99){
+      this.updatePos()
+      console.log(progress)
+    }
+  }
+
   updatePos() {
-    console.log(this.state)
+    // console.log(this.state)
     const newState = {
-      stiffness: random(40, 80),
-      damping: random(10, 40),
-      currentX: this.state.toX,
-      currentY: this.state.toY,
+      stiffness: random(2, 4),
+      damping: random(4, 8),
+      precision: random(0.001, 1),
+      // currentX: this.state.toX,
+      // currentY: this.state.toY,
       toX: random(this.state.xMin, this.state.xMax),
       toY: random(this.state.yMin, this.state.yMax),
     }
@@ -107,10 +116,10 @@ class ImageContainer extends React.Component {
   }
   render() {
     const { item } = this.props
-    const { currentX, currentY, toX, toY, stiffness, damping } = this.state
+    const { currentX, currentY, toX, toY, stiffness, damping, precision } = this.state
     const style = {
-      left: spring(toX, { stiffness, damping }),
-      top: spring(toY, { stiffness, damping }),
+      left: spring(toX, { stiffness, damping, precision }),
+      top: spring(toY, { stiffness, damping, precision }),
     }
     return (
       <span ref={el => {this.wrapContainer = el} }>
@@ -118,10 +127,13 @@ class ImageContainer extends React.Component {
           key={item.id}
           defaultStyle={{ left: currentX, top: currentY }}
           style={style}
-          onRest={() => { this.updatePos() }}
+          // onRest={() => { this.updatePos() }}
         >
           { styles =>
+            <div>
             <Image {...getImgProps(item, 300)} pos={this.props.pos} style={styles} ref={ref => {this.imageEl = ref} }/>
+            { this.runTest(styles.left / toX) }
+            </div>
           }
         </Motion>
       </span>

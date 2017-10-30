@@ -6,9 +6,9 @@ export const LogoEl = styled.object`
   z-index: 100;
   left: ${props => (props.left ? '1.5rem' : '')};
   right: ${props => (props.right ? '1.5rem' : '')};
-  max-width: ${props => (props.primary ? '11rem' : '8rem')};
+  max-height: ${props => (props.primary ? '5rem' : '1.5rem')};
 
   @media (min-width: ${sizes.medium}) {
-    max-width: ${props => (props.primary ? '20rem' : '8rem')};
+    max-height: ${props => (props.primary ? '9rem' : '1.5rem')};
   }
 `
