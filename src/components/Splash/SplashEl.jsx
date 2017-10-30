@@ -7,20 +7,20 @@ import micaLogo from '../../micalogo-small.svg'
 import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
-import Collage from '../Collage/Collage'
+// import Collage from '../Collage/Collage'
+import ArtAll from './ArtAll'
 import { Wrapper, LogoWrapper } from './styles'
 
-function Splash({ art, siteName }) {
+function Splash({ art, artAll, siteName }) {
+  console.log(artAll)
   return (
     <Wrapper>
       <LogoWrapper top>
         {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
         <Logo right logoSrc={micaLogo} siteName={siteName} />
       </LogoWrapper>
-      {art && art.length > 0 && <Collage collection={art} />}
-      <LogoWrapper>
-        <Logo primary right logoSrc={yearLogo} siteName={siteName} />
-      </LogoWrapper>
+      {/* {art && art.length > 0 && <Collage collection={art} />} */}
+      {artAll && <ArtAll collection={artAll} /> }
       {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
       {/* <LinkEl action={loginAction} {...login} /> */}
       <Footer />
@@ -28,16 +28,22 @@ function Splash({ art, siteName }) {
   )
 }
 
-Splash.propTypes = {
-  art: PropTypes.arrayOf(PropTypes.shape({
+const artPropType = PropTypes.shape({
+  id: PropTypes.string,
+  image: PropTypes.shape({
     id: PropTypes.string,
-    image: PropTypes.shape({
-      id: PropTypes.string,
-      url: PropTypes.string,
-    }),
-    title: PropTypes.string,
-  })),
+    url: PropTypes.string,
+  }),
+  title: PropTypes.string,
+})
+Splash.propTypes = {
+  art: PropTypes.arrayOf(artPropType),
+  artAll: PropTypes.objectOf(artPropType),
   siteName: PropTypes.string.isRequired,
+}
+Splash.defaultProps = {
+  art: null,
+  artAll: null,
 }
 Splash.defaultProps = {
   art: null,
