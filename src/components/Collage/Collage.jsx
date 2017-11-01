@@ -4,16 +4,41 @@ import { map } from 'lodash'
 import { Wrapper } from './styles'
 import ImageContainer from './ImageContainer'
 
-function Collage({ collection }) {
-  console.log(collection)
-  return (
-    <Wrapper>
-      {map(collection, (item, index) =>
-        <ImageContainer key={item.id} item={item} pos={index} />
-      )}
-    </Wrapper>
-  )
+class Collage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoaded: false,
+      width: null,
+      height: null,
+    }
+  }
+  componentDidMount() {
+    this.setState(this.initialPos())
+  }
+  initialPos() {
+    const wrapHeight = this.wrapperEl.offsetHeight
+    const wrapWidth = this.wrapperEl.offsetWidth
+    return {
+      isLoaded: true,
+      width: wrapWidth,
+      height: wrapHeight,
+    }
+  }
+  render() {
+    const { collection } = this.props
+    const { isLoaded } = this.state
+    const parent = this.state
+    return (
+      <Wrapper ref={ref => {this.wrapperEl = ref}}>
+        {isLoaded && map(collection, (item, index) =>
+          <ImageContainer key={item.id} item={item} parent={parent} pos={index} />
+        )}
+      </Wrapper>
+    )
+  }
 }
+
 Collage.propTypes = {
   collection: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
