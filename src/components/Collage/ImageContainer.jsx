@@ -35,12 +35,11 @@ class ImageContainer extends React.Component {
   }
 
   componentWillMount() {
-    // console.log(this.props)
-    // this.setState(initialPos())
   }
 
   componentDidMount() {
     // grab dimensions of the wrapper element
+    // this is in DidMount in order to have the width of the parent element
     this.setState(this.initialPos())
   }
 
@@ -90,10 +89,10 @@ class ImageContainer extends React.Component {
     }
   }
 
+  // update position before momentum reaches 0
   runTest(progress) {
-    if(progress >= .99){
+    if (progress >= 0.99) {
       this.updatePos()
-      console.log(progress)
     }
   }
 

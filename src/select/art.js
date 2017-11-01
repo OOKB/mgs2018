@@ -5,7 +5,7 @@ import { buildFullEntity, entityTypeSelector, getGraphNode } from 'redux-graph'
 import { getGraphSlice } from './util'
 
 export const getArtItems = entityTypeSelector('CreativeWork')
-export const getSplashArt = entityTypeSelector('Art')
+export const getSplashArt = entityTypeSelector('SplashArt')
 // Needed to build refs.
 export const artGraph = getGraphSlice(['CreativeWork', 'ImageObject', 'MediaObject'])
 

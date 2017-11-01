@@ -5,6 +5,7 @@ import { Wrapper } from './styles'
 import ImageContainer from './ImageContainer'
 
 function Collage({ collection }) {
+  console.log(collection)
   return (
     <Wrapper>
       {map(collection, (item, index) =>
