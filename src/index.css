@@ -51,10 +51,10 @@ a {
   transition: all 350ms;
 }
 
-a:hover {
+/*a:hover {
   color: #655700;
   border-bottom-color: #655700;
-}
+}*/
 
 /** ============================= **/
 /** ============================= **/
@@ -508,7 +508,7 @@ detail .google-map-container {
 }
 
 /* From components/Footer/Footer.css */
-footer {
+/*footer {
   line-height: 1.4;
 }
 
@@ -584,7 +584,7 @@ footer flex section.social {
     width: 30%;
     max-width: 350px;
   }
-}
+}*/
 
 /* From components/Header/Header.css */
 #siteHeader nav {

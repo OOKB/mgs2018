@@ -27,7 +27,7 @@ a {
   transition: all 350ms;
 }
 
-a:hover {
+/*a:hover {
   color: #655700;
   border-bottom-color: #655700;
-}
+}*/

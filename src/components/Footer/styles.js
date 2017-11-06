@@ -16,7 +16,9 @@ export const Footer = styled.footer`
 `
 export const Chunk = styled.section`
   display: flex;
+  justify-content: space-between;
   flex-direction: ${props => (props.columns ? 'column' : 'row')};
+  max-width: ${props => props.mw};
   &:not(:first-child) {
     margin-top: 2rem;
   }
@@ -31,16 +33,25 @@ export const MicaLogo = styled.img`
   max-width: 12rem;
 `
 export const Atag = styled.a`
-  font-size: 1.25em;
+  font-size: 1rem;
   color: ${colors.alt.green};
   text-decoration: underline;
+  &:hover {
+    opacity: .5;
+  }
 `
 export const FlexList = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
+  flex-direction: ${props => (props.columns ? 'column' : 'row')};
+  flex-wrap: ${props => (props.wrap ? 'wrap' : '')};
 `
+
 export const ListItem = styled.li`
-  margin-right: 1.5rem;
+  margin-right: .75rem;
+  .fa-2x {
+    font-size: 1.5rem;
+  }
 `
