@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const Tagline = styled.h1`
   margin: 0;
   font-size: 2.5rem;
+  line-height: 1.2;
   color: ${colors.alt.green};
   max-width: 43rem;
   @media (min-width: ${sizes.medium}) {
@@ -23,11 +24,15 @@ export const Tagline = styled.h1`
 `
 export const Description = styled.p`
   font-size: 1.25rem;
+  line-height: 1.3;
+`
+export const DescriptionWrapper = styled.div`
+  margin-top: 1rem;
   max-width: 31rem;
 `
 export const EventDate = styled.h2`
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 400;
   @media (min-width: ${sizes.medium}) {
     font-size: 2rem;
   }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors, sizes } from '../../util'
 
 export const Wrapper = styled.div`
-  margin: 6rem 0.75rem;
+  margin: 10rem 0.75rem;
   border-top: 1px solid black;
 `
 export const Footer = styled.footer`
@@ -48,10 +48,21 @@ export const FlexList = styled.ul`
   flex-direction: ${props => (props.columns ? 'column' : 'row')};
   flex-wrap: ${props => (props.wrap ? 'wrap' : '')};
 `
-
 export const ListItem = styled.li`
   margin-right: .75rem;
   .fa-2x {
     font-size: 1.5rem;
+  }
+`
+export const MenuWrapper = styled.div`
+  button {
+    width: 100%;
+    background: none;
+    border: 1px solid ${colors.alt.green};
+    color: ${colors.alt.green};
+    .auth {
+      &:after { content: 'Student Login'; }
+      span { display: none; }
+    }
   }
 `

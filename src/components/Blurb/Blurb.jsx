@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Tagline, Description, EventDate } from './styles'
+import { Wrapper, Tagline, Description, DescriptionWrapper, EventDate } from './styles'
 
 const Blurb = ({ description, tagline, eventDate }) => {
   return (
@@ -9,9 +9,9 @@ const Blurb = ({ description, tagline, eventDate }) => {
         <Tagline>{tagline}</Tagline>
         <EventDate>{eventDate}</EventDate>
       </div>
-      <div>
+      <DescriptionWrapper>
         {description.map((pText, index) => <Description key={index}>{pText}</Description>)}
-      </div>
+      </DescriptionWrapper>
     </Wrapper>
   )
 }

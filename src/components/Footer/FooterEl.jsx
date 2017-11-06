@@ -5,7 +5,7 @@ import micaLogo from '../../micaLogo18.svg'
 // import './Footer.css'
 import Links from './Links'
 import Menu from '../Header/Menu'
-import { Wrapper, Footer, Chunk, Atag, MicaLogo, FlexList, ListItem } from './styles'
+import { Wrapper, Footer, Chunk, Atag, MicaLogo, FlexList, ListItem, MenuWrapper } from './styles'
 
 function FooterEl({ archive, siteId, social }) {
   return (
@@ -40,7 +40,9 @@ function FooterEl({ archive, siteId, social }) {
           </FlexList>
         </Chunk>
         <Chunk columns>
-          <Menu />
+          <MenuWrapper>
+            <Menu />
+          </MenuWrapper>
           {social && <Links links={social} />}
         </Chunk>
       </Footer>
