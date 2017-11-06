@@ -14,27 +14,30 @@ class Collage extends React.Component {
     }
   }
   componentDidMount() {
-    this.setState(this.initialPos())
+    this.updateDimensions()
+    window.addEventListener('resize', this.updateDimensions.bind(this))
   }
-  initialPos() {
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this))
+  }
+  updateDimensions() {
     const wrapHeight = this.wrapperEl.offsetHeight
     const wrapWidth = this.wrapperEl.offsetWidth
-    return {
-      isLoaded: true,
-      width: wrapWidth,
-      height: wrapHeight,
-    }
+    console.log(wrapHeight)
+    this.setState({ isLoaded: true, width: wrapWidth, height: wrapHeight })
   }
   render() {
     const { collection } = this.props
     const { isLoaded } = this.state
     const parent = this.state
     return (
-      <Wrapper ref={ref => {this.wrapperEl = ref}}>
-        {isLoaded && map(collection, (item, index) =>
-          <ImageContainer key={item.id} item={item} parent={parent} pos={index} />
-        )}
-      </Wrapper>
+      <div ref={ref => {this.wrapperEl = ref}}>
+        <Wrapper>
+          {isLoaded && map(collection, (item, index) =>
+            <ImageContainer key={item.id} item={item} parent={parent} pos={index} />
+          )}
+        </Wrapper>
+      </div>
     )
   }
 }
