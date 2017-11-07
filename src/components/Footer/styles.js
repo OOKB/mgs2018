@@ -92,6 +92,7 @@ export const MenuWrapper = styled.div`
       width: 100%;
       background: none;
       border: 1px solid ${props => props.theme.color};
+      border-radius: 0;
       color: ${props => props.theme.color};
       @media (min-width: ${sizes.small}) {
         width: 50%;

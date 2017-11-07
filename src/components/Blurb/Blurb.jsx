@@ -10,7 +10,7 @@ const Blurb = ({ description, tagline, eventDate }) => {
         <EventDate>{eventDate}</EventDate>
       </div>
       <DescriptionWrapper>
-        {description.map((pText, index) => <Description key={index}>{pText}</Description>)}
+        {description.map((pText, index) => <Description key={index} dangerouslySetInnerHTML={{ __html: pText }}></Description>)}
       </DescriptionWrapper>
     </Wrapper>
   )
@@ -23,7 +23,7 @@ Blurb.propTypes = {
 }
 Blurb.defaultProps = {
   description: [
-    `MICA GRAD SHOW 2018 showcases the culminating work of more than 150 of MICA's graduate students from the College's internationally renowned programs through ground-breaking exhibitions, presentations, public programs and student-curated installations throughout Baltimore City.`,
+    `<b>MICA GRAD SHOW 2018</b> showcases the culminating work of more than 150 of MICA's graduate students from the College's internationally renowned programs through ground-breaking exhibitions, presentations, public programs and student-curated installations throughout Baltimore City.`,
     `Join us for a season of innovative and inspiring events and exhibitions featuring the next generation of creative thinkers — artists, designers, filmmakers, educators and curators — as they demonstrate the power and possibility of contemporary art and design.`,
   ],
   tagline: 'Meet the next generation of creative thinkers.',
