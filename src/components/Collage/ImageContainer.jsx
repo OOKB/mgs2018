@@ -74,10 +74,13 @@ class ImageContainer extends React.Component {
     const startingX = xpos[this.props.pos]
     const finalX = (startingX + xBound)
     const startingY = 0
+    const finalY = yBound
 
     return {
       stiffness: random(40, 80),
       damping: random(10, 40),
+      currentX: random(startingX, finalX),
+      currentY: random(startingY, finalY),
       toX: random(startingX, finalX),
       toY: random(0, yBound),
       parentWidth: wrapWidth,
