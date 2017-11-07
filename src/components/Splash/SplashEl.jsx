@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
+import { sample, reject } from 'lodash'
+
 // import LinkEl from 'cape-mixer/lib/Link/Link'
 import mgsLogo from '../../mgs2018logo.svg'
 import yearLogo from '../../mgs2018year.svg'
@@ -9,23 +12,68 @@ import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
 import Collage from '../Collage/Collage'
 import { Wrapper, LogoWrapper } from './styles'
+import { colors } from '../../util'
 
-function Splash({ art, siteName }) {
-  return (
-    <Wrapper>
-      <LogoWrapper top>
-        {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
-        <Logo right logoSrc={micaLogo} siteName={siteName} />
-      </LogoWrapper>
-      {art && art.length > 0 && <Collage collection={art} />}
-      <LogoWrapper>
-        <Logo right primary logoSrc={yearLogo} siteName={siteName} />
-      </LogoWrapper>
-      {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
-      {/* <LinkEl action={loginAction} {...login} /> */}
-      <Footer />
-    </Wrapper>
-  )
+const themes = {
+  orange: {
+    color: colors.alt.orange,
+  },
+  blue: {
+    color: colors.alt.blue,
+  },
+  green: {
+    color: colors.alt.green,
+  },
+  deepBlue: {
+    color: colors.alt.deepBlue,
+  },
+  pink: {
+    color: colors.alt.pink,
+  },
+}
+
+
+class Splash extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      theme: themes.orange,
+    }
+    this.changeTheme = this.changeTheme.bind(this)
+  }
+
+  componentWillMount() {
+    this.changeTheme()
+  }
+
+  changeTheme() {
+    const t = reject(themes, this.state.theme)
+    const s = sample(t)
+    console.log(s)
+    this.setState({ theme: s })
+  }
+
+  render() {
+    const { art, siteName } = this.props
+    const { theme } = this.state
+    return (
+      <ThemeProvider theme={theme}>
+        <Wrapper onClick={this.changeTheme}>
+          <LogoWrapper top>
+            {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
+            <Logo right logoSrc={micaLogo} siteName={siteName} />
+          </LogoWrapper>
+          {art && art.length > 0 && <Collage collection={art} />}
+          <LogoWrapper>
+            <Logo right primary logoSrc={yearLogo} siteName={siteName} />
+          </LogoWrapper>
+          {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
+          {/* <LinkEl action={loginAction} {...login} /> */}
+          <Footer />
+        </Wrapper>
+      </ThemeProvider>
+    )
+  }
 }
 
 const artPropType = PropTypes.shape({

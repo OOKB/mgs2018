@@ -41,7 +41,7 @@ export const Caption = styled.div`
   margin: 0;
   padding: .5rem 1rem;
   background: ${colors.white};
-  border: 2px solid ${colors.alt.green};
+  border: 2px solid ${props => props.theme.color};
   bottom: 0;
   position: absolute;
   transform-origin: top center;
@@ -51,7 +51,7 @@ export const Caption = styled.div`
 export const CaptionItem = styled.p`
   opacity 0;
   transition: .25s .125s;
-  color: ${colors.alt.green};
+  color: ${props => props.theme.color};
   font-weight: ${props => (props.bold ? '800' : '400')};
   text-transform: ${props => (props.caps ? 'uppercase' : '')};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};

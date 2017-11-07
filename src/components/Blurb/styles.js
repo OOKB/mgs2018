@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, sizes } from '../../util'
+import { sizes } from '../../util'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,14 +9,14 @@ export const Wrapper = styled.div`
   @media (min-width: ${sizes.medium}) {
     flex-direction: row;
     margin: 12rem 1.5rem 4rem;
-
   }
 `
 export const Tagline = styled.h1`
+  transition: .25s color;
   margin: 0;
   font-size: 2.5rem;
   line-height: 1.2;
-  color: ${colors.alt.green};
+  color: ${props => props.theme.color};
   max-width: 43rem;
   @media (min-width: ${sizes.medium}) {
     font-size: 4.5rem;

@@ -16,10 +16,18 @@ export const Footer = styled.footer`
 `
 export const Chunk = styled.section`
   display: flex;
-  justify-content: space-between;
   flex-direction: ${props => (props.columns ? 'column' : 'row')};
   max-width: ${props => props.mw};
-  &:not(:first-child) {
+  align-items: ${props => (props.start ? 'flex-start' : '')};
+
+  @media (min-width: ${sizes.extraLarge}) {
+    flex-direction: ${props => (props.xlRows ? 'row' : '')};
+  }
+  @media (min-width: ${sizes.large}) {
+    flex-direction: ${props => (props.lgRows ? 'row' : '')};
+  }
+
+  ${'' /* &:not(:first-child) {
     margin-top: 2rem;
   }
   @media (min-width: ${sizes.medium}) {
@@ -27,15 +35,20 @@ export const Chunk = styled.section`
       margin-top: 0rem;
       margin-left: 2rem;
     }
-  }
+  } */}
 `
 export const MicaLogo = styled.img`
   max-width: 12rem;
 `
 export const Atag = styled.a`
   font-size: 1rem;
-  color: ${colors.alt.green};
-  text-decoration: underline;
+  color: ${props => props.theme.color};
+  text-decoration: none;
+  text-shadow: .03em 0 ${colors.white}, -.03em 0 ${colors.white}, 0 .03em ${colors.white}, 0 -.03em ${colors.white}, .06em 0 ${colors.white}, -.06em 0 ${colors.white}, .09em 0 ${colors.white}, -.09em 0 ${colors.white}, .12em 0 ${colors.white}, -.12em 0 ${colors.white}, .15em 0 ${colors.white}, -.15em 0 ${colors.white};
+  background-image: linear-gradient(${colors.white}, ${colors.white}), linear-gradient(${colors.white}, ${colors.white}), linear-gradient(${props => props.theme.color}, ${props => props.theme.color});
+  background-size: .05em 1px, .05em 1px, 1px 1px;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: 0% 100%, 100% 100%, 0% 100%;
   &:hover {
     opacity: .5;
   }
@@ -49,17 +62,24 @@ export const FlexList = styled.ul`
   flex-wrap: ${props => (props.wrap ? 'wrap' : '')};
 `
 export const ListItem = styled.li`
-  margin-right: .75rem;
+  width: ${props => (props.title ? '100%' : '')};
+  margin-bottom: ${props => (props.link ? '0.5rem' : '')};
+  &:not(:last-child) {
+    margin-right: .75rem;
+  }
   .fa-2x {
     font-size: 1.5rem;
   }
 `
 export const MenuWrapper = styled.div`
+  .menu {
+    margin: 0 0 1rem;
+  }
   button {
     width: 100%;
     background: none;
-    border: 1px solid ${colors.alt.green};
-    color: ${colors.alt.green};
+    border: 1px solid ${props => props.theme.color};
+    color: ${props => props.theme.color};
     .auth {
       &:after { content: 'Student Login'; }
       span { display: none; }
