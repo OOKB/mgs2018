@@ -15,7 +15,6 @@ flex > div {
   box-shadow: none;
 }
 
-#profile #blurb,
-#profile footer {
+#profile #blurb {
   display: none;
 }

@@ -1,18 +1,62 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ThemeProvider } from 'styled-components'
+import { sample, reject } from 'lodash'
 import Footer from './Footer/Footer'
-import Header from './Header/Header'
+import { colors } from '../util'
 
-function Page({ children, ...props }) {
-  return (
-    <page {...props}>
-      <Header />
-      <main className="bg-yellow">
-        {children}
-      </main>
-      <Footer />
-    </page>
-  )
+const themes = {
+  orange: {
+    color: colors.alt.orange,
+  },
+  blue: {
+    color: colors.alt.blue,
+  },
+  green: {
+    color: colors.alt.green,
+  },
+  deepBlue: {
+    color: colors.alt.deepBlue,
+  },
+  pink: {
+    color: colors.alt.pink,
+  },
+}
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      theme: themes.orange,
+    }
+    this.changeTheme = this.changeTheme.bind(this)
+  }
+
+  componentWillMount() {
+    this.changeTheme()
+  }
+
+  changeTheme() {
+    const t = reject(themes, this.state.theme)
+    const s = sample(t)
+    console.log(s)
+    this.setState({ theme: s })
+  }
+
+  render() {
+    const { children, ...props } = this.props
+    const { theme } = this.state
+    return (
+      <ThemeProvider theme={theme}>
+        <page {...props} onClick={this.changeTheme}>
+          <main className="">
+            {children}
+          </main>
+          <Footer />
+        </page>
+      </ThemeProvider>
+    )
+  }
 }
 
 Page.propTypes = {

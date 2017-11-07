@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 export const Tagline = styled.h1`
   transition: .25s color;
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.1rem;
   line-height: 1.2;
   color: ${props => props.theme.color};
   max-width: 43rem;

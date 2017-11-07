@@ -692,8 +692,7 @@ flex {
   box-shadow: none;
   padding-top: 0;
 }
-#profile #blurb,
-#profile footer {
+#profile #blurb {
   display: none;
 }
 
