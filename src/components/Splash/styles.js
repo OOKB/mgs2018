@@ -1,8 +1,12 @@
 import styled from 'styled-components'
+import { sizes } from '../../util'
 
 export const Wrapper = styled.div`
-  max-width: 85rem;
+  max-width: 88rem;
   margin: 0 auto;
+  @media (min-width: ${sizes.medium}) {
+    padding: 0 2rem;
+  }
 `
 
 export const LogoWrapper = styled.div`
