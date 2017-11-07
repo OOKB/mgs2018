@@ -13,3 +13,13 @@ export const LogoWrapper = styled.div`
   position: relative;
   margin: ${props => (props.top ? '1.5rem 0' : '-4rem 0')};
 `
+
+export const MicaLogo = styled.div`
+  position: absolute;
+  z-index: 100;
+  right: 1.5rem;
+  svg path, svg polygon, svg polyline {
+    transition: .25s;
+    fill: ${props => props.theme.color };
+  }
+`
