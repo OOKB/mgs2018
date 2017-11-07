@@ -75,6 +75,9 @@ export const ListItem = styled.li`
   }
   .fa-2x {
     font-size: 2rem;
+    &:hover, &:focus {
+      opacity: .5;
+    }
     @media (min-width: ${sizes.medium}) {
       font-size: 1.5rem;
     }
@@ -83,10 +86,14 @@ export const ListItem = styled.li`
 export const MenuWrapper = styled.div`
   width: 100%;
   .menu {
+    display: flex;
+    flex-direction: column;
     margin: 0 0 2rem;
     width: 100%;
   }
-  .auth {
+  .home { display: none; }
+  .studentList { display: none; }
+  .auth, .logout {
     button {
       padding: .5rem 1rem;
       width: 100%;
@@ -94,14 +101,37 @@ export const MenuWrapper = styled.div`
       border: 1px solid ${props => props.theme.color};
       border-radius: 0;
       color: ${props => props.theme.color};
+      &:hover, &:focus {
+        color: ${props => props.theme.color} !important;
+        opacity: .5;
+      }
       @media (min-width: ${sizes.small}) {
         width: 50%;
       }
       @media (min-width: ${sizes.medium}) {
         width: 100%;
       }
-      &:after { content: 'Student Login'; }
-      span { display: none; }
     }
   }
+  .me {
+    a {
+      padding: .5rem 1rem;
+      margin-bottom: .25rem;
+      width: 100%;
+      background: none;
+      border: 1px solid ${props => props.theme.color};
+      border-radius: 0;
+      color: ${props => props.theme.color};
+      &:hover, &:focus {
+        color: ${props => props.theme.color} !important;
+        opacity: .5;
+      }
+      @media (min-width: ${sizes.small}) {
+        width: 50%;
+      }
+      @media (min-width: ${sizes.medium}) {
+        width: 100%;
+      }
+    }
+    }
 `
