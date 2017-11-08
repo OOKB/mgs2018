@@ -16,7 +16,6 @@ export const locInfo = reducer(undefined, addRoutes(routes))
 
 export default {
   db: {
-    cdnUrl: 'http://dl-f.imgix.net/',
   },
   firebase: {
     config: {

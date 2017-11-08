@@ -18,7 +18,7 @@ export function createItem() {
     // Create a new entity in firebase.
     dispatch(saveEntity({ agent: selectUser(getState()), type: 'CreativeWork' }))
     // Tell redux to open the new entity.
-    .then(({ id }) => dispatch(createHistory(`/me/${id}`)))
+      .then(({ id }) => dispatch(createHistory(`/me/${id}`)))
   }
 }
 export function addAction(action, arg, dispatch) {
