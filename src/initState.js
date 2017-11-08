@@ -32,6 +32,7 @@ export default {
       MediaObject: true,
       ShowGroup: true,
       Show: true,
+      SplashArt: true,
       Program: true,
       Location: true,
       Person: true,

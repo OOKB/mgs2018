@@ -20,7 +20,13 @@ function Me(props) {
     artwork, auth, authStudentMissing, authWarn,
     hasMicaEmail, isAuthenticated, isStudent, params, user,
   } = props
-  if (!isAuthenticated) return <Button onClick={auth} style={styles.login}>Login</Button>
+  if (!isAuthenticated) return (
+    <div>
+      <a href="/" style={styles.login}>Home</a>
+      <div>or</div>
+      <Button onClick={auth} style={styles.login}>Login</Button>
+    </div>
+  )
   if (!user.email) return <p className="flex loading">Loading...</p>
   const { email, name, id } = user
   const micaNoInfo = hasMicaEmail && !isStudent

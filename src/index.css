@@ -51,10 +51,10 @@ a {
   transition: all 350ms;
 }
 
-a:hover {
+/*a:hover {
   color: #655700;
   border-bottom-color: #655700;
-}
+}*/
 
 /** ============================= **/
 /** ============================= **/
@@ -508,7 +508,7 @@ detail .google-map-container {
 }
 
 /* From components/Footer/Footer.css */
-footer {
+/*footer {
   line-height: 1.4;
 }
 
@@ -584,7 +584,7 @@ footer flex section.social {
     width: 30%;
     max-width: 350px;
   }
-}
+}*/
 
 /* From components/Header/Header.css */
 #siteHeader nav {
@@ -649,7 +649,6 @@ header .menu {
 .menu .me,
 .menu .logout {
   text-align: right;
-  position: absolute;
   right: 1rem;
   z-index: 9999;
 }
@@ -693,8 +692,7 @@ flex {
   box-shadow: none;
   padding-top: 0;
 }
-#profile #blurb,
-#profile footer {
+#profile #blurb {
   display: none;
 }
 
