@@ -27,7 +27,7 @@ Blurb.defaultProps = {
     `Join us for a season of innovative and inspiring events and exhibitions featuring the next generation of creative thinkers — artists, designers, filmmakers, educators and curators — as they demonstrate the power and possibility of contemporary art and design.`,
   ],
   tagline: 'Meet the next generation of creative thinkers.',
-  eventDate: 'Coming Soon: Spring / Summer 2018',
+  eventDate: 'Spring / Summer 2018',
 }
 
 export default Blurb
