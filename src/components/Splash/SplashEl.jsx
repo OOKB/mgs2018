@@ -90,8 +90,8 @@ class Splash extends React.Component {
             <Logo right logoSrc={micaLogo} siteName={siteName} />
             <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
           </LogoWrapper>
-          { art && <Slideshow collection={art} /> }
-          {/* {art && art.length > 0 && <Slideshow collection={art} />} */}
+          {/* { art && <Slideshow collection={art} /> } */}
+          {art && art.length > 0 && <Slideshow collection={art} />}
           <LogoWrapper>
             <Logo right primary logoSrc={yearLogo} siteName={siteName} />
           </LogoWrapper>
