@@ -1,4 +1,4 @@
-import { filter, flow, get, mapValues, pickBy, sampleSize, sortBy } from 'lodash/fp'
+import { filter, flow, get, mapValues, pickBy, sampleSize, sortBy, toArray, shuffle } from 'lodash/fp'
 import { setField } from 'cape-lodash'
 import { buildFullEntity, entityTypeSelector, getGraphNode } from 'redux-graph'
 // import { createSelector } from 'reselect'
@@ -32,7 +32,8 @@ export function addStudentArt(graphSlice, student) {
 }
 export const splashArt = flow(
   getSplashArt,
-  sampleSize(3)
+  toArray,
+  shuffle
 )
 // export const getArtwork = createSelector(userIsAgentOf, getArtItems, getArtRefs)
 // artwork: state => map(getArtwork(state), item => getFullEntity(state, item)),

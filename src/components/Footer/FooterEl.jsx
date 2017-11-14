@@ -36,7 +36,7 @@ function FooterEl({ archive, siteId, social }) {
           <FlexList wrap>
             <ListItem title link>Archive</ListItem>
             {map(archive, (item, index) =>
-              <ListItem num><Atag key={index} href={item.link}>{item.title}</Atag></ListItem>
+              <ListItem num key={index}><Atag key={index} href={item.link}>{item.title}</Atag></ListItem>
             )}
           </FlexList>
         </Chunk>

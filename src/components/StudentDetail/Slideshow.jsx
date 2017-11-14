@@ -217,6 +217,8 @@ class Slideshow extends Component {
     const thumbEl = this.getThumbs(collection)
     const slideIndicators = this.generateIndicators()
 
+    console.log(thumbEl)
+
     return (
       <div id="slideshow">
         <ul className="thumbs">
@@ -226,6 +228,7 @@ class Slideshow extends Component {
             transitionLeaveTimeout={300}
           >
             {thumbEl}
+
           </CSSTransitionGroup>
         </ul>
         { collectionExists &&
