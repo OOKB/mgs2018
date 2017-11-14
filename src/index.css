@@ -1215,6 +1215,15 @@ li.artwork a {
   z-index: 2;
   position: absolute;
 }
+
+#slideshow .thumbs li.active div div {
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  text-align: left;
+}
+#slideshow .thumbs li.active:hover div div { transform: scaleY(1); }
+#slideshow .thumbs li.active:hover div div p { opacity: 1; }
+
 #slideshow .thumbs li.first.last.active {
   position: static;
   left: initial;

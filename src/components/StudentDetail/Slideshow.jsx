@@ -111,7 +111,7 @@ class Slideshow extends Component {
 
   // Process work data to generate slide
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
-    const { associatedMedia, id, image, title } = slideItem
+    const { associatedMedia, id, image, title, event, person } = slideItem
     const { currentPosition } = this.state
     const { width } = this.props
     const videoInfo = {}
@@ -147,6 +147,8 @@ class Slideshow extends Component {
           active: slideIndex === currentPosition,
         }}
         width={width}
+        event={event}
+        person={person}
       />
     )
   }
@@ -156,7 +158,7 @@ class Slideshow extends Component {
     const { collection } = this.props
     const { currentPosition } = this.state
     const slideIndicators = map(collection, (item, index) => {
-      const activeSlide = index === currentPosition
+    const activeSlide = index === currentPosition
       return (
         <li
           key={index}
