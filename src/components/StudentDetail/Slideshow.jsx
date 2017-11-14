@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { isObject, map } from 'lodash'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
@@ -18,6 +18,13 @@ class Slideshow extends Component {
     this.slideAdvance = this.slideAdvance.bind(this)
     this.slideRewind = this.slideRewind.bind(this)
     this.moveToSlide = this.moveToSlide.bind(this)
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.slideAdvance, 3000)
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval)
   }
 
   // Returns arrays of indices for viewable slides before and after the active slide
@@ -82,7 +89,7 @@ class Slideshow extends Component {
     // Add the slides that should appear before the active slide.
     let slides = viewableSlides.previousSlides.map(slideIndex =>
       this.generateSlide(
-        collection[slideIndex], slideIndex, lastPosition, this.slideRewind
+        collection[slideIndex], slideIndex, lastPosition, null
       )
     )
     // Add the active slide.
@@ -95,7 +102,7 @@ class Slideshow extends Component {
     slides = slides.concat(
       viewableSlides.nextSlides.map(slideIndex =>
         this.generateSlide(
-          collection[slideIndex], slideIndex, lastPosition, this.slideAdvance
+          collection[slideIndex], slideIndex, lastPosition, null
         )
       )
     )
@@ -104,7 +111,7 @@ class Slideshow extends Component {
 
   // Process work data to generate slide
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
-    const { associatedMedia, id, image, title } = slideItem
+    const { associatedMedia, id, image, title, event, person } = slideItem
     const { currentPosition } = this.state
     const { width } = this.props
     const videoInfo = {}
@@ -140,6 +147,8 @@ class Slideshow extends Component {
           active: slideIndex === currentPosition,
         }}
         width={width}
+        event={event}
+        person={person}
       />
     )
   }
@@ -149,7 +158,7 @@ class Slideshow extends Component {
     const { collection } = this.props
     const { currentPosition } = this.state
     const slideIndicators = map(collection, (item, index) => {
-      const activeSlide = index === currentPosition
+    const activeSlide = index === currentPosition
       return (
         <li
           key={index}
@@ -208,6 +217,7 @@ class Slideshow extends Component {
     })
   }
 
+
   // Only generate thumbs and slide indicators if we have a collection that
   // is both defined and has length greater than zero
   render() {
@@ -219,22 +229,17 @@ class Slideshow extends Component {
 
     return (
       <div id="slideshow">
+        {this.state.secondsElapsed}
         <ul className="thumbs">
-          <CSSTransitionGroup
-            transitionName={animation}
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}
-          >
-            {thumbEl}
-          </CSSTransitionGroup>
+          {thumbEl}
         </ul>
-        { collectionExists &&
+        {/* { collectionExists &&
           <SlideNavigation
             slideAdvance={this.slideAdvance}
             slideRewind={this.slideRewind}
           />
-        }
-        {slideIndicators}
+        } */}
+        {/* {slideIndicators} */}
       </div>
     )
   }

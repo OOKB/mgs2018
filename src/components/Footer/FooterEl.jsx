@@ -5,9 +5,9 @@ import micaLogo from '../../micaLogo18.svg'
 // import './Footer.css'
 import Links from './Links'
 import Menu from '../Header/Menu'
-import { Wrapper, Footer, Chunk, ChunkWrapper, Atag, MicaLogo, FlexList, ListItem, MenuWrapper } from './styles'
+import { Wrapper, Footer, Chunk, Atag, MicaLogo, FlexList, ListItem, MenuWrapper } from './styles'
 
-function FooterEl({ archive, siteId, social }) {
+function FooterEl({ archive, social }) {
   return (
     <Wrapper>
       <Footer>
@@ -35,9 +35,11 @@ function FooterEl({ archive, siteId, social }) {
         <Chunk mw="10rem" start mdOrder="2" lgOrder="3">
           <FlexList wrap>
             <ListItem title link>Archive</ListItem>
-            {map(archive, (item, index) =>
-              <ListItem num><Atag key={index} href={item.link}>{item.title}</Atag></ListItem>
-            )}
+            {map(archive, (item, index) => (
+              <ListItem num key={index}>
+                <Atag key={index} href={item.link}>{item.title}</Atag>
+              </ListItem>
+            ))}
           </FlexList>
         </Chunk>
         <Chunk columns start mdOrder="4" lgOrder="5">

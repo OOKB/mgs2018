@@ -39,7 +39,6 @@ class Page extends React.Component {
   changeTheme() {
     const t = reject(themes, this.state.theme)
     const s = sample(t)
-    console.log(s)
     this.setState({ theme: s })
   }
 

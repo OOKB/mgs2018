@@ -9,7 +9,8 @@ import yearLogo from '../../mgs2018year.svg'
 import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
-import Collage from '../Collage/Collage'
+// import Collage from '../Collage/Collage'
+import Slideshow from '../StudentDetail/Slideshow'
 import { Wrapper, LogoWrapper, MicaLogo } from './styles'
 import { colors } from '../../util'
 
@@ -46,10 +47,9 @@ class Splash extends React.Component {
   }
 
   changeTheme() {
-    const t = reject(themes, this.state.theme)
-    const s = sample(t)
-    console.log(s)
-    this.setState({ theme: s })
+    const ttt = reject(themes, this.state.theme)
+    const sss = sample(ttt)
+    this.setState({ theme: sss })
   }
 
   render() {
@@ -57,8 +57,6 @@ class Splash extends React.Component {
     const { theme } = this.state
     const micaLogo = `
 <svg width="90px" height="23px" viewBox="0 0 90 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="micalogo-small">
             <polyline id="Shape" fill="#000000" fill-rule="nonzero" points="32.964 19.196 32.964 15.52 34.602 15.52 34.602 8.125 32.964 8.125 32.964 4.47 42.754 4.47 42.754 8.125 41.115 8.125 41.115 15.52 42.754 15.52 42.754 19.196 32.964 19.196"></polyline>
@@ -90,9 +88,10 @@ class Splash extends React.Component {
           <LogoWrapper top>
             {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
             <Logo right logoSrc={micaLogo} siteName={siteName} />
-            <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }}></MicaLogo>
+            <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
           </LogoWrapper>
-          {art && art.length > 0 && <Collage collection={art} />}
+          {/* { art && <Slideshow collection={art} /> } */}
+          {art && art.length > 0 && <Slideshow collection={art} />}
           <LogoWrapper>
             <Logo right primary logoSrc={yearLogo} siteName={siteName} />
           </LogoWrapper>
@@ -115,7 +114,7 @@ const artPropType = PropTypes.shape({
 })
 Splash.propTypes = {
   art: PropTypes.arrayOf(artPropType),
-  artAll: PropTypes.objectOf(artPropType),
+  // artAll: PropTypes.objectOf(artPropType),
   siteName: PropTypes.string.isRequired,
 }
 Splash.defaultProps = {
