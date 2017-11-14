@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { isObject, map } from 'lodash'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+// import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
@@ -217,19 +217,10 @@ class Slideshow extends Component {
     const thumbEl = this.getThumbs(collection)
     const slideIndicators = this.generateIndicators()
 
-    console.log(thumbEl)
-
     return (
       <div id="slideshow">
         <ul className="thumbs">
-          <CSSTransitionGroup
-            transitionName={animation}
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}
-          >
-            {thumbEl}
-
-          </CSSTransitionGroup>
+          {thumbEl}
         </ul>
         { collectionExists &&
           <SlideNavigation
