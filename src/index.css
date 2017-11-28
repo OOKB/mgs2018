@@ -1176,11 +1176,10 @@ li.artwork a {
 /*** SLIDESHOW ***/
 /*** ********* ***/
 #slideshow {
-  position: relative;
   margin: 2rem 0 1rem 0;
-  padding: 3.5rem 0;
+  padding-top: 50px;
+  padding-bottom: 400px;
   width: 100%;
-  min-height: 400px;
   max-width: 100vw;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -1233,7 +1232,7 @@ li.artwork a {
   transform: translate(0,0) scale(1.05);
 }
 #slideshow .thumbs li img {
-  height: 20rem;
+  height: 400px;
   width: auto;
   display: block;
   max-width: none;
@@ -1254,10 +1253,10 @@ li.artwork a {
 }
 @media (min-width: 48rem) {
   #slideshow {
-    padding: 6rem 0;
-    min-height: 600px;
+    padding-top: 100px;
+    padding-bottom: 600px;
   }
-  #slideshow .thumbs li img { height: 33rem; }
+  #slideshow .thumbs li img { height: 600px; }
 }
 /** slideshow left/right buttons **/
 ul.thumbs-navigation {
