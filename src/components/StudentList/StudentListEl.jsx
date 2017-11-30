@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import css from 'cape-style'
-import Page from '../Page'
+import HomeWrapper from '../Home/HomeWrapper'
 import Search from '../Search/Search'
 import FilterSelect from '../FilterSelect'
 import Student from './Student'
@@ -10,7 +10,7 @@ import Student from './Student'
 function StudentListEl({ programOptions, students }) {
   const collectionId = 'Student'
   return (
-    <Page>
+    <HomeWrapper>
       <article id="studentList" className="text-left" style={css('p0 pl1 pr1')}>
         <header>
           <h1 style={css('m0 p0 pl1 pr1')}>Students</h1>
@@ -40,7 +40,7 @@ function StudentListEl({ programOptions, students }) {
           </ul>
         </section>
       </article>
-    </Page>
+    </HomeWrapper>
   )
 }
 

@@ -1,5 +1,5 @@
 // import { connect } from 'react-redux'
 
-import Component from './AppEl'
+import Component from './HomeWrapperEl'
 
 export default Component// connect()(Component)

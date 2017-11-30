@@ -1,18 +1,19 @@
 import React from 'react'
 import Page from '../Page'
 // import Collage from '../Collage/Collage'
-import Schedule from '../Schedule/Schedule'
 import Menu from './Menu'
+import Blurb from '../Blurb/Blurb'
 
-function AppEl() {
+function HomeWrapperEl({ children }) {
   return (
     <Page className="App">
       {/* <Collage /> */}
+      <Blurb siteName='MICA GRAD' />
       <Menu />
-      <Schedule />
+      {children}
     </Page>
   )
 }
-AppEl.propTypes = {
+HomeWrapperEl.propTypes = {
 }
-export default AppEl
+export default HomeWrapperEl
