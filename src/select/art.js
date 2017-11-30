@@ -35,5 +35,10 @@ export const splashArt = flow(
   toArray,
   shuffle
 )
+
+export const collageArt = flow(
+  getSplashArt,
+  sampleSize(3)
+)
 // export const getArtwork = createSelector(userIsAgentOf, getArtItems, getArtRefs)
 // artwork: state => map(getArtwork(state), item => getFullEntity(state, item)),
