@@ -1,6 +1,6 @@
 export { default as colors } from './ColorStripes'
 export { default as details } from './Detail/Detail'
-export { default as home } from './AppEl'
+export { default as home } from './Home/AppEl'
 export { default as me } from './Profile/Me'
 export { default as studentList } from './StudentList/StudentList'
 export { default as filmfest } from './FilmFest/FilmFest'
