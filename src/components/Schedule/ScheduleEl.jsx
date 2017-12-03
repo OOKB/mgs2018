@@ -7,7 +7,7 @@ import HomeWrapper from '../Home/HomeWrapper'
 import Search from '../Search/Search'
 import ShowItem from './ShowGroup'
 
-import { Group, GroupHeader, GroupBody } from './styles'
+import { Group, GroupHeader, GroupBody, Blurb } from './styles'
 
 
 function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
@@ -43,7 +43,7 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
         <Group>
           <GroupHeader>Curatorial Practice</GroupHeader>
           <GroupBody>
-            <p>{curatorialPracticeBlurb}</p>
+            <Blurb>{curatorialPracticeBlurb}</Blurb>
               {cityWide &&
               map(cityWide, item => <ShowItem key={item.id} {...item} />)
             }

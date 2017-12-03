@@ -33,3 +33,8 @@ export const ShowItem = styled.section`
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.25rem; }
 `
+
+export const Blurb = styled.p`
+  width: calc(100% / 3);
+  margin: 4rem 0 0;
+`

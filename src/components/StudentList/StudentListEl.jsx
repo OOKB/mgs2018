@@ -7,13 +7,14 @@ import Search from '../Search/Search'
 import FilterSelect from '../FilterSelect'
 import Student from './Student'
 
+import { GroupHeader } from './styles'
+
 function StudentListEl({ programOptions, students }) {
   const collectionId = 'Student'
   return (
     <HomeWrapper>
       <article id="studentList" className="text-left" style={css('p0 pl1 pr1')}>
         <header>
-          <h1 style={css('m0 p0 pl1 pr1')}>Students</h1>
           <div className="group" style={css('flex')}>
             <Search collectionId={collectionId} style={css('flexAuto')} />
             {programOptions &&
@@ -30,11 +31,11 @@ function StudentListEl({ programOptions, students }) {
         </header>
         <section>
           <ul className="student-list">
-            <li className="student header hidden-sm" style={css('p0p5 pl2 pr2 bb')}>
-              <span className="name"><strong>Name</strong></span>
-              <span className="program"><strong>Program</strong></span>
-              <span className="show"><strong>Show</strong></span>
-              <span className="social" />
+            <li className="student header hidden-sm">
+              <GroupHeader className="name"><strong>Name</strong></GroupHeader>
+              <GroupHeader className="program"><strong>Program</strong></GroupHeader>
+              <GroupHeader className="show"><strong>Show</strong></GroupHeader>
+              <GroupHeader className="social" />
             </li>
             {map(students, item => <Student key={item.id} {...item} />)}
           </ul>

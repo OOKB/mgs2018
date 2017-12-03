@@ -8,6 +8,8 @@ import Select from 'cape-mixer/lib/SelectEl'
 import { getShowId } from '../Schedule/ShowGroup'
 import StudentLink from '../StudentLink'
 
+import { GroupBody, Cell } from './styles'
+
 function StudentEl(props) {
   const {
     detailUrl, id, name, show, url, email, program, saveShow, shows, showGroup,
@@ -22,20 +24,20 @@ function StudentEl(props) {
   const youtubeStr = `https://www.youtube.com/${youtube}`
 
   return (
-    <li className="student" style={css('p0p5 pl2 pr2 bb')} id={id}>
-      <span className="name">
+    <GroupBody id={id}>
+      <Cell className="name">
         <StudentLink detailUrl={detailUrl}><strong>{ name }</strong></StudentLink>
-      </span>
-      <span className="program">
+      </Cell>
+      <Cell className="program">
         <i>{ program.name }</i>
-      </span>
-      <span className="show">
+      </Cell>
+      <Cell className="show">
         {show && (
           <p><LinkEl routeId="details" showId={getShowId(showGroup)}>{ showGroup.name }</LinkEl></p>
         )}
         {shows && <Select options={shows} onChange={saveShow} value={get(show, 'id')} />}
-      </span>
-      <span className="social">
+      </Cell>
+      <Cell className="social">
         <div>
           {url && <LinkEl href={url} icon="web" />}
           {email && <LinkEl href={emailStr} icon="email" />}
@@ -46,8 +48,8 @@ function StudentEl(props) {
           {vimeo && <LinkEl href={vimeoStr} icon="vimeo" />}
           {youtube && <LinkEl href={youtubeStr} icon="youtube" />}
         </div>
-      </span>
-    </li>
+      </Cell>
+    </GroupBody>
   )
 }
 
