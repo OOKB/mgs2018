@@ -2,22 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import css from 'cape-style'
 import Icon from 'cape-mixer/lib/Icon'
-// import './Search.css'
+
+import { SearchWrapper, SearchInput } from './styles'
 
 function SearchEl({ onChange, value }) {
   return (
-    <label className="search-wrapper" htmlFor="search" style={css('flexAuto relative fs1p5 lh3')}>
+    <SearchWrapper htmlFor="search">
       <Icon
         hidden
         style={css('absolute lh3 z2 fs1p618 ml2')}
         symbol="search"
       />
-      <input
+      <SearchInput
         className="search"
+        placeholder="Search"
         onChange={onChange} value={value || ''}
         type="text"
       />
-    </label>
+    </SearchWrapper>
   )
 }
 
