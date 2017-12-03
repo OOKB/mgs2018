@@ -10,7 +10,7 @@ import Collage from '../Collage/Collage'
 import Blurb from '../Blurb/Blurb'
 import Menu from './Menu'
 
-import { Wrapper, LogoWrapper, MicaLogo } from './styles'
+import { Wrapper, LogoWrapper, MicaLogo, MenuWrapper } from './styles'
 
 const micaLogo = `
 <svg width="90px" height="23px" viewBox="0 0 90 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -54,7 +54,9 @@ function HomeWrapperEl({ children, art, siteName }) {
           <Logo right primary logoSrc={yearLogo} siteName={siteName} />
         </LogoWrapper>
         {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
-        <Menu />
+        <MenuWrapper>
+          <Menu />
+        </MenuWrapper>
         {children}
       </Wrapper>
     </Page>

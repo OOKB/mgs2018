@@ -133,5 +133,5 @@ export const MenuWrapper = styled.div`
         width: 100%;
       }
     }
-    }
+  }
 `

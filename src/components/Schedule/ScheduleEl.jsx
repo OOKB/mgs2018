@@ -6,9 +6,6 @@ import css from 'cape-style'
 import HomeWrapper from '../Home/HomeWrapper'
 import Search from '../Search/Search'
 import ShowItem from './ShowGroup'
-import ShapeOne from '../Shapes/ShapeOne'
-import ShapeTwo from '../Shapes/ShapeTwo'
-import ShapeThree from '../Shapes/ShapeThree'
 
 function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
   const { onCampusExhibition, singleDay, cityWide } = showGroups
@@ -17,20 +14,18 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
       <article id="schedule" style={css('pl1 pr1 pb2')}>
 
         <header>
-          <h1 style={css('m0 p0 pl1 pr1')}>Schedule</h1>
           <div className="group" style={css('flex')}>
             <Search collectionId={'ShowGroup'} style={css('flexAuto')} />
           </div>
         </header>
 
         <section>
-          <h2 style={css('m0 mt3 bb')}>Exhibitions</h2>
+          <h2 style={css('m0 mt3 bt bb')}>Exhibitions</h2>
           <div style={css('flex')} className="shows item-grid">
             {onCampusExhibition &&
               map(onCampusExhibition, item => <ShowItem key={item.id} {...item} />)
             }
           </div>
-          <ShapeOne />
         </section>
 
         <section>
@@ -40,7 +35,6 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
               map(singleDay, item => <ShowItem key={item.id} {...item} />)
             }
           </div>
-          <ShapeTwo />
         </section>
 
         <section style={css('mb3')}>
@@ -53,7 +47,6 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
               map(cityWide, item => <ShowItem key={item.id} {...item} />)
             }
           </div>
-          <ShapeThree />
         </section>
 
       </article>
