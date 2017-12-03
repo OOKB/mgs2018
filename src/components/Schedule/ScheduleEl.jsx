@@ -7,6 +7,9 @@ import HomeWrapper from '../Home/HomeWrapper'
 import Search from '../Search/Search'
 import ShowItem from './ShowGroup'
 
+import { Group, GroupHeader, GroupBody } from './styles'
+
+
 function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
   const { onCampusExhibition, singleDay, cityWide } = showGroups
   return (
@@ -19,35 +22,33 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
           </div>
         </header>
 
-        <section>
-          <h2 style={css('m0 mt3 bt bb')}>Exhibitions</h2>
-          <div style={css('flex')} className="shows item-grid">
+        <Group>
+          <GroupHeader>Exhibitions</GroupHeader>
+          <GroupBody>
             {onCampusExhibition &&
               map(onCampusExhibition, item => <ShowItem key={item.id} {...item} />)
             }
-          </div>
-        </section>
+          </GroupBody>
+        </Group>
 
-        <section>
-          <h2 style={css('m0 mt3 bb')}>Events</h2>
-          <div className="shows item-grid">
+        <Group>
+          <GroupHeader>Events</GroupHeader>
+          <GroupBody>
             {singleDay &&
               map(singleDay, item => <ShowItem key={item.id} {...item} />)
             }
-          </div>
-        </section>
+          </GroupBody>
+        </Group>
 
-        <section style={css('mb3')}>
-          <h2 style={css('m0 mt3 bb')}>Curatorial Practice</h2>
-          <div style={css('mt1 mb1 mw7 bgYellow')}>
+        <Group>
+          <GroupHeader>Curatorial Practice</GroupHeader>
+          <GroupBody>
             <p>{curatorialPracticeBlurb}</p>
-          </div>
-          <div className="shows item-grid">
-            {cityWide &&
+              {cityWide &&
               map(cityWide, item => <ShowItem key={item.id} {...item} />)
             }
-          </div>
-        </section>
+          </GroupBody>
+        </Group>
 
       </article>
     </HomeWrapper>

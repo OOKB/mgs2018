@@ -118,7 +118,7 @@ class ImageContainer extends React.Component {
     }, 0)
   }
   render() {
-    const { item, parent } = this.props
+    const { item } = this.props
     const { currentX, currentY, toX, toY, stiffness, damping, precision, imgWidth, z } = this.state
     const style = {
       left: spring(toX, { stiffness, damping, precision }),

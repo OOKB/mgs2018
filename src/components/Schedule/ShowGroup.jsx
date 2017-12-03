@@ -5,6 +5,8 @@ import Link from 'redux-history-component'
 import css from 'cape-style'
 // import './ShowItem.css'
 
+import { ShowItem } from './styles'
+
 export const linkMap = propertyOf({
   recL5bU5855qMhQT4: 'recy5OLOvJNnpWuAD',
   reclZwOjZuXJVbRg1: 'recPkxpU5hm2lfIWC',
@@ -32,8 +34,8 @@ Reception.propTypes = {
 function ShowGroup({ extraChild, name, program, reception, showDate, ...props }) {
   const showId = getShowId(props)
   return (
-    <div className="showItem item">
-      <Link routeId="details" showId={showId} className="block black" style={css('textReset')}>
+    <ShowItem>
+      <Link routeId="details" showId={showId} className="block" style={css('textReset')}>
         <h1 style={css('m0 mb1')}>{ name }</h1>
         {showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2>}
         {reception && <Reception date={reception} extra={extraChild && extraChild.reception} />}
@@ -41,7 +43,7 @@ function ShowGroup({ extraChild, name, program, reception, showDate, ...props })
           {program && map(program, (item, key) => <li key={key}>{item.name}</li>)}
         </ul>
       </Link>
-    </div>
+    </ShowItem>
   )
 }
 

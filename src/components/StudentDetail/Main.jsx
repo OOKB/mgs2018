@@ -4,14 +4,14 @@ import marked from 'marked'
 // import css from 'cape-style'
 import mgsBlock from '../../mgs2017LogoBlock.svg'
 
-import Slideshow from './Slideshow'
+// import Slideshow from './Slideshow'
 import NoImages from './NoImages'
 import ProgramList from './ProgramList'
 
 function Main({ art, program, statement }) {
   return (
     <div className="student-main">
-      { art && <Slideshow collection={art} /> }
+      {/* { art && <Slideshow collection={art} /> } */}
       {!art && <NoImages /> }
       <div className="container flex">
         <ProgramList {...program} />

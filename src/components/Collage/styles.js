@@ -1,5 +1,3 @@
-import { random } from 'lodash'
-
 import styled from 'styled-components'
 import { sizes, colors } from '../../util'
 
