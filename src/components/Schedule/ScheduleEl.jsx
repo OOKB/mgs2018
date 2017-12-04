@@ -14,10 +14,10 @@ function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
   const { onCampusExhibition, singleDay, cityWide } = showGroups
   return (
     <HomeWrapper>
-      <article id="schedule" style={css('pl1 pr1 pb2')}>
+      <article id="schedule" style={css('pl1p5 pr1p5 pb2')}>
 
         <header>
-          <div className="group" style={css('flex')}>
+          <div className="" style={css('flex')}>
             <Search collectionId={'ShowGroup'} style={css('flexAuto')} />
           </div>
         </header>
