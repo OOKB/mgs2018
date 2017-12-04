@@ -1,10 +1,22 @@
 import styled from 'styled-components'
-import { sizes } from '../../util'
+import { transparentize } from 'polished'
+import { colors, sizes } from '../../util'
 
 export const SearchWrapper = styled.label`
   position: relative;
   width: 100%;
-
+  display: flex;
+  ${'' /* align-items: baseline;
+  justify-content: flex-start;
+  margin: 1rem 1.5rem 0; */}
+  color: ${colors.grey};
+  ${'' /* padding: .5rem 2rem .5rem 4rem; */}
+  i {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   @media (min-width: ${sizes.medium}) {
   }
 `
@@ -15,15 +27,17 @@ export const SearchInput = styled.input`
   border: none;
   display: block;
   height: 3rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: 3rem;
   width: 100%;
-  padding: .5rem 2rem .5rem 4rem;
   transition: all 300ms;
   position: relative;
   z-index: 1;
+  padding: .5rem 3rem .5rem 3rem;
+  margin: 1rem 0;
   &:focus {
-    border-color: ${props => props.theme.color};
-    outline-color: ${props => props.theme.color};
+    background: ${props => transparentize(0.9, props.theme.color)};
+    outline-color: #fff};
   }
+  &::placeholder { color: ${colors.grey} }
 `

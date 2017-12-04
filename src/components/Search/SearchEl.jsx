@@ -10,7 +10,7 @@ function SearchEl({ onChange, value }) {
     <SearchWrapper htmlFor="search">
       <Icon
         hidden
-        style={css('absolute lh3 z2 fs1p618 ml2')}
+        style={css('fs2')}
         symbol="search"
       />
       <SearchInput
