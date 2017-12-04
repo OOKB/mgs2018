@@ -48,9 +48,7 @@ class Page extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <page {...props} onClick={this.changeTheme}>
-          <main className="">
-            {children}
-          </main>
+          {children}
           <Footer />
         </page>
       </ThemeProvider>

@@ -1,30 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GoogleMap from 'google-map-react'
-import { map } from 'lodash'
-// import css from 'cape-style'
-import LocationItem from './DetailMapLocation'
 
 function DetailMap({ locations, style, ...props }) {
   return (
-    <div
-      className="google-map-container"
-      id="detail-map-locations"
-      style={style}
-    >
-      <GoogleMap
-        {...props}
-        bootstrapURLKeys={{
-          key: 'AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA',
-          language: 'en',
-        }}
-      >
-        { map(locations, location => <LocationItem key={location.id} {...location} />) }
-      </GoogleMap>
-    </div>
+    <GoogleMap
+      {...props}
+      bootstrapURLKeys={{
+        key: 'AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA',
+        language: 'en',
+      }}
+    />
   )
 }
-
+  
 DetailMap.propTypes = {
   // center: PropTypes.object,
   defaultCenter: PropTypes.shape({

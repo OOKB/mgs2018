@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { sizes } from '../../util'
 
 export const Wrapper = styled.div`
+  width:100%;
   max-width: 88rem;
   margin: 0 auto;
   @media (min-width: ${sizes.medium}) {
@@ -27,15 +28,25 @@ export const MicaLogo = styled.div`
 export const MenuWrapper = styled.div`
   width: 100%;
   .menu {
+    margin: 1rem 0 0 1.5rem;
     display: block;
     text-align: left;
     > li {
       display: inline-block;
       text-align: left;
+      &:first-child:after {
+        content: '/';
+        display: inline-block;
+        padding: 0;
+        font-size: 3rem !important;
+        font-weight: 700;
+        margin: 0 1.5rem;
+      }
       a {
         background: none !important;
         border: none !important;
         border-bottom: 1px ${props => props.theme.color} solid !important;
+        display: inline !important;
         padding: 0;
         font-size: 3rem !important;
         font-weight: 700;
@@ -43,7 +54,7 @@ export const MenuWrapper = styled.div`
         &.active {
           border-bottom: none !important;
         }
-        &:not(.active):hover {
+        &:not(.active):   hover {
           color: ${props => props.theme.color};
           opacity: .5;
         }

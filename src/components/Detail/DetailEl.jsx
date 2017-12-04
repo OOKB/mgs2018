@@ -4,9 +4,12 @@ import { find, map, size } from 'lodash'
 import css from 'cape-style'
 import Close from 'cape-mixer/lib/CloseButton'
 // import './Detail.css'
-import DetailMap from './DetailMap'
 import LocationList from './LocationList'
 import StudentLink from '../StudentLink'
+import Wrapper from '../Wrapper/WrapperEl'
+import DetailMap from './DetailMap'
+
+import { InfoContainer, ReceptionContainer, FlexColumn, FlexRow, MapContainer } from './styles'
 
 function getFirstProgram(programs) {
   if (!size(programs)) return null
@@ -46,26 +49,32 @@ function DetailEl({ showGroup, detailClose }) {
   } = showGroup
 
   return (
-    <detail className={showGroup.id} >
+    <Wrapper className={showGroup.id} >
       {close}
-      <div className="flex">
-        <div className="mainContent" style={css('relative')}>
-          <h1 style={css('m0')}>{ name }</h1>
-          { showDate && <p className="dateRange" style={css('m0 fs2')}>{ showDate }</p>}
-          { description && <p className="description">{ description }</p>}
+      <FlexRow>
+        <FlexColumn>
+          <MapContainer>
+          <DetailMap
+            defaultCenter={lat ? { lat, lng } : undefined}
+            zoom={zoom}
+            locations={locations}
+          />
+          </MapContainer>
+          <InfoContainer>
+            <h1 style={css('m0')}>{ name }</h1>
+            { showDate && <p className="dateRange" style={css('m0 fs2')}>{ showDate }</p>}
+            { description && <p className="description">{ description }</p>}
+            { reception && <p className="reception">{ reception }</p>}
+          </InfoContainer>
+        </FlexColumn>
+        <ReceptionContainer className="mainContent" style={css('relative')}>
           <LocationList show={show} reception={reception} />
           {extraChild &&
             <LocationList show={extraChild.show} reception={extraChild.reception} />
           }
-        </div>
-        <DetailMap
-          defaultCenter={lat ? { lat, lng } : undefined}
-          zoom={zoom}
-          style={css('relative')}
-          locations={locations}
-        />
-      </div>
-    </detail>
+        </ReceptionContainer>
+      </FlexRow>
+    </Wrapper>
   )
 }
 DetailEl.propTypes = {

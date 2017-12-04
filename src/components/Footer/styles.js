@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import { colors, sizes } from '../../util'
 
 export const Wrapper = styled.div`
-  margin: 10rem 0.75rem;
+  margin: 10rem auto;
   border-top: 1px solid black;
+  width: 100%;
+  max-width: 88rem;
 `
 export const Footer = styled.footer`
   display: grid;
@@ -133,5 +135,5 @@ export const MenuWrapper = styled.div`
         width: 100%;
       }
     }
-  }
+    }
 `

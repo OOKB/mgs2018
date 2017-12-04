@@ -10,9 +10,6 @@ import { filterPerms } from './perms'
 export const getMenu = property('db.tempmenu')
 export const getAuth = select(getMenu, 'auth')
 
-console.log('PING')
-console.log(getMenu)
-
 export const menuItems = filterPerms(getMenu)
 
 // Used for the component state.
