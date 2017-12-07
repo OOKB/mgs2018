@@ -10,6 +10,7 @@ export const GroupHeader = styled.h2`
   border-bottom: 1px solid ${colors.grey};
   letter-spacing: 0.02em;
   margin: 0;
+  margin-bottom: 2rem;
   @media (min-width: ${sizes.medium}) {
   }
 `
@@ -19,18 +20,19 @@ export const GroupBody = styled.div`
   flex-wrap: wrap;
 `
 export const Group = styled.section`
-  margin-bottom: 3rem;
   padding: 0 !important;
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 export const ShowItem = styled.section`
+  padding: 0 !important;
+  padding-right: 4rem !important;
   width: calc(100% / 3);
-  margin: 3rem 0 0;
+  margin: 0 0 5rem;
   background: none;
   z-index: 1;
   font-size: 1.25rem;
+  &:nth-child(3) {
+    padding-right: 0 !important;
+  }
   &:hover {
     background: none;
     color: ${props => props.theme.color};
@@ -41,5 +43,8 @@ export const ShowItem = styled.section`
 
 export const Blurb = styled.p`
   width: calc(100% / 3);
-  margin: 4rem 0 0;
+  margin: 0 0 5rem;
+  padding-right: 4rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
 `
