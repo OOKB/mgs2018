@@ -11,7 +11,7 @@ export function getPrefix(collectionId = 'default') {
 export function textSearch(searchValue) {
   return item =>
     every(compact(searchValue.split(' ')), searchTxt =>
-      item.searchable.includes(searchTxt)
+      item && item.searchable && item.searchable.includes(searchTxt)
     )
 }
 export function searchItems(items, searchValue) {
