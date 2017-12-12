@@ -1007,8 +1007,6 @@ li.artwork a {
 .student-list {
   list-style: none;
   margin: 0;
-  margin-left: -1rem;
-  margin-right: -1rem;
   padding: 0;
 }
 

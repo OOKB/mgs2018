@@ -6,11 +6,7 @@ export const SearchWrapper = styled.label`
   position: relative;
   width: 100%;
   display: flex;
-  ${'' /* align-items: baseline;
-  justify-content: flex-start;
-  margin: 1rem 1.5rem 0; */}
   color: ${colors.grey};
-  ${'' /* padding: .5rem 2rem .5rem 4rem; */}
   i {
     position: absolute;
     z-index: 2;

@@ -13,9 +13,9 @@ function StudentListEl({ programOptions, students }) {
   const collectionId = 'Student'
   return (
     <HomeWrapper>
-      <article id="studentList" className="text-left" style={css('p0 pl1 pr1')}>
+      <article id="studentList" className="text-left" style={css('pl1p5 pr1p5')}>
         <header>
-          <div className="group" style={css('flex')}>
+          <div className="" style={css('flex')}>
             <Search collectionId={collectionId} style={css('flexAuto')} />
             {programOptions &&
               <div className="customSelect" style={css('flexAuto')}>
@@ -29,6 +29,7 @@ function StudentListEl({ programOptions, students }) {
             }
           </div>
         </header>
+
         <section>
           <ul className="student-list">
             <li className="student header hidden-sm">

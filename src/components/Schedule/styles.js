@@ -62,7 +62,11 @@ export const Blurb = styled.p`
   font-size: 1.25rem;
   line-height: 1.3;
   @media (min-width: ${sizes.large}) {
-    width: calc(100% / 3);
+    width: calc(100% / 3 * 2);
+    padding-right: 4rem;
+  }
+  @media (min-width: ${sizes.extraLarge}) {
+    width: calc(100% / 3 );
     padding-right: 4rem;
   }
 `
