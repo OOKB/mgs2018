@@ -9,7 +9,7 @@ import LocationList from './LocationList'
 import StudentLink from '../StudentLink'
 import Wrapper from '../Wrapper/WrapperEl'
 
-import { MapContainer, InfoContainer } from './styles'
+import { MapContainer, InfoContainer, Title, Subtitle, Description } from './styles'
 
 function getFirstProgram(programs) {
   if (!size(programs)) return null
@@ -43,7 +43,7 @@ Show.propTypes = {
 
 function DetailEl({ showGroup, detailClose }) {
   const close = <Close icon="times-btl" onClick={detailClose} style={css('absolute')} />
-  if (!showGroup) return <div><p className="flex loading">loading...</p> {close}</div>
+  if (!showGroup) return <div><p className="flex loading">loading...</p>{close}</div>
   const {
     description, extraChild, name, lat, lng, locations, reception, show, showDate, zoom,
   } = showGroup
@@ -65,15 +65,9 @@ function DetailEl({ showGroup, detailClose }) {
             />
           </MapContainer>
           <InfoContainer>
-            <h1 style={css('m0')}>{ name }</h1>
-            { showDate && <p className="dateRange" style={css('m0 fs2')}>{ showDate }</p>}
-            { description && <p className="description">{ description }</p>}
-            { reception &&
-              <div>
-                <h2 style={css('m0 mt2 fs2')}>Reception</h2>
-                <p>{ reception }</p>
-              </div>
-            }
+            <Title>{ name }</Title>
+            { showDate && <Subtitle className="dateRange">{ showDate }</Subtitle>}
+            { description && <Description className="description">{ description }</Description>}
             <LocationList show={show} reception={reception} />
             {extraChild &&
               <LocationList show={extraChild.show} reception={extraChild.reception} />

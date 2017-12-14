@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { sizes } from '../../util'
 
 export const Wrapper = styled.div`
+  width: 100%;
   max-width: 88rem;
   margin: 0 auto;
   @media (min-width: ${sizes.medium}) {
