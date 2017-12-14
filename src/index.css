@@ -315,12 +315,9 @@ page > footer {
 }
 
 detail {
-  background-color: #fffdf4;
-  border: 1rem solid rgba(254,219,000,1);
   display: block;
   position: relative;
-  min-height: 100%;
-  min-height: 100vh;
+  margin-top: 6rem;
 }
 
 detail .flex {
@@ -337,13 +334,13 @@ detail .flex > .mainContent {
 }
 
 detail .google-map-container  {
-  height: 60%;
-  height: 60vh;
+  height: 50%;
+  height: 50vh;
 }
 
 /** skinny mode stacking order **/
 detail .mainContent {
-  order: 1;
+  order: 2;
 }
 detail .studentList {
   font-size: .8rem;
@@ -361,7 +358,7 @@ detail .studentList > ul {
   margin-bottom: .125em;
 }
 detail .google-map-container {
-  order: 2;
+  order: 1;
 }
 
 @media (min-width: 600px ) and (max-width: 767.99px ) {
@@ -373,7 +370,6 @@ detail .google-map-container {
 @media (min-width: 768px ) {
   detail .flex {
     flex-direction: row;
-    min-height: calc(100vh - 2em);
   }
   detail .flex > .mainContent {
     padding-top: 2rem;
@@ -413,18 +409,18 @@ detail .google-map-container {
 @media (min-width: 1000px ){
   /** wide mode stacking order **/
   detail .mainContent {
-    order: 1;
+    order: 2;
   }
   detail .studentList {
     order: 2;
   }
   detail .google-map-container {
-    order: 3;
+    order: 1;
   }
 
   detail .mainContent,
   detail .google-map-container {
-    min-height: calc(100vh - 2em);
+    min-height: 50vh;
   }
   detail .flex > .mainContent {
     flex: 2;
@@ -442,7 +438,7 @@ detail .google-map-container {
   }
   detail .flex > .google-map-container {
     flex: 3;
-    height: calc(100vh - 2rem);
+    height: 50vh;
     width: auto;
   }
 }
@@ -1099,8 +1095,8 @@ li.artwork a {
   animation: loadingAnimation 2s infinite ease-in-out;
 }
 @keyframes loadingAnimation {
-  0%, 100% { text-shadow: 0 0 0 rgba(254,219,000,0); }
-  50% { text-shadow: .5em .5em .25em rgba(254,219,000,.8); }
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(360deg); }
 }
 
 /**** STUDENTDETAILS ****/

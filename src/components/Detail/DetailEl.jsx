@@ -4,12 +4,12 @@ import { find, map, size } from 'lodash'
 import css from 'cape-style'
 import Close from 'cape-mixer/lib/CloseButton'
 // import './Detail.css'
+import DetailMap from './DetailMap'
 import LocationList from './LocationList'
 import StudentLink from '../StudentLink'
 import Wrapper from '../Wrapper/WrapperEl'
-import DetailMap from './DetailMap'
 
-import { InfoContainer, ReceptionContainer, FlexColumn, FlexRow, MapContainer } from './styles'
+import { MapContainer, InfoContainer } from './styles'
 
 function getFirstProgram(programs) {
   if (!size(programs)) return null
@@ -49,31 +49,38 @@ function DetailEl({ showGroup, detailClose }) {
   } = showGroup
 
   return (
-    <Wrapper className={showGroup.id} >
-      {close}
-      <FlexRow>
-        <FlexColumn>
+    <Wrapper>
+      <detail className={showGroup.id} >
+        {close}
+        <div className="flex">
           <MapContainer>
-          <DetailMap
-            defaultCenter={lat ? { lat, lng } : undefined}
-            zoom={zoom}
-            locations={locations}
-          />
+            <DetailMap
+              defaultCenter={lat ? { lat, lng } : undefined}
+              zoom={zoom}
+              locations={locations}
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA&v=3.exp&libraries=geometry,drawing,places"
+              loadingElement={<div style={{ height: '100%' }} />}
+              containerElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
+              mapElement={<div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />}
+            />
           </MapContainer>
           <InfoContainer>
             <h1 style={css('m0')}>{ name }</h1>
             { showDate && <p className="dateRange" style={css('m0 fs2')}>{ showDate }</p>}
             { description && <p className="description">{ description }</p>}
-            { reception && <p className="reception">{ reception }</p>}
+            { reception &&
+              <div>
+                <h2 style={css('m0 mt2 fs2')}>Reception</h2>
+                <p>{ reception }</p>
+              </div>
+            }
+            <LocationList show={show} reception={reception} />
+            {extraChild &&
+              <LocationList show={extraChild.show} reception={extraChild.reception} />
+            }
           </InfoContainer>
-        </FlexColumn>
-        <ReceptionContainer className="mainContent" style={css('relative')}>
-          <LocationList show={show} reception={reception} />
-          {extraChild &&
-            <LocationList show={extraChild.show} reception={extraChild.reception} />
-          }
-        </ReceptionContainer>
-      </FlexRow>
+        </div>
+      </detail>
     </Wrapper>
   )
 }
