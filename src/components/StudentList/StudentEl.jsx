@@ -6,7 +6,7 @@ import LinkEl from 'cape-mixer/lib/Link/Link'
 import Select from 'cape-mixer/lib/SelectEl'
 // import './Student.css'
 import { getShowId } from '../Schedule/ShowGroup'
-import StudentLink from '../StudentLink'
+import StudentLink from '../Peers/StudentLink'
 
 import { GroupBody, Cell } from './styles'
 

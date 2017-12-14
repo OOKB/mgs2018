@@ -6,7 +6,7 @@ import Close from 'cape-mixer/lib/CloseButton'
 // import './Detail.css'
 import DetailMap from './DetailMap'
 import LocationList from './LocationList'
-import StudentLink from '../StudentLink'
+import StudentLink from '../Peers/StudentLink'
 import Wrapper from '../Wrapper/WrapperEl'
 
 import { MapContainer, InfoContainer, Title, Subtitle, Description } from './styles'

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { find, map, size } from 'lodash'
 import css from 'cape-style'
-import Peers from '../Peers'
+import Peers from '../Peers/Peers'
 
 import { Reception, Divider, PlaceName, PlaceBuilding, PlaceAddress, PlaceHours, Link } from './styles'
 

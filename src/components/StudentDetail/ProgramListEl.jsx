@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Peers from '../Peers'
+import Peers from '../Peers/Peers'
 
 function ProgramList({ name, students }) {
   return (
-    <aside className="program-list w20">
+    <aside className="program-list">
       <h3>{name}</h3>
       <Peers students={students} />
     </aside>

@@ -348,9 +348,6 @@ detail .studentList {
   flex-direction: column;
   line-height: 1.375;
 }
-.studentList a {
-  border-bottom-color: #fedb00;
-}
 detail .studentList > ul {
   width: 50%;
 }
