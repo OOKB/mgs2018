@@ -40,8 +40,8 @@ const micaLogo = `
 </g>
 </svg>`
 
-function HomeWrapperEl({ children, art, siteName, test }) {
-  console.log(test)
+function HomeWrapperEl({ children, art, siteName, studentArt }) {
+  console.log(studentArt)
   return (
     <Page className="App">
       <Wrapper>
@@ -50,7 +50,7 @@ function HomeWrapperEl({ children, art, siteName, test }) {
           <Logo right logoSrc={micaLogo} siteName={siteName} />
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
-        {art && art.length > 0 && <Collage collection={art} />}
+        {studentArt && studentArt.length > 0 && <Collage collection={art || studentArt} />}
         <LogoWrapper>
           <Logo right primary logoSrc={yearLogo} siteName={siteName} />
         </LogoWrapper>
@@ -75,10 +75,12 @@ HomeWrapperEl.propTypes = {
   art: PropTypes.arrayOf(artPropType),
   children: PropTypes.node.isRequired,
   siteName: PropTypes.string.isRequired,
+  studentArt: PropTypes.arrayOf(artPropType),
 }
 HomeWrapperEl.defaultProps = {
   art: null,
   siteName: 'MICA Grad Show 2018',
+  studentArt: null,
 }
 
 export default HomeWrapperEl
