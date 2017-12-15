@@ -4,8 +4,10 @@ import { sizes } from '../../util'
 export const InfoContainer = styled.div`
   position: relative;
   flex: 1;
-  padding-left: 3rem;
+  padding-top: 3rem;
   @media (min-width: ${sizes.medium}) {
+    padding-top: 0;
+    padding-left: 3rem;
   }
 `
 
@@ -92,6 +94,6 @@ export const Link = styled.a`
 export const NameLink = styled.li`
   margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: ${props => props.theme.color};
-  text-decoration: underline;
+  color: ${props => (props.hasDetail ? props.theme.color : 'initial')};
+  text-decoration: ${props => (props.hasDetail ? 'underline' : '')};
 `

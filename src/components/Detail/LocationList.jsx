@@ -24,7 +24,6 @@ function LocationItem({ location, students }) {
       }
       {size(students) > 0 &&
         <div>
-          <Link href="#">View Students</Link>
           <Peers students={students} />
         </div>
       }

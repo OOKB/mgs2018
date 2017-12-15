@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { map, size } from 'lodash'
 import css from 'cape-style'
-import Close from 'cape-mixer/lib/CloseButton'
 // import './Detail.css'
 import DetailMap from './DetailMap'
 import LocationList from './LocationList'
 import StudentLink from '../Peers/StudentLink'
+import Logo from '../Logo/Logo'
 import Wrapper from '../Wrapper/WrapperEl'
+
+import mgsLogo from '../../mgs2018logoarrow.svg'
 
 import { MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider } from './styles'
 
@@ -17,7 +19,7 @@ function AllStudents({ program }) {
       <Divider />
       <ul style={css('m0 mt1 p0 lsNone')} >
         {size(program) > 0 && map(program, ({ students }) => map(students, student => (
-          <NameLink key={student.id}>
+          <NameLink hasDetail={student.hasDetail} key={student.id}>
             <StudentLink {...student}><span className="name">{student.name}</span></StudentLink>
           </NameLink>
         ))
@@ -31,7 +33,6 @@ AllStudents.propTypes = {
 }
 
 function DetailEl({ showGroup, detailClose }) {
-  const close = <Close icon="times-btl" onClick={detailClose} style={css('absolute')} />
   if (!showGroup) return <div><p className="flex loading">loading...</p>{close}</div>
   const {
     description, extraChild, id, name, lat, lng, locations, program,
@@ -40,8 +41,8 @@ function DetailEl({ showGroup, detailClose }) {
   const isShowThree = id === 'recLTqHoop0NcGOrb'
   return (
     <Wrapper>
+      <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={detailClose} />
       <detail className={id} >
-        {close}
         <div className="flex">
           <MapContainer>
             <DetailMap
