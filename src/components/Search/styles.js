@@ -32,7 +32,7 @@ export const SearchInput = styled.input`
   padding: .5rem 3rem .5rem 3rem;
   margin: 1rem 0;
   &:focus {
-    background: ${props => transparentize(0.9, props.theme.color)};
+    background: ${props => transparentize(0.95, props.theme.color)};
     outline-color: #fff};
   }
   &::placeholder { color: ${colors.grey} }
