@@ -35,7 +35,7 @@ const micaLogo = `
 </g>
 </svg>`
 
-function HomeWrapperEl({ children, siteName }) {
+function WrapperEl({ children, siteName }) {
   return (
     <Page className="App">
       <Wrapper>
@@ -49,12 +49,12 @@ function HomeWrapperEl({ children, siteName }) {
     </Page>
   )
 }
-HomeWrapperEl.propTypes = {
+WrapperEl.propTypes = {
   children: PropTypes.node.isRequired,
   siteName: PropTypes.string.isRequired,
 }
-HomeWrapperEl.defaultProps = {
+WrapperEl.defaultProps = {
   siteName: 'MICA Grad Show 2018',
 }
 
-export default HomeWrapperEl
+export default WrapperEl

@@ -57,14 +57,14 @@ class ImageContainer extends React.Component {
     let imageAR = image.aspectRatio
 
     if (image.aspectRatio && image.aspectRatio < 1) {
-      imageWidth = wrapWidth * 0.6
+      imageWidth = wrapWidth * 0.5
       imageHeight = round(imageWidth * image.aspectRatio)
     } else {
       imageHeight = wrapHeight * 0.9
       imageWidth = round(imageHeight / image.aspectRatio)
     }
 
-    const xBound = (wrapWidth - imageWidth) * 0.1
+    const xBound = (wrapWidth - imageWidth) * 0.2
     const yBound = (wrapHeight - imageHeight)
     const left = 0
     const center = (wrapWidth / 2) - (imageWidth / 2) - xBound
@@ -77,8 +77,8 @@ class ImageContainer extends React.Component {
     const finalY = yBound
 
     return {
-      stiffness: random(40, 80),
-      damping: random(10, 40),
+      stiffness: random(70, 110),
+      damping: random(20, 80),
       currentX: random(startingX, finalX),
       currentY: random(startingY, finalY),
       toX: random(startingX, finalX),
@@ -105,9 +105,9 @@ class ImageContainer extends React.Component {
 
   updatePos() {
     const newState = {
-      stiffness: random(2, 4),
-      damping: random(4, 8),
-      precision: random(0.001, 1),
+      stiffness: random(70, 110),
+      damping: random(20, 80),
+      precision: random(1, 1),
       toX: random(this.state.xMin, this.state.xMax),
       toY: random(this.state.yMin, this.state.yMax),
     }
@@ -129,7 +129,7 @@ class ImageContainer extends React.Component {
         key={item.id}
         defaultStyle={{ left: currentX, top: currentY }}
         style={style}
-        // onRest={() => { this.updatePos() }}
+        onRest={() => { this.updatePos() }}
       >
         { styles =>
           <div>
@@ -141,7 +141,7 @@ class ImageContainer extends React.Component {
                 {item.person && <CaptionItem>{item.person.name && <span>{item.person.name}</span>}{item.person.program && <span>, {item.person.program}</span>}</CaptionItem> }
               </Caption>
             </ImageWrapper>
-            { this.catchMotion(styles.left / toX) }
+            {/* { this.catchMotion(styles.left / toX) } */}
           </div>
         }
       </Motion>

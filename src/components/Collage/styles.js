@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   top: 2rem;
   padding-top: 90%;
   position: relative;
-  margin: 0 0.75rem;
+  margin: 0;
   @media (min-width: ${sizes.medium}) {
     padding-top: 50%;
   }
@@ -18,7 +18,7 @@ export const Image = styled.img`
 `
 
 export const ImageWrapper = styled.div`
-  max-width: 60%;
+  max-width: 50%;
   max-height: 90%;
   position: absolute;
   top: 10px;

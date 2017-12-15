@@ -40,7 +40,8 @@ const micaLogo = `
 </g>
 </svg>`
 
-function HomeWrapperEl({ children, art, siteName }) {
+function HomeWrapperEl({ children, art, siteName, test }) {
+  console.log(test)
   return (
     <Page className="App">
       <Wrapper>

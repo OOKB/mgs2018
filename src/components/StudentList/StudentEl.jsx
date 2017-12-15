@@ -55,6 +55,7 @@ function StudentEl(props) {
 
 StudentEl.propTypes = {
   detailUrl: PropTypes.string.isRequired,
+  hasDetail: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   program: PropTypes.shape({
@@ -79,5 +80,6 @@ StudentEl.propTypes = {
   youtube: PropTypes.string,
 }
 StudentEl.defaultProps = {
+  hasDetail: false,
 }
 export default StudentEl
