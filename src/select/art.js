@@ -1,8 +1,12 @@
-import { filter, flow, get, mapValues, pickBy, sampleSize, sortBy, toArray, shuffle } from 'lodash/fp'
+import {
+  filter, flow, get, keys, mapValues, pick, pickBy, sampleSize, sortBy, toArray, shuffle,
+} from 'lodash/fp'
+import { isEmpty, map, reduce } from 'lodash'
 import { setField } from 'cape-lodash'
 import { buildFullEntity, entityTypeSelector, getGraphNode } from 'redux-graph'
-// import { createSelector } from 'reselect'
+import { createSelector } from 'reselect'
 import { getGraphSlice } from './util'
+import { studentsFilled } from './student'
 
 export const getArtItems = entityTypeSelector('CreativeWork')
 export const getSplashArt = entityTypeSelector('SplashArt')
@@ -30,6 +34,33 @@ export function addStudentArt(graphSlice, student) {
     )
   )(student)
 }
+// Load art for every student in students object.
+export function addStudentsArt(graphSlice, students) {
+  if (isEmpty(students)) return students
+  return mapValues(student => addStudentArt(graphSlice, student), students)
+}
+export const getSlideStudents = createSelector(
+  flow(get('db.slideStudents'), keys),
+  studentsFilled,
+  pick
+)
+export const getSlideStudentsArt = createSelector(
+  artGraph,
+  getSlideStudents,
+  addStudentsArt
+)
+
+export const slideStudentsArtOnly = students => reduce(
+  students,
+  (result, { art, id, name }) =>
+    result.concat(map(art, item => ({ ...item, studentId: id, studentName: name }))), []
+)
+
+// Selected student
+export const studentSplashArt = createSelector(
+  createSelector(getSlideStudentsArt, slideStudentsArtOnly),
+  sampleSize(3)
+)
 export const splashArt = flow(
   getSplashArt,
   toArray,
