@@ -54,7 +54,6 @@ function StudentEl(props) {
 }
 
 StudentEl.propTypes = {
-  detailUrl: PropTypes.string.isRequired,
   hasDetail: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
