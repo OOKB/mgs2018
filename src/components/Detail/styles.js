@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { sizes } from '../../util'
 
 export const InfoContainer = styled.div`
+  position: relative;
   flex: 1;
   padding-left: 3rem;
   @media (min-width: ${sizes.medium}) {
@@ -9,6 +10,8 @@ export const InfoContainer = styled.div`
 `
 
 export const MapContainer = styled.div`
+  height: 0;
+  padding-bottom: 100%;
   flex: 2 !important;
   width: auto;
   ${'' /* .google-map-container {
@@ -83,6 +86,12 @@ export const PlaceHours = styled.p`
   font-size: .75rem;
 `
 export const Link = styled.a`
+  color: ${props => props.theme.color};
+  text-decoration: underline;
+`
+export const NameLink = styled.li`
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
   color: ${props => props.theme.color};
   text-decoration: underline;
 `

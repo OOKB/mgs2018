@@ -9,20 +9,21 @@ import LocationList from './LocationList'
 import StudentLink from '../Peers/StudentLink'
 import Wrapper from '../Wrapper/WrapperEl'
 
-import { MapContainer, InfoContainer, Title, Subtitle, Description } from './styles'
+import { MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider } from './styles'
 
 function AllStudents({ program }) {
   return (
-    <ul style={css('m0 mt1 p0 lsNone')} >
-      {size(program) > 0 && map(program, ({ students }) => map(students, student => (
-        <li key={student.id}>
-          <StudentLink {...student}>
-            <span className="name"><strong>{ student.name }</strong></span>
-          </StudentLink>
-        </li>
-      ))
-      )}
-    </ul>
+    <div>
+      <Divider />
+      <ul style={css('m0 mt1 p0 lsNone')} >
+        {size(program) > 0 && map(program, ({ students }) => map(students, student => (
+          <NameLink key={student.id}>
+            <StudentLink {...student}><span className="name">{student.name}</span></StudentLink>
+          </NameLink>
+        ))
+        )}
+      </ul>
+    </div>
   )
 }
 AllStudents.propTypes = {
@@ -61,8 +62,8 @@ function DetailEl({ showGroup, detailClose }) {
             {extraChild &&
               <LocationList show={extraChild.show} reception={extraChild.reception} />
             }
+            {isShowThree && program && <AllStudents program={program} />}
           </InfoContainer>
-          {isShowThree && program && <AllStudents program={program} />}
         </div>
       </detail>
     </Wrapper>

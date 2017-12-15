@@ -19,11 +19,15 @@ function LocationItem({ location, students }) {
       </PlaceAddress>
       {galleryHours &&
         <PlaceHours className="openHours" style={css('fs0p75')}>
-          Open /<br/> {galleryHours}
+          Open /<br /> {galleryHours}
         </PlaceHours>
       }
-      <Link href='#'>View Students</Link>
-      {size(students) > 0 && <Peers students={students} />}
+      {size(students) > 0 &&
+        <div>
+          <Link href="#">View Students</Link>
+          <Peers students={students} />
+        </div>
+      }
     </li>
   )
 }
