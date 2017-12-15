@@ -38,9 +38,12 @@ export const MenuWrapper = styled.div`
         content: '/';
         display: inline-block;
         padding: 0;
-        font-size: 3rem !important;
+        font-size: 2rem !important;
         font-weight: 700;
         margin: 0 1.5rem;
+        @media (min-width: ${sizes.small}) {
+          font-size: 3rem !important;
+        }
       }
       a {
         background: none !important;
@@ -48,9 +51,12 @@ export const MenuWrapper = styled.div`
         border-bottom: 1px ${props => props.theme.color} solid !important;
         display: inline !important;
         padding: 0;
-        font-size: 3rem !important;
+        font-size: 2rem !important;
         font-weight: 700;
         color: ${props => props.theme.color};
+        @media (min-width: ${sizes.small}) {
+          font-size: 3rem !important;
+        }
         &.active {
           border-bottom: none !important;
         }

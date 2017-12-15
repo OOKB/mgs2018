@@ -29,7 +29,7 @@ function StudentEl(props) {
         <StudentLink hasDetail={hasDetail} id={id}><strong>{ name }</strong></StudentLink>
       </Cell>
       <Cell className="program">
-        <i>{ program.name }</i>
+        { program.name }
       </Cell>
       <Cell className="show">
         {show && (

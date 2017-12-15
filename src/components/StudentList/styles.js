@@ -38,6 +38,13 @@ export const GroupBody = styled.li`
     flex-direction: row;
     align-items: center;
   }
+  @media (max-width: ${sizes.medium}) {
+    .name, .program, .show { margin-bottom: 0.5rem; }
+    .name { font-size: 1.3rem; }
+    .program { font-size: 1.1rem; }
+    .show { font-size: 1.1rem; }
+  }
+
 `
 
 export const Cell = styled.span`
@@ -75,6 +82,16 @@ export const CustomSelect = styled.div`
         background: ${props => transparentize(0.95, props.theme.color)};
         outline-color: #fff
       }
+      @media (max-width: ${sizes.medium}) {
+        border: 1px solid ${props => props.theme.color};
+        padding: 1rem .5rem;
+        font-size: 1.25rem;
+      }
+    }
+    @media (max-width: ${sizes.medium}) {
+      &::after {
+        display: none;
+      }
     }
     &:hover {
       select {
@@ -89,4 +106,12 @@ export const CustomSelect = styled.div`
     }
   }
 }
+`
+
+export const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: ${sizes.medium}) {
+    flex-direction: row;
+  }
 `

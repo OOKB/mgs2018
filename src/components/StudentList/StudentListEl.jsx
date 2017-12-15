@@ -7,7 +7,7 @@ import Search from '../Search/Search'
 import FilterSelect from '../FilterSelect'
 import Student from './Student'
 
-import { GroupHeader, CustomSelect } from './styles'
+import { GroupHeader, CustomSelect, SearchContainer } from './styles'
 
 function StudentListEl({ programOptions, students }) {
   const collectionId = 'Student'
@@ -15,7 +15,7 @@ function StudentListEl({ programOptions, students }) {
     <HomeWrapper>
       <article id="studentList" className="text-left" style={css('pl1p5 pr1p5')}>
         <header>
-          <div className="" style={css('flex')}>
+          <SearchContainer>
             <Search collectionId={collectionId} style={css('flexAuto')} />
             {programOptions &&
               <CustomSelect className="customSelect" style={css('flexAuto')}>
@@ -27,7 +27,7 @@ function StudentListEl({ programOptions, students }) {
                 />
               </CustomSelect>
             }
-          </div>
+          </SearchContainer>
         </header>
 
         <section>
