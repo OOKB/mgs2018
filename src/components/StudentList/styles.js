@@ -31,4 +31,10 @@ export const Cell = styled.span`
   &.program { flex: 5; }
   &.show { flex: 3; }
   &.social { flex: 2; }
+  a {
+    color: ${props => props.theme.color};
+    text-decoration: underline;
+    &:hover {
+      opacity: 0.5;
+  }
 `

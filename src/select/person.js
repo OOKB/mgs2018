@@ -33,7 +33,7 @@ export function getDetailUrl({ hasDetail, id }) {
 }
 export const studentFill = flow(
   setField('name', getName),
-  setField('detailUrl', getDetailUrl)
+  setField('detailUrl', getDetailUrl),
 )
 export function studentIndexFill(Student, Person) {
   return mapValues(Student, item =>

@@ -1,14 +1,14 @@
 import React from 'react'
-import { map } from 'lodash'
+import { map, slice } from 'lodash'
 import css from 'cape-style'
 
 import SlideThumb from './SlideThumb'
 
-function ImageStack({ collection }) {
+function ImageStackMobile({ collection }) {
 
   return (
-    <ul className="image-stack" style={css('m0 p0 lsNone')}>
-      {map(collection, item => (
+    <ul className="image-stack-mobile" style={css('m0 p0 lsNone')}>
+      {map(slice(collection, 1), item => (
         <SlideThumb
           key={item.id}
           src={item.image.url}
@@ -24,4 +24,4 @@ function ImageStack({ collection }) {
   )
 }
 
-export default ImageStack
+export default ImageStackMobile

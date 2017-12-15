@@ -13,7 +13,7 @@ import { GroupBody, Cell } from './styles'
 function StudentEl(props) {
   const {
     id, name, show, url, email, program, saveShow, shows, showGroup,
-    facebook, instagram, soundcloud, twitter, vimeo, youtube,
+    facebook, instagram, soundcloud, twitter, vimeo, youtube, hasDetail,
   } = props
   const emailStr = `mailto:${email}`
   const facebookStr = `https://www.facebook.com/${facebook}`
@@ -26,7 +26,7 @@ function StudentEl(props) {
   return (
     <GroupBody id={id}>
       <Cell className="name">
-        <StudentLink id={id}><strong>{ name }</strong></StudentLink>
+        <StudentLink hasDetail={hasDetail} id={id}><strong>{ name }</strong></StudentLink>
       </Cell>
       <Cell className="program">
         <i>{ program.name }</i>

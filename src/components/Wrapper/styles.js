@@ -5,8 +5,9 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 88rem;
   margin: 0 auto;
+  padding: 0 2rem;
   @media (min-width: ${sizes.medium}) {
-    padding: 0 2rem;
+    padding: 0 3.5rem;
   }
 `
 

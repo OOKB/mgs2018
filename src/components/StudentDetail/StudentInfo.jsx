@@ -4,7 +4,7 @@ import css from 'cape-style'
 import LinkEl from 'cape-mixer/lib/Link/Link'
 import marked from 'marked'
 
-import { Title, Subtitle, Description } from './styles'
+import { Title, Subtitle, Description, Social } from './styles'
 
 function StudentInfo(props) {
   const {
@@ -25,18 +25,18 @@ function StudentInfo(props) {
       {!name && <Title>{ displayName }</Title> }
       {name && <Title>{ name }</Title> }
       {program && <Subtitle>{ program.name }</Subtitle>}
-      <div className="social">
+      <Social>
         <ul style={css('m0 mt0p5 p0 lsNone flex fs1p5')}>
-          {url && <li style={css('mr0p5')}><LinkEl href={url} icon="web" /></li>}
-          {email && <li style={css('mr0p5')}><LinkEl href={emailStr} icon="email" /></li>}
-          {facebook && <li style={css('mr0p5')}><LinkEl href={facebookStr} icon="facebook" /></li>}
-          {instagram && <li style={css('mr0p5')}><LinkEl href={instagramStr} icon="instagram" /></li>}
-          {soundcloud && <li style={css('mr0p5')}><LinkEl href={soundcloudStr} icon="soundcloud" /></li>}
-          {twitter && <li style={css('mr0p5')}><LinkEl href={twitterStr} icon="twitter" /></li>}
-          {vimeo && <li style={css('mr0p5')}><LinkEl href={vimeoStr} icon="vimeo" /></li>}
-          {youtube && <li style={css('mr0p5')}><LinkEl href={youtubeStr} icon="youtube" /></li>}
+          {url && <li style={css('mr0p75')}><LinkEl href={url} icon="web" /></li>}
+          {email && <li style={css('mr0p75')}><LinkEl href={emailStr} icon="email" /></li>}
+          {facebook && <li style={css('mr0p75')}><LinkEl href={facebookStr} icon="facebook" /></li>}
+          {instagram && <li style={css('mr0p75')}><LinkEl href={instagramStr} icon="instagram" /></li>}
+          {soundcloud && <li style={css('mr0p75')}><LinkEl href={soundcloudStr} icon="soundcloud" /></li>}
+          {twitter && <li style={css('mr0p75')}><LinkEl href={twitterStr} icon="twitter" /></li>}
+          {vimeo && <li style={css('mr0p75')}><LinkEl href={vimeoStr} icon="vimeo" /></li>}
+          {youtube && <li style={css('mr0p75')}><LinkEl href={youtubeStr} icon="youtube" /></li>}
         </ul>
-      </div>
+      </Social>
       { statement &&
         <Description
           className="statement"
