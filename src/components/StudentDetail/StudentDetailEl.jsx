@@ -1,32 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import css from 'cape-style'
-import Close from 'cape-mixer/lib/CloseButton'
 import StudentInfo from './StudentInfo'
 import ShowInfo from './ShowInfo'
-import Main from './Main'
+import ProgramList from './ProgramList'
+import Wrapper from '../Wrapper/WrapperEl'
+import ImageStack from './ImageStack'
+import ImageHeaderMobile from './ImageHeaderMobile'
+import ImageStackMobile from './ImageStackMobile'
+import NoImages from './NoImages'
+import Logo from '../Logo/Logo'
+
+import mgsLogo from '../../mgs2018logoarrow.svg'
+
+import { Flex, ImageContainer, InfoContainer, Divider } from './styles'
 
 function StudentDetail({ closePopup, student }) {
-  const close = <Close icon="times-btl" onClick={closePopup} style={css('absolute')} />
   return (
-    <div id="student-overlay">
+    <Wrapper>
+      <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={closePopup} />
       {!student && <p className="flex loading">loading...</p>}
       {student &&
-        <div className="wrapper flex">
+        <Flex>
           {close}
 
-          <div className="info container flex">
+          <ImageContainer>
+            { student.art && student.art.length > 0 && <ImageStack collection={student.art} /> }
+            { student.art && student.art.length > 0 && <ImageHeaderMobile collection={student.art} /> }
+            { student.art.length === 0 && <NoImages /> }
+          </ImageContainer>
+
+          <InfoContainer>
             <StudentInfo {...student} />
-            <ShowInfo {...student.show} />
-          </div>
+            <Divider />
+            { student.show &&
+              <div>
+                <ShowInfo {...student.show} />
+                <Divider />
+              </div>
+            }
+            { student.art && student.art.length > 0 && <ImageStackMobile collection={student.art} /> }
+            <ProgramList {...student.program} />
+          </InfoContainer>
 
-          <Main {...student} />
 
-        </div>
+        </Flex>
       }
-    </div>
+    </Wrapper>
   )
 }
+
 StudentDetail.propTypes = {
   closePopup: PropTypes.func.isRequired,
   student: PropTypes.shape({

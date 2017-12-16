@@ -2,19 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { find, map, size } from 'lodash'
 import css from 'cape-style'
-import Peers from '../Peers'
+import Peers from '../Peers/Peers'
+
+import { Reception, Divider, PlaceName, PlaceBuilding, PlaceAddress, PlaceHours, Link } from './styles'
+
 
 function LocationItem({ location, students }) {
   if (!location) return <p>No location.</p>
-  const { name, galleryHours } = location
+  const { name, galleryHours, building, streetAddress, zip } = location
   return (
-    <li style={css('mb0p5')}>{name}
+    <li style={css('mb0p5')}>
+      <PlaceName>{name}</PlaceName>
+      <PlaceBuilding>{building}</PlaceBuilding>
+      <PlaceAddress>
+        {streetAddress} {zip}
+      </PlaceAddress>
       {galleryHours &&
-        <div className="openHours" style={css('fs0p75')}>
-          Open: {galleryHours}
+        <PlaceHours className="openHours" style={css('fs0p75')}>
+          Open /<br /> {galleryHours}
+        </PlaceHours>
+      }
+      {size(students) > 0 &&
+        <div>
+          <Peers students={students} />
         </div>
       }
-      {size(students) > 0 && <Peers students={students} />}
     </li>
   )
 }
@@ -29,14 +41,15 @@ LocationItem.propTypes = {
 function LocationList({ show, reception }) {
   return (
     <div>
+      <Divider />
       { reception &&
-        <div>
-          <h2 style={css('m0 mt2 fs2')}>Reception</h2>
+        <Reception>
+          <h3>Reception</h3>
           <p>{ reception }</p>
-        </div>
+        </Reception>
       }
-      <ul style={css('lsNone m0 p0 mt2 relative')}>
-        <h2 style={css('mt2 mb0p5 fs2')}>Location</h2>
+      <Divider />
+      <ul style={css('lsNone m0 p0 relative')}>
         {map(show, item => (
           <LocationItem key={item.id} location={find(item.location)} students={item.student} />
         ))}

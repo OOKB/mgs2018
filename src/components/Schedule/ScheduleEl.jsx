@@ -3,58 +3,55 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import css from 'cape-style'
 // import './Schedule.css'
+import HomeWrapper from '../Home/HomeWrapper'
 import Search from '../Search/Search'
 import ShowItem from './ShowGroup'
-import ShapeOne from '../Shapes/ShapeOne'
-import ShapeTwo from '../Shapes/ShapeTwo'
-import ShapeThree from '../Shapes/ShapeThree'
+
+import { Group, GroupHeader, GroupBody, Blurb } from './styles'
+
 
 function ScheduleEl({ curatorialPracticeBlurb, showGroups }) {
   const { onCampusExhibition, singleDay, cityWide } = showGroups
   return (
-    <article id="schedule" style={css('pl1 pr1 pb2')}>
+    <HomeWrapper>
+      <article id="schedule" style={css('pl1p5 pr1p5')}>
 
-      <header>
-        <h1 style={css('m0 p0 pl1 pr1')}>Schedule</h1>
-        <div className="group" style={css('flex')}>
-          <Search collectionId={'ShowGroup'} style={css('flexAuto')} />
-        </div>
-      </header>
+        <header>
+          <div className="" style={css('flex')}>
+            <Search collectionId={'ShowGroup'} style={css('flexAuto')} />
+          </div>
+        </header>
 
-      <section>
-        <h2 style={css('m0 mt3 bb')}>Exhibitions</h2>
-        <div style={css('flex')} className="shows item-grid">
-          {onCampusExhibition &&
-            map(onCampusExhibition, item => <ShowItem key={item.id} {...item} />)
-          }
-        </div>
-        <ShapeOne />
-      </section>
+        <Group>
+          <GroupHeader>Exhibitions</GroupHeader>
+          <GroupBody>
+            {onCampusExhibition &&
+              map(onCampusExhibition, item => <ShowItem key={item.id} {...item} />)
+            }
+          </GroupBody>
+        </Group>
 
-      <section>
-        <h2 style={css('m0 mt3 bb')}>Events</h2>
-        <div className="shows item-grid">
-          {singleDay &&
-            map(singleDay, item => <ShowItem key={item.id} {...item} />)
-          }
-        </div>
-        <ShapeTwo />
-      </section>
+        <Group>
+          <GroupHeader>Events</GroupHeader>
+          <GroupBody>
+            {singleDay &&
+              map(singleDay, item => <ShowItem key={item.id} {...item} />)
+            }
+          </GroupBody>
+        </Group>
 
-      <section style={css('mb3')}>
-        <h2 style={css('m0 mt3 bb')}>Curatorial Practice</h2>
-        <div style={css('mt1 mb1 mw7 bgYellow')}>
-          <p>{curatorialPracticeBlurb}</p>
-        </div>
-        <div className="shows item-grid">
-          {cityWide &&
-            map(cityWide, item => <ShowItem key={item.id} {...item} />)
-          }
-        </div>
-        <ShapeThree />
-      </section>
+        <Group>
+          <GroupHeader>Curatorial Practice</GroupHeader>
+          <GroupBody>
+            <Blurb>{curatorialPracticeBlurb}</Blurb>
+              {cityWide &&
+              map(cityWide, item => <ShowItem key={item.id} {...item} />)
+            }
+          </GroupBody>
+        </Group>
 
-    </article>
+      </article>
+    </HomeWrapper>
   )
 }
 ScheduleEl.propTypes = {

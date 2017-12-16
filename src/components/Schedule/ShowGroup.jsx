@@ -5,6 +5,8 @@ import Link from 'redux-history-component'
 import css from 'cape-style'
 // import './ShowItem.css'
 
+import { ShowItem } from './styles'
+
 export const linkMap = propertyOf({
   recL5bU5855qMhQT4: 'recy5OLOvJNnpWuAD',
   reclZwOjZuXJVbRg1: 'recPkxpU5hm2lfIWC',
@@ -17,11 +19,11 @@ export function getShowId({ id, key }) {
 
 function Reception({ date, extra }) {
   return (
-    <h2 style={css('m0 mt1 mb1')}>
-      Reception: <br />
+    <div>
+      <h2 style={css('m0 mt1 mb0')}>Reception:</h2>
       {date}
       {extra && <span><br />{extra}</span>}
-    </h2>
+    </div>
   )
 }
 Reception.propTypes = {
@@ -32,16 +34,16 @@ Reception.propTypes = {
 function ShowGroup({ extraChild, name, program, reception, showDate, ...props }) {
   const showId = getShowId(props)
   return (
-    <div className="showItem item">
-      <Link routeId="details" showId={showId} className="block black" style={css('textReset')}>
+    <ShowItem>
+      <Link routeId="details" showId={showId} className="block" style={css('textReset')}>
         <h1 style={css('m0 mb1')}>{ name }</h1>
         {showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2>}
         {reception && <Reception date={reception} extra={extraChild && extraChild.reception} />}
-        <ul style={css('lsNone m0 p0')}>
-          {program && map(program, (item, key) => <li key={key}>{item.name}</li>)}
+        <ul style={css('lsNone mt1 p0')}>
+          {program && map(program, (item, key) => <li style={css('mb0p5')} key={key}>{item.name}</li>)}
         </ul>
       </Link>
-    </div>
+    </ShowItem>
   )
 }
 

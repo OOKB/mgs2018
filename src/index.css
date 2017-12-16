@@ -211,7 +211,6 @@ page > main {
   flex: 1;
   min-width: 0;
   min-height: 0;
-  box-shadow: 0 0 1rem 0 rgba(33, 26, 0, .33);
   z-index: 1;
   padding-top: 3rem;
 }
@@ -316,12 +315,9 @@ page > footer {
 }
 
 detail {
-  background-color: #fffdf4;
-  border: 1rem solid rgba(254,219,000,1);
   display: block;
   position: relative;
-  min-height: 100%;
-  min-height: 100vh;
+  margin-top: 6rem;
 }
 
 detail .flex {
@@ -338,22 +334,19 @@ detail .flex > .mainContent {
 }
 
 detail .google-map-container  {
-  height: 60%;
-  height: 60vh;
+  height: 50%;
+  height: 50vh;
 }
 
 /** skinny mode stacking order **/
 detail .mainContent {
-  order: 1;
+  order: 2;
 }
 detail .studentList {
   font-size: .8rem;
   order: 3;
   flex-direction: column;
   line-height: 1.375;
-}
-.studentList a {
-  border-bottom-color: #fedb00;
 }
 detail .studentList > ul {
   width: 50%;
@@ -362,7 +355,7 @@ detail .studentList > ul {
   margin-bottom: .125em;
 }
 detail .google-map-container {
-  order: 2;
+  order: 1;
 }
 
 @media (min-width: 600px ) and (max-width: 767.99px ) {
@@ -374,7 +367,6 @@ detail .google-map-container {
 @media (min-width: 768px ) {
   detail .flex {
     flex-direction: row;
-    min-height: calc(100vh - 2em);
   }
   detail .flex > .mainContent {
     padding-top: 2rem;
@@ -414,18 +406,18 @@ detail .google-map-container {
 @media (min-width: 1000px ){
   /** wide mode stacking order **/
   detail .mainContent {
-    order: 1;
+    order: 2;
   }
   detail .studentList {
     order: 2;
   }
   detail .google-map-container {
-    order: 3;
+    order: 1;
   }
 
   detail .mainContent,
   detail .google-map-container {
-    min-height: calc(100vh - 2em);
+    min-height: 50vh;
   }
   detail .flex > .mainContent {
     flex: 2;
@@ -443,7 +435,7 @@ detail .google-map-container {
   }
   detail .flex > .google-map-container {
     flex: 3;
-    height: calc(100vh - 2rem);
+    height: 50vh;
     width: auto;
   }
 }
@@ -927,6 +919,7 @@ li.artwork a {
   display:block;
   position: relative;
   width: 100%;
+  align-self: center;
 }
 @media (min-width: 50rem) {
   .customSelect {
@@ -944,16 +937,12 @@ li.artwork a {
   padding: 0;
   font-size: 1rem;
   border: none;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
-  padding-left: 1rem;
   border-radius: 0;
-  height: 3rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   z-index: 1;
+  align-self: center;
 }
 .customSelect > div {
   line-height: 3rem;
@@ -967,31 +956,27 @@ li.artwork a {
 }
 
 .customSelect::after {
+  background: #ffffff;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
   background-color: transparent;
   display:block;
   position: absolute;
   right: 0;
   top:0;
-  height: 3rem;
-  width: 1em;
-  line-height: 3rem;
   font-family: 'MicaGradShow';
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
   text-rendering: auto;
   content: '\f05c';
-  font-size: 3rem;
+  font-size: 1.5rem;
   z-index: 2;
-  border-left: 1px solid black;
   text-align: center;
   pointer-events: none;
+  line-height: 1.25rem;
+  padding-left: 1.5rem;
 }
 
 .customSelect select:focus {
   background-color: rgba(255, 253, 244, 1);
   border-color: rgba(255, 253, 244, 1);
-  border-left-color:black;
   outline-color: rgba(255, 253, 244, 0.5);
 }
 
@@ -1001,77 +986,19 @@ li.artwork a {
 }
 .customSelect:hover::after {
   color:rgba(254,219,0,1);
-  background-color: #211a00;
 }
 
 /* from components/StudentList/Student.css */
 .student-list {
   list-style: none;
   margin: 0;
-  margin-left: -1rem;
-  margin-right: -1rem;
   padding: 0;
-}
-
-.student:nth-child(even) {
-  background-color: #ffea65;
-}
-.student:hover {
-  background-color: #fff8cb;
 }
 
 .student.header,
 .student.header:nth-child(even),
 .student.header:hover {
   background-color: transparent;
-}
-
-.student:last-child {
-  margin-bottom: 2rem;
-}
-
-.student > span {
-  flex: 3;
-  min-width: 0;
-  min-height: 0;
-}
-
-.student span.name {
-  flex: 4;
-}
-
-.student span.program {
-  flex: 5;
-}
-
-.student span.social {
-  flex: 2;
-  text-align: right;
-}
-
-.student a {
-  text-decoration: none;
-  border-bottom: 1px solid #fff8cb;
-  transition: all 300ms;
-}
-
-.student:hover a,
-.student a:hover {
-  color: #322b00;
-  border-bottom-color: #322b00;
-}
-
-.student span.social a {
-  border-bottom: none;
-}
-.student span.social a i {
-  margin-left: .25rem;
-}
-.student span.social a:first-child i {
-  margin-left: 0;
-}
-.student span.social a:hover {
-  color: #cbaf00;
 }
 
 /** hide some shit? **/
@@ -1099,11 +1026,12 @@ li.artwork a {
   justify-content: center;
   text-align: center;
   min-height: 100%;
+  height: 100vh;
   animation: loadingAnimation 2s infinite ease-in-out;
 }
 @keyframes loadingAnimation {
-  0%, 100% { text-shadow: 0 0 0 rgba(254,219,000,0); }
-  50% { text-shadow: .5em .5em .25em rgba(254,219,000,.8); }
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(360deg); }
 }
 
 /**** STUDENTDETAILS ****/

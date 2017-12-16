@@ -1,5 +1,3 @@
-import { random } from 'lodash'
-
 import styled from 'styled-components'
 import { sizes, colors } from '../../util'
 
@@ -8,7 +6,7 @@ export const Wrapper = styled.div`
   top: 2rem;
   padding-top: 90%;
   position: relative;
-  margin: 0 0.75rem;
+  margin: 0;
   @media (min-width: ${sizes.medium}) {
     padding-top: 50%;
   }
@@ -20,15 +18,16 @@ export const Image = styled.img`
 `
 
 export const ImageWrapper = styled.div`
-  max-width: 60%;
+  max-width: 50%;
   max-height: 90%;
   position: absolute;
   top: 10px;
   z-index: ${props => props.z};
+  a { border: none;}
   &:hover {
     z-index: 50;
     div {
-      transform: translateY(95%) scaleY(1);
+      transform: translateY(50%) translateX(-3rem) scaleY(1);
       p {
         opacity: 1;
       }
@@ -36,18 +35,30 @@ export const ImageWrapper = styled.div`
   }
 `
 export const Caption = styled.div`
+  display: ${props => (props.flex ? 'flex' : 'block')};
+  align-items: center;
   transition: .25s;
-  width: 100%;
+  width: ${props => (props.flex ? 'auto' : '100%')};;
   margin: 0;
-  padding: .5rem 1rem;
+  padding: .5rem .5rem;
   background: ${colors.white};
   border: 2px solid ${props => props.theme.color};
   bottom: 0;
   position: absolute;
   transform-origin: top center;
-  transform: translateY(95%) scaleY(0);
+  transform: translateY(50%) translateX(-3rem) scaleY(0);
+  section {
+    margin: 0 .5rem;
+    svg, img, svg path, svg polygon, svg polyline {
+      transition: .25s;
+      fill: ${props => props.theme.color} !important;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    section { opacity: .5; }
+  }
 `
-
 export const CaptionItem = styled.p`
   opacity 0;
   transition: .25s .125s;
@@ -56,4 +67,14 @@ export const CaptionItem = styled.p`
   text-transform: ${props => (props.caps ? 'uppercase' : '')};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   margin: .5rem 0;
+`
+export const Refresh = styled.a`
+  color: ${props => props.theme.color};
+  text-decoration: underline;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  &:hover {
+    opacity: .5;
+  }
+  span { text-decoration: underline; }
 `

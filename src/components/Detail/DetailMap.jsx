@@ -1,35 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GoogleMap from 'google-map-react'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+
 import { map } from 'lodash'
 // import css from 'cape-style'
+import mapStyles from './map.json'
 import LocationItem from './DetailMapLocation'
 
-function DetailMap({ locations, style, ...props }) {
-  return (
-    <div
-      className="google-map-container"
-      id="detail-map-locations"
-      style={style}
-    >
-      <GoogleMap
-        {...props}
-        bootstrapURLKeys={{
-          key: 'AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA',
-          language: 'en',
-        }}
-      >
-        { map(locations, location => <LocationItem key={location.id} {...location} />) }
-      </GoogleMap>
-    </div>
-  )
-}
+const DetailMap = withScriptjs(withGoogleMap((props) => (
+  <GoogleMap
+    defaultZoom={props.zoom}
+    defaultCenter={props.defaultCenter}
+    defaultOptions={{ styles: mapStyles, disableDefaultUI: true }}
+  >
+    { map(props.locations, location => <LocationItem key={location.id} {...location} />) }
+  </GoogleMap>
+)))
+
 
 DetailMap.propTypes = {
   // center: PropTypes.object,
   defaultCenter: PropTypes.shape({
     lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
+    lng: PropTypes.number.isRequired  ,
   }),
   options: PropTypes.shape({
     scrollwheel: PropTypes.bool,
@@ -53,6 +46,6 @@ DetailMap.defaultProps = {
     streetViewControl: false,
     zoomControl: true,
   },
-  zoom: 14,
+  zoom: 15,
 }
 export default DetailMap

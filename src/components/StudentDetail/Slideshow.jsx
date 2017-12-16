@@ -5,7 +5,7 @@ import { isObject, map } from 'lodash'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
-import SlideNavigation from './SlideNavigation'
+// import SlideNavigation from './SlideNavigation'
 import SlideThumb from './SlideThumb'
 
 class Slideshow extends Component {
@@ -222,10 +222,10 @@ class Slideshow extends Component {
   // is both defined and has length greater than zero
   render() {
     const { collection } = this.props
-    const { animation } = this.state
-    const collectionExists = collection && collection.length > 0
+    // const { animation } = this.state
+    // const collectionExists = collection && collection.length > 0
     const thumbEl = this.getThumbs(collection)
-    const slideIndicators = this.generateIndicators()
+    // const slideIndicators = this.generateIndicators()
 
     return (
       <div id="slideshow">
