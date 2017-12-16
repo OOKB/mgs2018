@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'lodash'
-import { Wrapper, Image, ImageWrapper } from './styles'
+
+import { Wrapper, Image, ImageWrapper, Refresh } from './styles'
 import ImageContainer from './ImageContainer'
 
 class Collage extends React.Component {
@@ -44,7 +45,9 @@ class Collage extends React.Component {
           {isLoaded && map(collection, (item, index) =>
             <ImageContainer key={item.id} item={item} parent={parent} pos={index} />
           )}
-          <button onClick={this.handleClick}>More artwork</button>
+          <Refresh onClick={this.handleClick}>
+            &#x21bb; <span>More Artwork</span>
+          </Refresh>
         </Wrapper>
       </div>
     )
