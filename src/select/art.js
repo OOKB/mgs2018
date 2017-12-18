@@ -61,6 +61,10 @@ export const studentSplashArt = createSelector(
   createSelector(getSlideStudentsArt, slideStudentsArtOnly),
   sampleSize(3)
 )
+export const studentSlideArt = createSelector(
+  createSelector(getSlideStudentsArt, slideStudentsArtOnly),
+  sampleSize(12)
+)
 export const splashArt = flow(
   getSplashArt,
   toArray,

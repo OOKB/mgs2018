@@ -18,7 +18,9 @@ import { Flex, ImageContainer, InfoContainer, Divider } from './styles'
 function StudentDetail({ closePopup, student }) {
   return (
     <Wrapper>
-      <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={closePopup} />
+      <div onClick={closePopup}>
+        <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={closePopup} />
+      </div>
       {!student && <p className="flex loading">loading...</p>}
       {student &&
         <Flex>
