@@ -29,7 +29,7 @@ function getArt(state) {
 const art = getArt(data)
 const artIds = keys(art)
 const maxId = artIds.length - 1
-console.log('max', maxId)
+
 function getSize(index = 0) {
   const url = art[artIds[index]].image.url
   function handleRes({ data: { PixelHeight, PixelWidth } }) {
