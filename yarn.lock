@@ -1484,9 +1484,9 @@ cape-lodash@^1.10.0, cape-lodash@^1.11.0, cape-lodash@^1.12.0, cape-lodash@^1.12
   dependencies:
     lodash "^4.17.4"
 
-cape-mixer@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cape-mixer/-/cape-mixer-2.4.0.tgz#819e8c8f97d906efdaceac57b1fcae8b774ba60b"
+cape-mixer@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/cape-mixer/-/cape-mixer-2.4.1.tgz#272353ad1f9151f506bf582d9f54dcd4bb200316"
   dependencies:
     attr-accept "^1.1.0"
     cape-firebase "^1.0.7"
@@ -1501,14 +1501,14 @@ cape-mixer@^2.4.0:
     lodash "^4.17.4"
     prop-types "^15.6.0"
     radium "^0.19.4"
-    react "^16.0.0"
-    react-dom "^16.0.0"
+    react "^16.2.0"
+    react-dom "^16.2.0"
     react-redux "^5.0.6"
-    react-textarea-autosize "^5.1.0"
+    react-textarea-autosize "^5.2.1"
     redux "^3.6.0"
     redux-field "^5.1.2"
     redux-graph "^2.12.1"
-    redux-history-component "^2.1.6"
+    redux-history-component "^2.2.0"
     reselect "^3.0.0"
     simple-sha1 "^2.1.0"
     tinycolor2 "^1.4.1"
@@ -5730,7 +5730,7 @@ react-dom@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react-dom@^16.0.0:
+react-dom@^16.0.0, react-dom@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
   dependencies:
@@ -5783,7 +5783,7 @@ react-pure-render@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-pure-render/-/react-pure-render-1.0.2.tgz#9d8a928c7f2c37513c2d064e57b3e3c356e9fabb"
 
-react-redux@^5.0.1, react-redux@^5.0.6:
+react-redux@^5.0.1, react-redux@^5.0.4, react-redux@^5.0.6:
   version "5.0.6"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.6.tgz#23ed3a4f986359d68b5212eaaa681e60d6574946"
   dependencies:
@@ -5851,11 +5851,11 @@ react-sizeme@^2.3.6:
     invariant "^2.2.2"
     lodash "^4.17.4"
 
-react-textarea-autosize@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.1.0.tgz#ffbf8164fce217c79443c1c17dedf730592df224"
+react-textarea-autosize@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.2.1.tgz#2b78f9067180f41b08ac59f78f1581abadd61e54"
   dependencies:
-    prop-types "^15.5.10"
+    prop-types "^15.6.0"
 
 react-transition-group@1.x:
   version "1.2.1"
@@ -5877,7 +5877,7 @@ react@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react@^16.0.0:
+react@^16.0.0, react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
@@ -6085,19 +6085,21 @@ redux-graph@^2.10.0, redux-graph@^2.11.0, redux-graph@^2.12.1, redux-graph@^2.13
     redux "^3.6.0"
     reselect "^3.0.0"
 
-redux-history-component@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.1.6.tgz#b18a92a13e894454a3c8dc151d33717593578dec"
+redux-history-component@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-history-component/-/redux-history-component-2.2.0.tgz#389a05c88cad02a7475d0280592368a2cae6706a"
   dependencies:
+    cape-lodash "^1.13.1"
     cape-router "^1.1.5"
     classnames "^2.2.5"
     location-info "^4.5.0"
     lodash "^4.17.4"
-    prop-types "^15.5.10"
-    react "^15.6.1"
-    react-redux "^5.0.6"
+    prop-types "^15.5.8"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+    react-redux "^5.0.4"
     redux "^3.7.2"
-    redux-history-sync "^3.2.2"
+    redux-history-sync "^3.1.0"
     reselect "^3.0.1"
 
 redux-history-sync@^3.1.0, redux-history-sync@^3.2.2:
