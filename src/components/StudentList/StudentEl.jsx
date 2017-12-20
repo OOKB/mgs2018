@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { get } from 'lodash'
-import css from 'cape-style'
+// import css from 'cape-style'
 import LinkEl from 'cape-mixer/lib/Link/Link'
 import Select from 'cape-mixer/lib/SelectEl'
 // import './Student.css'
@@ -33,7 +33,7 @@ function StudentEl(props) {
       </Cell>
       <Cell className="show">
         {show && (
-          <p><LinkEl routeId="details" showId={getShowId(showGroup)}>{ showGroup.name }</LinkEl></p>
+          <p><LinkEl routeId="details" showId={getShowId(showGroup)} top>{ showGroup.name }</LinkEl></p>
         )}
         {shows && <Select options={shows} onChange={saveShow} value={get(show, 'id')} />}
       </Cell>
