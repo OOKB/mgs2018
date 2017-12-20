@@ -4,7 +4,7 @@ import LinkEl from 'cape-mixer/lib/Link/Link'
 
 function StudentLink({ children, hasDetail, id }) {
   if (!hasDetail) return children
-  return <LinkEl routeId="studentDetail" studentId={id}>{children}</LinkEl>
+  return <LinkEl routeId="studentDetail" studentId={id} top>{children}</LinkEl>
 }
 StudentLink.propTypes = {
   children: PropTypes.node.isRequired,
