@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'lodash'
 
-import { Wrapper, Image, ImageWrapper, Refresh } from './styles'
+import { Wrapper, Refresh } from './styles'
 import ImageContainer from './ImageContainer'
 
 class Collage extends React.Component {
@@ -29,7 +29,6 @@ class Collage extends React.Component {
   updateDimensions() {
     const wrapHeight = this.wrapperEl.offsetHeight
     const wrapWidth = this.wrapperEl.offsetWidth
-    console.log(wrapHeight)
     this.setState({ isLoaded: true, width: wrapWidth, height: wrapHeight })
   }
   handleClick() {
@@ -40,7 +39,7 @@ class Collage extends React.Component {
     const { isLoaded } = this.state
     const parent = this.state
     return (
-      <div ref={ref => {this.wrapperEl = ref}}>
+      <div ref={(ref) => { this.wrapperEl = ref }}>
         <Wrapper>
           {isLoaded && map(collection, (item, index) =>
             <ImageContainer key={item.id} item={item} parent={parent} pos={index} />

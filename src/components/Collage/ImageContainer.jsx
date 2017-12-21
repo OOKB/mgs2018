@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import StudentLink from '../Peers/StudentLink'
-
 import { Motion, spring } from 'react-motion'
 import { random, round } from 'lodash'
+
+import StudentLink from '../Peers/StudentLink'
 import { Image, ImageWrapper, Caption, CaptionItem } from './styles'
 
 /* global window */
 
 export const getImgHeight = (height, width, resizeWidth) => round((height / width) * resizeWidth)
 
-export function getImgProps({ image: { height, url, width } }, resizeWidth) {
+export function getImgProps({ image: { url } }, resizeWidth) {
   return {
     orientation: 'tallwide',
     src: `${url}?w=${resizeWidth}`,
@@ -56,7 +56,7 @@ class ImageContainer extends React.Component {
 
     let imageHeight = 0
     let imageWidth = 0
-    let imageAR = image.aspectRatio
+    const imageAR = image.aspectRatio
 
     if (image.aspectRatio && image.aspectRatio < 1) {
       imageWidth = wrapWidth * 0.5
@@ -151,14 +151,19 @@ class ImageContainer extends React.Component {
             <ImageWrapper z={z} style={styles}>
               {/* <a href={`/students/${item.studentId}`}> */}
               <StudentLink hasDetail id={item.studentId}>
-                <Image {...getImgProps(item, imgWidth)} ref={ref => {this.imageEl = ref} } />
+                <Image {...getImgProps(item, imgWidth)} ref={(ref) => { this.imageEl = ref }} />
               </StudentLink>
               <StudentLink hasDetail id={item.studentId}>
                 <Caption flex>
                   <section>
-                    {item.studentName && <CaptionItem bold caps>{item.studentName}</CaptionItem> }
-                    {item.title && <CaptionItem italic>{item.title}</CaptionItem> }
-                    {item.person && <CaptionItem>{item.person.name && <span>{item.person.name}</span>}{item.person.program && <span>, {item.person.program}</span>}</CaptionItem> }
+                    { item.studentName && <CaptionItem bold caps>{item.studentName}</CaptionItem> }
+                    { item.title && <CaptionItem italic>{item.title}</CaptionItem> }
+                    { item.person &&
+                      <CaptionItem>
+                        { item.person.name && <span>{item.person.name}</span> }
+                        { item.person.program && <span>, {item.person.program}</span> }
+                      </CaptionItem>
+                    }
                   </section>
                   <section dangerouslySetInnerHTML={{ __html: arrowIcon }} />
                 </Caption>

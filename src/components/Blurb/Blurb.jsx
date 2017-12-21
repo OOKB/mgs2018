@@ -10,7 +10,9 @@ const Blurb = ({ description, tagline, eventDate }) => {
         <EventDate>{eventDate}</EventDate>
       </div>
       <DescriptionWrapper>
-        {description.map((pText, index) => <Description key={index} dangerouslySetInnerHTML={{ __html: pText }}></Description>)}
+        {description.map((pText, index) =>
+          <Description key={index} dangerouslySetInnerHTML={{ __html: pText }} />
+        )}
       </DescriptionWrapper>
     </Wrapper>
   )
