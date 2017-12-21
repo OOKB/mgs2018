@@ -84,3 +84,25 @@ export const ShowTitle = styled.h3`
     opacity: .5;
   }
 `
+export const Back = styled.button`
+  height: 5rem;
+  width: 13rem;
+  background: transparent;
+  border: none;
+  position: fixed;
+
+  > * {
+    pointer-events: none;
+    position: static;
+  }
+
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  @media (min-width: ${sizes.medium}) {
+    height: 6rem;
+    width: 16rem;
+  }
+`

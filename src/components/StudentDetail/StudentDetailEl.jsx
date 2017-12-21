@@ -13,15 +13,15 @@ import Logo from '../Logo/Logo'
 
 import mgsLogo from '../../mgs2018logoarrow.svg'
 
-import { Flex, ImageContainer, InfoContainer, Divider } from './styles'
+import { Flex, ImageContainer, InfoContainer, Divider, Back } from './styles'
 
 function StudentDetail({ closePopup, student }) {
   const hasArt = student.art && student.art.length > 0
   return (
     <Wrapper>
-      <button onClick={closePopup} style={{ height: 150, width: 150 }}>
+      <Back onClick={closePopup}>
         <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" />
-      </button>
+      </Back>
       {!student && <p className="flex loading">loading...</p>}
       {student &&
         <Flex>
@@ -29,7 +29,7 @@ function StudentDetail({ closePopup, student }) {
           <ImageContainer>
             { hasArt && <ImageStack collection={student.art} /> }
             { hasArt && <ImageHeaderMobile collection={student.art} /> }
-            { hasArt && <NoImages /> }
+            { !hasArt && <NoImages /> }
           </ImageContainer>
 
           <InfoContainer>
