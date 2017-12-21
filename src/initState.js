@@ -7,10 +7,8 @@ export const routes = {
   filmfest: '/details/recPkxpU5hm2lfIWC',
   details: '/details/:showId',
   home: '/home',
-  homeSlide: '/homeslide',
   me: '/me(/:artId)',
   studentList: '/students',
-  studentSlideList: '/studentsslide',
   studentDetail: '/students/:studentId',
   splash: '/',
 }

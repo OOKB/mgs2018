@@ -6,7 +6,7 @@ import yearLogo from '../../mgs2018year.svg'
 
 import Page from '../Page'
 import Logo from '../Logo/Logo'
-import Collage from '../Collage/Collage'
+import Slideshow from '../StudentDetail/Slideshow'
 import Blurb from '../Blurb/Blurb'
 import Menu from './Menu'
 
@@ -50,7 +50,7 @@ function HomeWrapperEl({ children, art, siteName, studentArt }) {
           <Logo right logoSrc={micaLogo} siteName={siteName} />
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
-        {studentArt && studentArt.length > 0 && <Collage collection={studentArt} />}
+        {art && art.length > 0 && <Slideshow collection={art} />}
         <LogoWrapper>
           <Logo right primary logoSrc={yearLogo} siteName={siteName} />
         </LogoWrapper>
