@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import css from 'cape-style'
+// import css from 'cape-style'
 import StudentInfo from './StudentInfo'
 import ShowInfo from './ShowInfo'
 import ProgramList from './ProgramList'
@@ -16,20 +16,20 @@ import mgsLogo from '../../mgs2018logoarrow.svg'
 import { Flex, ImageContainer, InfoContainer, Divider } from './styles'
 
 function StudentDetail({ closePopup, student }) {
+  const hasArt = student.art && student.art.length > 0
   return (
     <Wrapper>
-      <div onClick={closePopup}>
-        <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={closePopup} />
-      </div>
+      <button onClick={closePopup} style={{ height: 150, width: 150 }}>
+        <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" />
+      </button>
       {!student && <p className="flex loading">loading...</p>}
       {student &&
         <Flex>
-          {close}
 
           <ImageContainer>
-            { student.art && student.art.length > 0 && <ImageStack collection={student.art} /> }
-            { student.art && student.art.length > 0 && <ImageHeaderMobile collection={student.art} /> }
-            { student.art.length === 0 && <NoImages /> }
+            { hasArt && <ImageStack collection={student.art} /> }
+            { hasArt && <ImageHeaderMobile collection={student.art} /> }
+            { hasArt && <NoImages /> }
           </ImageContainer>
 
           <InfoContainer>
@@ -41,10 +41,9 @@ function StudentDetail({ closePopup, student }) {
                 <Divider />
               </div>
             }
-            { student.art && student.art.length > 0 && <ImageStackMobile collection={student.art} /> }
+            { hasArt && <ImageStackMobile collection={student.art} /> }
             <ProgramList {...student.program} />
           </InfoContainer>
-
 
         </Flex>
       }
