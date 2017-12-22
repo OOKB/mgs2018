@@ -97,3 +97,28 @@ export const NameLink = styled.li`
   color: ${props => (props.hasDetail ? props.theme.color : 'initial')};
   text-decoration: ${props => (props.hasDetail ? 'underline' : '')};
 `
+export const Back = styled.button`
+  height: 5rem;
+  width: 13rem;
+  background: transparent;
+  border: none;
+  position: fixed;
+  z-index: 1;
+
+  > * {
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  @media (min-width: ${sizes.medium}) {
+    height: 6rem;
+    width: 16rem;
+  }
+`
+export const Loading = styled.p`
+  color: ${props => props.theme.color};
+`

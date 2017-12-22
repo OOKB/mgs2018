@@ -90,6 +90,7 @@ export const Back = styled.button`
   background: transparent;
   border: none;
   position: fixed;
+  z-index: 1;
 
   > * {
     pointer-events: none;
@@ -105,4 +106,7 @@ export const Back = styled.button`
     height: 6rem;
     width: 16rem;
   }
+`
+export const Loading = styled.p`
+  color: ${props => props.theme.color};
 `

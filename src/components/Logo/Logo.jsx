@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { LogoEl } from './styles'
 
-function Logo({ logoSrc, siteName, primary, left, right, fixed }) {
+function Logo({ logoSrc, siteName, primary, left, right, fixed, sttc }) {
   return (
     <LogoEl
       primary={primary}
       left={left}
       right={right}
       fixed={fixed}
+      sttc={sttc}
       type="image/svg+xml"
       data={logoSrc}
       alt={siteName}
@@ -26,6 +27,7 @@ Logo.propTypes = {
   left: PropTypes.bool,
   right: PropTypes.bool,
   fixed: PropTypes.bool,
+  sttc: PropTypes.bool,
 }
 
 Logo.defaultProps = {
@@ -33,6 +35,7 @@ Logo.defaultProps = {
   left: false,
   right: false,
   fixed: false,
+  sttc: false,
 }
 
 export default Logo

@@ -11,7 +11,7 @@ import Wrapper from '../Wrapper/WrapperEl'
 
 import mgsLogo from '../../mgs2018logoarrow.svg'
 
-import { MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider } from './styles'
+import { MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider, Back, Loading } from './styles'
 
 function AllStudents({ program }) {
   return (
@@ -33,7 +33,7 @@ AllStudents.propTypes = {
 }
 
 function DetailEl({ showGroup, detailClose }) {
-  if (!showGroup) return <div><p className="flex loading">loading...</p>{close}</div>
+  if (!showGroup) return <div><Loading className="flex loading">loading...</Loading>{close}</div>
   const {
     description, extraChild, id, name, lat, lng, locations, program,
     reception, show, showDate, zoom,
@@ -41,7 +41,9 @@ function DetailEl({ showGroup, detailClose }) {
   const isShowThree = id === 'recLTqHoop0NcGOrb'
   return (
     <Wrapper>
-      <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" onClick={detailClose} />
+      <Back onClick={detailClose}>
+        <Logo primary sttc left logoSrc={mgsLogo} siteName="MICA Grad Show 2018" />
+      </Back>
       <detail className={id} >
         <div className="flex">
           <MapContainer>

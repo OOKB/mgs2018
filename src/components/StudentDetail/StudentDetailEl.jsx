@@ -13,16 +13,16 @@ import Logo from '../Logo/Logo'
 
 import mgsLogo from '../../mgs2018logoarrow.svg'
 
-import { Flex, ImageContainer, InfoContainer, Divider, Back } from './styles'
+import { Flex, ImageContainer, InfoContainer, Divider, Back, Loading } from './styles'
 
 function StudentDetail({ closePopup, student }) {
   const hasArt = student.art && student.art.length > 0
   return (
     <Wrapper>
       <Back onClick={closePopup}>
-        <Logo primary left fixed logoSrc={mgsLogo} siteName="MICA Grad Show 2018" />
+        <Logo primary left logoSrc={mgsLogo} siteName="MICA Grad Show 2018" />
       </Back>
-      {!student && <p className="flex loading">loading...</p>}
+      {!student && <Loading className="flex loading">loading...</Loading>}
       {student &&
         <Flex>
 
