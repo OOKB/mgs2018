@@ -35,7 +35,8 @@ export function mergeShow(childId, parentId) {
 export const mergeShows = flow(
   mergeShow('recL5bU5855qMhQT4', 'recy5OLOvJNnpWuAD'),
   mergeShow('reclZwOjZuXJVbRg1', 'recPkxpU5hm2lfIWC'),
-  mergeShow('recnt8Oz3oN0HBKSH', 'recdoBpSFrFhf1WwX')
+  mergeShow('recnt8Oz3oN0HBKSH', 'recdoBpSFrFhf1WwX'),
+  mergeShow('rec289luYXzs8Z2Na', 'recyN8KTSaa9IVb7z')
 )
 
 export const itemsFilled = createSelector(
