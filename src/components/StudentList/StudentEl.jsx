@@ -8,11 +8,11 @@ import Select from 'cape-mixer/lib/SelectEl'
 import { getShowId } from '../Schedule/ShowGroup'
 import StudentLink from '../Peers/StudentLink'
 
-import { GroupBody, Cell } from './styles'
+import { GroupBody, Cell, CellImage } from './styles'
 
 function StudentEl(props) {
   const {
-    id, name, show, url, email, program, saveShow, shows, showGroup,
+    id, art, name, show, url, email, program, saveShow, shows, showGroup,
     facebook, instagram, soundcloud, twitter, vimeo, youtube, hasDetail,
   } = props
   const emailStr = `mailto:${email}`
@@ -49,6 +49,7 @@ function StudentEl(props) {
           {youtube && <LinkEl href={youtubeStr} icon="youtube" />}
         </div>
       </Cell>
+      { art && art.length > 0 && <CellImage src={art[0].image.url} />}
     </GroupBody>
   )
 }

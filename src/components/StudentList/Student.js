@@ -29,6 +29,10 @@ function studentShowHandler(object) {
       object,
     }, { previousSubject: { id: get(object, ['show', 'id']), type: 'Show' } })
 }
+// function studentShowHandler(object) {
+//   return ({ target: { value } }) =>
+//     console.log(value)
+// }
 const actions = mapDispatchToProps(student => ({
   saveShow: studentShowHandler(student),
 }))

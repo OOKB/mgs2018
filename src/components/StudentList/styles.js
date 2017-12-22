@@ -32,8 +32,14 @@ export const GroupBody = styled.li`
   padding: 1.25rem 0;
   border-bottom: 1px solid rgba(0,0,0,0.5);
   flex-direction: column;
+  position: relative;
   &:last-child { border-bottom: none; }
-  &:hover { color: ${props => props.theme.color}; }
+  &:hover {
+    color: ${props => props.theme.color};
+    img {
+      opacity: 1;
+    }
+  }
   @media (min-width: ${sizes.medium}) {
     flex-direction: row;
     align-items: center;
@@ -69,10 +75,20 @@ export const Cell = styled.span`
   a {
     color: ${props => props.theme.color};
     text-decoration: underline;
+    border-bottom: none;
     &:hover {
       opacity: 0.5;
   }
 }
+`
+
+export const CellImage = styled.img`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  max-width: 25rem;
+  opacity: 0;
 `
 
 export const CustomSelect = styled.div`
