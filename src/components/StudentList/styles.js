@@ -37,7 +37,7 @@ export const GroupBody = styled.li`
   &:hover {
     color: ${props => props.theme.color};
     img {
-      opacity: 1;
+      opacity: .8;
     }
   }
   @media (min-width: ${sizes.medium}) {
@@ -87,7 +87,8 @@ export const CellImage = styled.img`
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
-  max-width: 25rem;
+  max-height: 35rem;
+  max-width: 35rem;
   opacity: 0;
 `
 
