@@ -41,7 +41,6 @@ const micaLogo = `
 </svg>`
 
 function HomeWrapperEl({ children, art, siteName, studentArt }) {
-  console.log(studentArt)
   return (
     <Page className="App">
       <Wrapper>

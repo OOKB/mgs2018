@@ -41,7 +41,6 @@ function WrapperEl({ children, siteName }) {
       <Wrapper>
         <LogoWrapper top>
           {/* {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />} */}
-          <Logo right logoSrc={micaLogo} siteName={siteName} />
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
         {children}
