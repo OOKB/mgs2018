@@ -6,7 +6,7 @@ import yearLogo from '../../mgs2018year.svg'
 
 import Page from '../Page'
 import Logo from '../Logo/Logo'
-import Slideshow from '../StudentDetail/Slideshow'
+import Slideshow from '../Slideshow/SlideTest'
 import Blurb from '../Blurb/Blurb'
 import Menu from './Menu'
 
