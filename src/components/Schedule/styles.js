@@ -35,7 +35,15 @@ export const ShowItem = styled.section`
     background: none;
     color: ${props => props.theme.color};
   }
-  h1 { font-size: 2.25rem; }
+  h1 {
+    font-weight: 400;
+    color: ${props => props.theme.color};
+    font-size: 2.25rem;
+    text-decoration: underline;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
   h2 { font-size: 1.25rem; }
   @media (min-width: ${sizes.medium}) {
     width: calc(100% / 2);
