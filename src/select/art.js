@@ -44,6 +44,11 @@ export const getSlideStudents = createSelector(
   studentsFilled,
   pick
 )
+export const getStudentsArt = createSelector(
+  artGraph,
+  studentsFilled,
+  addStudentsArt
+)
 export const getSlideStudentsArt = createSelector(
   artGraph,
   getSlideStudents,

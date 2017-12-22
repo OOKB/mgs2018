@@ -4,7 +4,8 @@ import { createSelector } from 'reselect'
 import { select } from 'cape-select'
 import { selectForm } from 'redux-field'
 import { textSearchSelector } from '../Search'
-import { studentsFilled as itemsFilled } from '../../select/student'
+// import { studentsFilled as itemsFilled } from '../../select/student'
+import { getStudentsArt as itemsFilled } from '../../select/art'
 
 export function matchRef(entitySlice, predicate, item) {
   if (!entitySlice) return null
