@@ -10,18 +10,24 @@ import { getProgramFull } from './program'
 export const getShow = entityTypeSelector('Show')
 export const getLocation = entityTypeSelector('Location')
 export function getReception({ receptionStart, receptionEnd }) {
+  // add dots in a.m. and p.m.
+  moment.updateLocale('en', {
+    meridiem(hour, minute, isLowerCase) {
+      return hour < 12 ? 'a.m.' : 'p.m.'
+    },
+  })
   if (!receptionStart) return null
-  const recStartStr = moment(receptionStart).utc().format('dddd, MMMM D, h')
-  const recEndStr = moment(receptionEnd).utc().format('hA')
-  return `${recStartStr}–${recEndStr}`
+  const recStartStr = moment(receptionStart).utc().format('dddd, MMMM D, h:mm')
+  const recEndStr = moment(receptionEnd).utc().format('h:mm a')
+  return `${recStartStr} – ${recEndStr}`
 }
 function getShowDate({ startDate, endDate, ongoing }) {
   if (!startDate) return null
   const startStr = moment(startDate).format('MMMM Do')
-  if (ongoing) return `${startStr}–Ongoing`
+  if (ongoing) return `${startStr} – Ongoing`
   if (!endDate) return startStr
   const endStr = moment(endDate).format('MMMM Do')
-  return `${startStr}–${endStr}`
+  return `${startStr} – ${endStr}`
 }
 export const fillShowGroup = flow(
   setField('reception', getReception),

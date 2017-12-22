@@ -34,7 +34,7 @@ ShowDetails.propTypes = {
 ShowDetails.defaultProps = {
   name: 'Show IV',
   showLocation: 'Some Gallery This person was in...',
-  showDates: 'X–Y...',
+  showDates: 'X – Y...',
 }
 
 export default ShowDetails

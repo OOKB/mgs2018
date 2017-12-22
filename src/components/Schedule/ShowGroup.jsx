@@ -61,8 +61,8 @@ ShowGroup.propTypes = {
 ShowGroup.defaultProps = {
   endDate: '',
   name: '[name here...]',
-  program: { name: 'Teaching, MA' },
-  showDate: 'February 26–March 13, 2017',
+  program: { name: 'Teaching, M.A.' },
+  showDate: 'February 26 – March 13, 2017',
   showName: 'Teaching',
   startDate: '',
 }
