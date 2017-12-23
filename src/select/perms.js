@@ -31,7 +31,14 @@ export const isStudent = boolSelector(getSelect(getStudent, flow(getUserEmail, g
 
 export const isAdmin = flow(
   getUserEmail,
-  partial(includes, ['kai@sundaysenergy.com', 'kbjornard@mica.edu', 'mheberthuot@mica.edu', 'ejakowski@mica.edu', 'trevor@defaultvalue.info', 'jen@defaultvalue.info'])
+  partial(includes, [
+    'kai@cape.io',
+    'kbjornard@mica.edu',
+    'mheberthuot@mica.edu',
+    'ejakowski@mica.edu',
+    'trevor@defaultvalue.info',
+    'jen@defaultvalue.info',
+  ])
 )
 export const permissions = createStructuredSelector({
   isAnonymous,
