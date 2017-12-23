@@ -23,7 +23,7 @@ function getActions(props) {
 export function mergeProps(stateProps, dispatchProps, ownProps) {
   const props = omit(ownProps, 'collectionId', 'fieldId')
   return Object.assign(
-    props, stateProps, dispatchProps
+    props, stateProps, omit(dispatchProps, 'dispatch')
   )
 }
 export default connect(mapStateToProps, mapDispatchToProps(getActions), mergeProps)(Component)
