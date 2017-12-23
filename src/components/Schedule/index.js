@@ -25,7 +25,7 @@ export function mergeShow(childId, parentId) {
     const child = showgroups[childId]
     const parent = showgroups[parentId]
     set(showgroups, [parentId, 'extraChild'], child)
-    if (parent && parent.locations) {
+    if (parent && parent.locations && child && child.locations) {
       set(showgroups, [parentId, 'locations'], parent.locations.concat(child.locations))
     }
     unset(showgroups, childId)
