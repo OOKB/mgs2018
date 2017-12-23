@@ -22,7 +22,7 @@ function StudentEl(props) {
   const twitterStr = `https://www.twitter.com/${twitter}`
   const vimeoStr = `https://www.vimeo.com/${vimeo}`
   const youtubeStr = `https://www.youtube.com/${youtube}`
-
+  const showId = get(show, 'id')
   return (
     <GroupBody id={id}>
       <Cell className="name">
@@ -33,9 +33,11 @@ function StudentEl(props) {
       </Cell>
       <Cell className="show">
         {show && (
-          <p><LinkEl routeId="details" showId={getShowId(showGroup)} top>{ showGroup.name }</LinkEl></p>
+          <p>
+            <LinkEl routeId="details" showId={getShowId(showGroup)} top>{ showGroup.name }</LinkEl>
+          </p>
         )}
-        {shows && <Select options={shows} onChange={saveShow} value={get(show, 'id')} />}
+        {shows && <Select options={shows} onChange={saveShow} value={showId} />}
       </Cell>
       <Cell className="social">
         <div>
@@ -55,6 +57,7 @@ function StudentEl(props) {
 }
 
 StudentEl.propTypes = {
+  // art: PropTypes.objectOf(PropTypes.)
   hasDetail: PropTypes.bool,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
