@@ -33,6 +33,7 @@ export const isAdmin = flow(
   getUserEmail,
   partial(includes, [
     'kai@cape.io',
+    'kai@sundaysenergy.com',
     'kbjornard@mica.edu',
     'mheberthuot@mica.edu',
     'ejakowski@mica.edu',
