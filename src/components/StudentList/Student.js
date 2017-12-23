@@ -22,12 +22,15 @@ const getState = structuredSelector({
   shows: getShows,
 })
 function studentShowHandler(object) {
-  return ({ target: { value } }) =>
-    saveTriple({
+  return ({ target: { value } }) => {
+    const preShowId = get(object, ['show', 'id'])
+    const changePrevious = { previousSubject: { id: preShowId, type: 'Show' } }
+    return saveTriple({
       subject: { type: 'Show', id: value },
       predicate: 'student',
       object,
-    }, { previousSubject: { id: get(object, ['show', 'id']), type: 'Show' } })
+    }, preShowId ? changePrevious : undefined)
+  }
 }
 // function studentShowHandler(object) {
 //   return ({ target: { value } }) =>
