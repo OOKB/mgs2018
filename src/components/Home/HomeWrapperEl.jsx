@@ -48,7 +48,7 @@ function HomeWrapperEl({ children, art, siteName, studentArt }) {
           {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
-        {art && art.length > 0 && <Slideshow collection={art} />}
+        {studentArt && studentArt.length > 0 && <Slideshow collection={studentArt} />}
         <LogoWrapper>
           <Logo right primary logoSrc={yearLogo} siteName={siteName} />
         </LogoWrapper>

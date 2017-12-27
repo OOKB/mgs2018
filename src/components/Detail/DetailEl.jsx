@@ -11,7 +11,7 @@ import Wrapper from '../Wrapper/WrapperEl'
 
 import mgsLogo from '../../mgs2018logoarrow.svg'
 
-import { MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider, Back, Loading } from './styles'
+import { MapWrapper, MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider, Back, Loading } from './styles'
 
 function AllStudents({ program }) {
   return (
@@ -46,17 +46,24 @@ function DetailEl({ showGroup, detailClose }) {
       </Back>
       <detail className={id} >
         <div className="flex">
-          <MapContainer>
-            <DetailMap
-              defaultCenter={lat ? { lat, lng } : undefined}
-              zoom={zoom}
-              locations={locations}
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA&v=3.exp&libraries=geometry,drawing,places"
-              loadingElement={<div style={{ height: '100%' }} />}
-              containerElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
-              mapElement={<div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />}
-            />
-          </MapContainer>
+          <MapWrapper>
+            <MapContainer>
+              <DetailMap
+                defaultCenter={lat ? { lat, lng } : undefined}
+                zoom={zoom}
+                locations={locations}
+                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA&v=3.exp&libraries=geometry,drawing,places"
+                loadingElement={<div style={{ height: '100%' }} />}
+                containerElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
+                mapElement={<div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />}
+              />
+            </MapContainer>
+            <div>
+              { size(show) > 0 && map(show, ({ documentation }) => map(documentation, item => (
+                <img src={item.url} />
+              )))}
+            </div>
+          </MapWrapper>
           <InfoContainer>
             <Title>{ name }</Title>
             { showDate && <Subtitle className="dateRange">{ showDate }</Subtitle>}

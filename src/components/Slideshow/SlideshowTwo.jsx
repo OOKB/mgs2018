@@ -8,6 +8,9 @@ import classnames from 'classnames'
 // import SlideNavigation from './SlideNavigation'
 import SlideThumb from './SlideThumb'
 
+import { Test, TestWrap } from './styles'
+
+
 class Slideshow extends Component {
   constructor(props) {
     super(props)
@@ -228,19 +231,12 @@ class Slideshow extends Component {
     // const slideIndicators = this.generateIndicators()
 
     return (
-      <div id="slideshow">
+      <TestWrap>
         {this.state.secondsElapsed}
-        <ul className="thumbs">
+        <Test>
           {thumbEl}
-        </ul>
-        {/* { collectionExists &&
-          <SlideNavigation
-            slideAdvance={this.slideAdvance}
-            slideRewind={this.slideRewind}
-          />
-        } */}
-        {/* {slideIndicators} */}
-      </div>
+        </Test>
+      </TestWrap>
     )
   }
 }

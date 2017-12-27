@@ -64,7 +64,7 @@ export const slideStudentsArtOnly = students => reduce(
 // Selected student
 export const studentSplashArt = createSelector(
   createSelector(getSlideStudentsArt, slideStudentsArtOnly),
-  sampleSize(3)
+  sampleSize(7)
 )
 export const studentSlideArt = createSelector(
   createSelector(getSlideStudentsArt, slideStudentsArtOnly),
@@ -78,7 +78,7 @@ export const splashArt = flow(
 
 export const collageArt = flow(
   getSplashArt,
-  sampleSize(3)
+  sampleSize(8)
 )
 // export const getArtwork = createSelector(userIsAgentOf, getArtItems, getArtRefs)
 // artwork: state => map(getArtwork(state), item => getFullEntity(state, item)),

@@ -14,7 +14,6 @@ export const InfoContainer = styled.div`
 export const MapContainer = styled.div`
   height: 0;
   padding-bottom: 100%;
-  flex: 2 !important;
   width: auto;
   ${'' /* .google-map-container {
     height: 0;
@@ -24,6 +23,10 @@ export const MapContainer = styled.div`
       position: absolute !important;
     }
   } */}
+`
+
+export const MapWrapper = styled.div`
+  flex: 2 !important;
 `
 
 export const MarkerWrapper = styled.div`

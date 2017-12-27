@@ -81,12 +81,18 @@ export const Refresh = styled.a`
 export const TestWrap = styled.div`
   padding: 0 0 600px;
   margin: 8rem 0 0;
-  background: blue;
 `
 export const Test = styled.div`
   height: 600px;
   position: absolute;
   left: 0;
   right: 0;
-  background: ${props => props.theme.color};
+`
+export const ImageTest = styled.img`
+  max-height: 600px;
+`
+export const SliderWrapper = styled.div`
+  .swiper-slide {
+    width: auto;
+  }
 `

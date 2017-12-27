@@ -1,11 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Test, TestWrap } from './styles'
+import React, { Component } from 'react'
+import { Swiper, Slide } from 'react-dynamic-swiper'
+import { map } from 'lodash'
+import 'react-dynamic-swiper/lib/styles.css'
 
-const SlideTest = () => {
+import { SliderWrapper, ImageTest, Test, TestWrap } from './styles'
+
+function SlideTest({ collection }) {
   return (
     <TestWrap>
-      <Test />
+      <Test>
+        <SliderWrapper>
+          <Swiper
+            swiperOptions={{
+              slidesPerView: 'auto',
+              centeredSlides: true,
+              spaceBetween: 60,
+              autoplay: 3500,
+            }}
+          >
+            { map(collection, (item) => (
+              <Slide>
+                <ImageTest src={item.image.url} />
+              </Slide>
+            ))}
+          </Swiper>
+        </SliderWrapper>
+      </Test>
     </TestWrap>
   )
 }
