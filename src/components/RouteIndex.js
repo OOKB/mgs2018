@@ -1,4 +1,3 @@
-export { default as colors } from './ColorStripes'
 export { default as details } from './Detail/Detail'
 export { default as home } from './Schedule/Schedule'
 export { default as me } from './Profile/Me'

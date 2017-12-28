@@ -17,22 +17,19 @@ export const getAgentOf = get('rangeIncludes.agent')
 export const createWorksOnly = pickBy({ type: 'CreativeWork' })
 export const getArtRefs = flow(getAgentOf, createWorksOnly)
 export const artFill = setField('position', ({ position, sortOrder }) =>
-  parseInt(position || sortOrder || 0, 10)
-)
+  parseInt(position || sortOrder || 0, 10))
 
 export function expandGetFullEntities(graphSlice) {
   return mapValues(flow(getGraphNode(graphSlice), flow(buildFullEntity(1, graphSlice), artFill)))
 }
 export function addStudentArt(graphSlice, student) {
   if (!student) return null
-  return setField('art',
-    flow(
-      getArtRefs,
-      expandGetFullEntities(graphSlice),
-      sortBy(['position', 'title']),
-      filter(item => item.image || item.associatedMedia)
-    )
-  )(student)
+  return setField('art', flow(
+    getArtRefs,
+    expandGetFullEntities(graphSlice),
+    sortBy(['position', 'title']),
+    filter(item => item.image || item.associatedMedia)
+  ))(student)
 }
 // Load art for every student in students object.
 export function addStudentsArt(graphSlice, students) {

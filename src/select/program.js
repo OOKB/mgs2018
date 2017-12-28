@@ -19,6 +19,8 @@ export const getProgramFull = createSelector(
   (programs, students) => mapValues(addFields(students), programs)
 )
 export const programSorted = createSelector(getProgram, sortBy('name'))
-export const programOptions = createSelector(programSorted,
+
+export const programOptions = createSelector(
+  programSorted,
   doIf(map(renamePick({ id: 'value', name: 'name' })))
 )

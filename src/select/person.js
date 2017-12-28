@@ -29,13 +29,11 @@ export function getName({ familyName, givenName, name }) {
   return name || `${givenName} ${familyName}`
 }
 
-export const studentFill = flow(
-  setField('name', getName),
-)
+export const studentFill = flow(setField('name', getName))
+
 export function studentIndexFill(Student, Person) {
   return mapValues(Student, item =>
-    studentFill(Person[item.id] ? merge({}, Person[item.id], item) : item)
-  )
+    studentFill(Person[item.id] ? merge({}, Person[item.id], item) : item))
 }
 // Person and Student are merged before handling further. Do not worry about Person elsewhere.
 export const getStudent = createSelector(

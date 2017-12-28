@@ -12,6 +12,7 @@ export const getLocation = entityTypeSelector('Location')
 export function getReception({ receptionStart, receptionEnd }) {
   // add dots in a.m. and p.m.
   moment.updateLocale('en', {
+    // eslint-disable-next-line
     meridiem(hour, minute, isLowerCase) {
       return hour < 12 ? 'a.m.' : 'p.m.'
     },
@@ -33,9 +34,8 @@ export const fillShowGroup = flow(
   setField('reception', getReception),
   setField('showDate', getShowDate)
 )
-export const getShowGroup = createSelector(
-  entityTypeSelector('ShowGroup'), showgroups => mapValues(showgroups, fillShowGroup)
-)
+export const getShowGroup = createSelector(entityTypeSelector('ShowGroup'), showgroups =>
+  mapValues(showgroups, fillShowGroup))
 
 const selectGraph = createStructuredSelector({
   Location: getLocation,

@@ -3,7 +3,6 @@ import reducer, { addRoutes } from 'location-info'
 // Define our inital state object. This could be a fetch() to an API endpoint.
 
 export const routes = {
-  colors: '/colors',
   filmfest: '/details/recPkxpU5hm2lfIWC',
   details: '/details/:showId',
   home: '/home',
