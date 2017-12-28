@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { sizes } from '../../util'
+import { colors, sizes } from '../../util'
 
 export const ImageContainer = styled.div`
   margin-top: 3.5rem;
@@ -109,4 +109,38 @@ export const Back = styled.button`
 `
 export const Loading = styled.p`
   color: ${props => props.theme.color};
+`
+export const Caption = styled.div`
+  display: ${props => (props.flex ? 'flex' : 'block')};
+  align-items: center;
+  transition: .25s;
+  width: ${props => (props.flex ? 'auto' : '100%')};;
+  margin: 0;
+  padding: .5rem .5rem;
+  background: ${colors.white};
+  border: 2px solid ${props => props.theme.color};
+  bottom: 0;
+  position: absolute;
+  transform-origin: top center;
+  transform: translateY(50%) translateX(-3rem) scaleY(0);
+  section {
+    margin: 0 .5rem;
+    svg, img, svg path, svg polygon, svg polyline {
+      transition: .25s;
+      fill: ${props => props.theme.color} !important;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    section { opacity: .5; }
+  }
+`
+export const CaptionItem = styled.p`
+  opacity 0;
+  transition: .25s .125s;
+  color: ${props => props.theme.color};
+  font-weight: ${props => (props.bold ? '800' : '400')};
+  text-transform: ${props => (props.caps ? 'uppercase' : '')};
+  font-style: ${props => (props.italic ? 'italic' : 'normal')};
+  margin: .5rem 0;
 `

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import Video from './Video'
-import { Caption, CaptionItem } from '../Collage/styles'
+import { Caption, CaptionItem } from './styles'
 
 function SlideThumb({ alt, classNames, src, title, handleClick, videoInfo, width, event, person }) {
   return (
