@@ -4,7 +4,6 @@ import { template } from 'lodash'
 import css from 'cape-style'
 import Button from 'cape-mixer/lib/Button'
 
-// import './Me.css'
 import Alert from '../Alert'
 import Page from '../Page'
 import Profile from './Profile'
@@ -17,16 +16,25 @@ const styles = {
 
 function Me(props) {
   const {
-    artwork, auth, authStudentMissing, authWarn,
-    hasMicaEmail, isAuthenticated, isStudent, params, user,
+    artwork,
+    auth,
+    authStudentMissing,
+    authWarn,
+    hasMicaEmail,
+    isAuthenticated,
+    isStudent,
+    params,
+    user,
   } = props
-  if (!isAuthenticated) return (
-    <div>
-      <a href="/" style={styles.login}>Home</a>
-      <div>or</div>
-      <Button onClick={auth} style={styles.login}>Login</Button>
-    </div>
-  )
+  if (!isAuthenticated) {
+    return (
+      <div>
+        <a href="/" style={styles.login}>Home</a>
+        <div>or</div>
+        <Button onClick={auth} style={styles.login}>Login</Button>
+      </div>
+    )
+  }
   if (!user.email) return <p className="flex loading">Loading...</p>
   const { email, name, id } = user
   const micaNoInfo = hasMicaEmail && !isStudent

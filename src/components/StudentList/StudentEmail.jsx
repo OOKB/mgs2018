@@ -13,5 +13,6 @@ StudentEmail.propTypes = {
   email: PropTypes.string,
 }
 StudentEmail.defaultProps = {
+  email: null,
 }
 export default StudentEmail

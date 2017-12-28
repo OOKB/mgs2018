@@ -20,6 +20,6 @@ export const MicaLogo = styled.div`
   right: 1.5rem;
   svg path, svg polygon, svg polyline {
     transition: .25s;
-    fill: ${props => props.theme.color };
+    fill: ${props => props.theme.color};
   }
 `

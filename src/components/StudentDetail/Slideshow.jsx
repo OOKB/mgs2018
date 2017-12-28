@@ -223,7 +223,7 @@ class Slideshow extends Component {
   render() {
     const { collection } = this.props
     // const { animation } = this.state
-    // const collectionExists = collection && collection.length > 0
+      // const collectionExists = collection && collection.length > 0
     const thumbEl = this.getThumbs(collection)
     // const slideIndicators = this.generateIndicators()
 

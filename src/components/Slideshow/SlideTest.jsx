@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Swiper, Slide } from 'react-dynamic-swiper'
 import { map } from 'lodash'
 import 'react-dynamic-swiper/lib/styles.css'

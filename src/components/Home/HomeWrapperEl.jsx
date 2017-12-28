@@ -40,7 +40,7 @@ const micaLogo = `
 </g>
 </svg>`
 
-function HomeWrapperEl({ children, art, siteName, studentArt }) {
+function HomeWrapperEl({ children, siteName, studentArt }) {
   return (
     <Page className="App">
       <Wrapper>
@@ -70,14 +70,10 @@ const artPropType = PropTypes.shape({
   title: PropTypes.string,
 })
 HomeWrapperEl.propTypes = {
-  art: PropTypes.arrayOf(artPropType),
   children: PropTypes.node.isRequired,
-  siteName: PropTypes.string.isRequired,
   studentArt: PropTypes.arrayOf(artPropType),
 }
 HomeWrapperEl.defaultProps = {
-  art: null,
-  siteName: 'MICA Grad Show 2018',
   studentArt: null,
 }
 

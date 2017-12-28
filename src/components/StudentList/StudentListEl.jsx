@@ -54,5 +54,7 @@ StudentListEl.propTypes = {
   programOptions: PropTypes.arrayOf(PropTypes.object),
 }
 StudentListEl.defaultProps = {
+  students: null,
+  programOptions: null,
 }
 export default StudentListEl

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 import { sample, reject } from 'lodash'
 
-// import LinkEl from 'cape-mixer/lib/Link/Link'
 import mgsLogo from '../../mgs2018logo.svg'
 import yearLogo from '../../mgs2018year.svg'
 import Blurb from '../Blurb/Blurb'
 import Logo from '../Logo/Logo'
 import Footer from '../Footer/Footer'
-// import Collage from '../Collage/Collage'
 import Slideshow from '../StudentDetail/Slideshow'
+
 import { Wrapper, LogoWrapper, MicaLogo } from './styles'
 import { colors } from '../../util'
 
@@ -47,9 +46,9 @@ class Splash extends React.Component {
   }
 
   changeTheme() {
-    const ttt = reject(themes, this.state.theme)
-    const sss = sample(ttt)
-    this.setState({ theme: sss })
+    const t = reject(themes, this.state.theme)
+    const s = sample(t)
+    this.setState({ theme: s })
   }
 
   render() {
@@ -86,16 +85,14 @@ class Splash extends React.Component {
       <ThemeProvider theme={theme}>
         <Wrapper onClick={this.changeTheme}>
           <LogoWrapper top>
-            {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
+            { siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} /> }
             <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
           </LogoWrapper>
-          {/* { art && <Slideshow collection={art} /> } */}
-          {art && art.length > 0 && <Slideshow collection={art} />}
+          { art && art.length > 0 && <Slideshow collection={art} /> }
           <LogoWrapper>
             <Logo right primary logoSrc={yearLogo} siteName={siteName} />
           </LogoWrapper>
-          {siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} />}
-          {/* <LinkEl action={loginAction} {...login} /> */}
+          { siteName && <Blurb mgsBlock={mgsLogo} siteName={siteName} /> }
           <Footer />
         </Wrapper>
       </ThemeProvider>
@@ -113,16 +110,10 @@ const artPropType = PropTypes.shape({
 })
 Splash.propTypes = {
   art: PropTypes.arrayOf(artPropType),
-  // artAll: PropTypes.objectOf(artPropType),
   siteName: PropTypes.string.isRequired,
 }
 Splash.defaultProps = {
   art: null,
-  artAll: null,
-}
-Splash.defaultProps = {
-  art: null,
-  siteName: 'MICA Grad Show 2018',
 }
 
 export default Splash

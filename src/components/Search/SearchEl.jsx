@@ -16,7 +16,8 @@ function SearchEl({ onChange, value }) {
       <SearchInput
         className="search"
         placeholder="Search"
-        onChange={onChange} value={value || ''}
+        onChange={onChange}
+        value={value || ''}
         type="text"
       />
     </SearchWrapper>
@@ -28,5 +29,7 @@ SearchEl.propTypes = {
   value: PropTypes.string,
 }
 SearchEl.defaultProps = {
+  onChange: null,
+  value: null,
 }
 export default SearchEl

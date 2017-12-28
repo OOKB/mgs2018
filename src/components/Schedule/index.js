@@ -43,12 +43,10 @@ export const itemsFilled = createSelector(
   (graph, graphType) => mergeShows(mapValues(graphType, itemFill(graph)))
 )
 export const itemsSearched = textSearchSelector(itemsFilled, 'ShowGroup')
-export const showGroupByName = createSelector(
-  itemsSearched, flow(
-    groupBy('groupType'),
-    mapKeys(camelCase),
-    fpValues(sortBy('startDate'))
-  )
-)
+export const showGroupByName = createSelector(itemsSearched, flow(
+  groupBy('groupType'),
+  mapKeys(camelCase),
+  fpValues(sortBy('startDate'))
+))
 
 // orderBy('startDate')

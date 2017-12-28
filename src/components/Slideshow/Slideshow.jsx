@@ -13,7 +13,6 @@ class Slideshow extends Component {
     super(props)
     this.state = {
       currentPosition: 0,
-      animation: 'initial',
     }
     this.slideAdvance = this.slideAdvance.bind(this)
     this.slideRewind = this.slideRewind.bind(this)
@@ -88,24 +87,13 @@ class Slideshow extends Component {
     const viewableSlides = this.getSlideIndices(currentPosition)
     // Add the slides that should appear before the active slide.
     let slides = viewableSlides.previousSlides.map(slideIndex =>
-      this.generateSlide(
-        collection[slideIndex], slideIndex, lastPosition, null
-      )
-    )
+      this.generateSlide(collection[slideIndex], slideIndex, lastPosition, null))
     // Add the active slide.
-    slides.push(
-      this.generateSlide(
-        collection[currentPosition], currentPosition, lastPosition, null
-      )
-    )
+    // eslint-disable-next-line
+    slides.push(this.generateSlide(collection[currentPosition], currentPosition, lastPosition, null))
     // Add the slides that should appear before the active slide
-    slides = slides.concat(
-      viewableSlides.nextSlides.map(slideIndex =>
-        this.generateSlide(
-          collection[slideIndex], slideIndex, lastPosition, null
-        )
-      )
-    )
+    slides = slides.concat(viewableSlides.nextSlides.map(slideIndex =>
+      this.generateSlide(collection[slideIndex], slideIndex, lastPosition, null)))
     return slides
   }
 
@@ -158,8 +146,9 @@ class Slideshow extends Component {
     const { collection } = this.props
     const { currentPosition } = this.state
     const slideIndicators = map(collection, (item, index) => {
-    const activeSlide = index === currentPosition
+      const activeSlide = index === currentPosition
       return (
+        // eslint-disable-next-line
         <li
           key={index}
           onClick={() => this.moveToSlide(index)}
@@ -197,7 +186,6 @@ class Slideshow extends Component {
       newPosition = 0
     }
     this.setState({
-      animation: 'slide-advance',
       currentPosition: newPosition,
     })
   }
@@ -212,7 +200,6 @@ class Slideshow extends Component {
       newPosition = collection.length - 1
     }
     this.setState({
-      animation: 'slide-rewind',
       currentPosition: newPosition,
     })
   }
@@ -223,7 +210,7 @@ class Slideshow extends Component {
   render() {
     const { collection } = this.props
     // const { animation } = this.state
-      // const collectionExists = collection && collection.length > 0
+    // const collectionExists = collection && collection.length > 0
     const thumbEl = this.getThumbs(collection)
     // const slideIndicators = this.generateIndicators()
 

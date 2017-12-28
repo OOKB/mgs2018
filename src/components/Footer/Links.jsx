@@ -9,19 +9,23 @@ import { ListItem, FlexList } from './styles'
 function Links({ className, links, title, siteId }) {
   return (
     <section className={classnames('column', className)}>
-      {title && <h3 style={css('fs1 m0')}>{title}</h3>}
+      { title && <h3 style={css('fs1 m0')}>{title}</h3> }
       <FlexList>
-        {map(links, (item, index) =>
-          <ListItem key={index}><LinkEl {...item} siteId={siteId} /></ListItem>
-        )}
+        { map(links, (item, index) =>
+          <ListItem key={index}><LinkEl {...item} siteId={siteId} /></ListItem>) }
       </FlexList>
     </section>
   )
 }
 Links.propTypes = {
   className: PropTypes.string,
-  links: PropTypes.array.isRequired,
+  links: PropTypes.arrayOf(PropTypes.string).isRequired,
   siteId: PropTypes.string,
   title: PropTypes.string,
+}
+Links.defaultProps = {
+  className: null,
+  siteId: null,
+  title: null,
 }
 export default Links

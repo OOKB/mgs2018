@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
+import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps'
 
 import { map } from 'lodash'
-// import css from 'cape-style'
 import mapStyles from './map.json'
 import LocationItem from './DetailMapLocation'
 
+// eslint-disable-next-line
 const DetailMap = withScriptjs(withGoogleMap((props) => (
   <GoogleMap
     defaultZoom={props.zoom}
@@ -22,7 +22,7 @@ DetailMap.propTypes = {
   // center: PropTypes.object,
   defaultCenter: PropTypes.shape({
     lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired  ,
+    lng: PropTypes.number.isRequired,
   }),
   options: PropTypes.shape({
     scrollwheel: PropTypes.bool,

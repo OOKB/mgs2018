@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { get } from 'lodash'
-// import css from 'cape-style'
 import LinkEl from 'cape-mixer/lib/Link/Link'
 import Select from 'cape-mixer/lib/SelectEl'
-// import './Student.css'
+
 import { getShowId } from '../Schedule/ShowGroup'
 import StudentLink from '../Peers/StudentLink'
 
@@ -41,17 +40,17 @@ function StudentEl(props) {
       </Cell>
       <Cell className="social">
         <div>
-          {url && <LinkEl href={url} icon="web" />}
-          {email && <LinkEl href={emailStr} icon="email" />}
-          {facebook && <LinkEl href={facebookStr} icon="facebook" />}
-          {instagram && <LinkEl href={instagramStr} icon="instagram" />}
-          {soundcloud && <LinkEl href={soundcloudStr} icon="soundcloud" />}
-          {twitter && <LinkEl href={twitterStr} icon="twitter" />}
-          {vimeo && <LinkEl href={vimeoStr} icon="vimeo" />}
-          {youtube && <LinkEl href={youtubeStr} icon="youtube" />}
+          { url && <LinkEl href={url} icon="web" /> }
+          { email && <LinkEl href={emailStr} icon="email" /> }
+          { facebook && <LinkEl href={facebookStr} icon="facebook" /> }
+          { instagram && <LinkEl href={instagramStr} icon="instagram" /> }
+          { soundcloud && <LinkEl href={soundcloudStr} icon="soundcloud" /> }
+          { twitter && <LinkEl href={twitterStr} icon="twitter" /> }
+          { vimeo && <LinkEl href={vimeoStr} icon="vimeo" /> }
+          { youtube && <LinkEl href={youtubeStr} icon="youtube" /> }
         </div>
       </Cell>
-      { art && art.length > 0 && <CellImage src={art[0].image.url} />}
+      { art && art.length > 0 && <CellImage src={art[0].image.url} /> }
     </GroupBody>
   )
 }

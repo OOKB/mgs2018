@@ -22,15 +22,15 @@ function Logo({ logoSrc, siteName, primary, left, right, fixed, sttc }) {
 
 Logo.propTypes = {
   logoSrc: PropTypes.string.isRequired,
-  siteName: PropTypes.string.isRequired,
+  siteName: PropTypes.string,
   primary: PropTypes.bool,
   left: PropTypes.bool,
   right: PropTypes.bool,
   fixed: PropTypes.bool,
   sttc: PropTypes.bool,
 }
-
 Logo.defaultProps = {
+  siteName: 'MICA Grad Show',
   primary: false,
   left: false,
   right: false,

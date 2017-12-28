@@ -18,12 +18,11 @@ function AllStudents({ program }) {
     <div>
       <Divider />
       <ul style={css('m0 mt1 p0 lsNone')} >
-        {size(program) > 0 && map(program, ({ students }) => map(students, student => (
+        { size(program) > 0 && map(program, ({ students }) => map(students, student => (
           <NameLink hasDetail={student.hasDetail} key={student.id}>
             <StudentLink {...student}><span className="name">{student.name}</span></StudentLink>
           </NameLink>
-        ))
-        )}
+        ))) }
       </ul>
     </div>
   )
@@ -33,7 +32,9 @@ AllStudents.propTypes = {
 }
 
 function DetailEl({ showGroup, detailClose }) {
-  if (!showGroup) return <div><Loading className="flex loading">loading...</Loading>{close}</div>
+  if (!showGroup) {
+    return <Loading className="flex loading">loading...</Loading>
+  }
   const {
     description, extraChild, id, name, lat, lng, locations, program,
     reception, show, showDate, zoom,
@@ -55,12 +56,12 @@ function DetailEl({ showGroup, detailClose }) {
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA&v=3.exp&libraries=geometry,drawing,places"
                 loadingElement={<div style={{ height: '100%' }} />}
                 containerElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
-                mapElement={<div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }} />}
+                mapElement={<div style={{ top: '0', bottom: '0', left: '0', right: '0', position: 'absolute' }} />}
               />
             </MapContainer>
             <div>
               { size(show) > 0 && map(show, ({ documentation }) => map(documentation, item => (
-                <img src={item.url} />
+                <img src={item.url} alt={item.filename} />
               )))}
             </div>
           </MapWrapper>
@@ -95,5 +96,6 @@ DetailEl.propTypes = {
   detailClose: PropTypes.func.isRequired,
 }
 DetailEl.defaultProps = {
+  showGroup: null,
 }
 export default DetailEl

@@ -4,12 +4,18 @@ import { find, map, size } from 'lodash'
 import css from 'cape-style'
 import Peers from '../Peers/Peers'
 
-import { Reception, Divider, PlaceName, PlaceBuilding, PlaceAddress, PlaceHours, Link } from './styles'
+import { Reception, Divider, PlaceName, PlaceBuilding, PlaceAddress, PlaceHours } from './styles'
 
 
 function LocationItem({ location, students }) {
   if (!location) return <p>No location.</p>
-  const { name, galleryHours, building, streetAddress, zip } = location
+  const {
+    name,
+    galleryHours,
+    building,
+    streetAddress,
+    zip,
+  } = location
   return (
     <li style={css('mb0p5')}>
       <PlaceName>{name}</PlaceName>
@@ -37,6 +43,10 @@ LocationItem.propTypes = {
   }),
   students: PropTypes.objectOf(PropTypes.object),
 }
+LocationItem.defaultProps = {
+  location: null,
+  students: null,
+}
 
 function LocationList({ show, reception }) {
   return (
@@ -61,5 +71,8 @@ LocationList.propTypes = {
   reception: PropTypes.string,
   show: PropTypes.objectOf(PropTypes.object),
 }
-
+LocationList.defaultProps = {
+  reception: null,
+  show: null,
+}
 export default LocationList

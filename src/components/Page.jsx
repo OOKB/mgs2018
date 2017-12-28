@@ -58,6 +58,7 @@ class Page extends React.Component {
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  id: PropTypes.string,
 }
 Page.defaultProps = {
   id: 'page',

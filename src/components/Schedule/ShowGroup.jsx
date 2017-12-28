@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { map, propertyOf } from 'lodash'
 import Link from 'redux-history-component'
 import css from 'cape-style'
-// import './ShowItem.css'
 
 import { ShowItem } from './styles'
 
@@ -30,17 +29,19 @@ Reception.propTypes = {
   date: PropTypes.string.isRequired,
   extra: PropTypes.string,
 }
-
+Reception.defaultProps = {
+  extra: null,
+}
 function ShowGroup({ extraChild, name, program, reception, showDate, ...props }) {
   const showId = getShowId(props)
   return (
     <ShowItem>
       <Link routeId="details" showId={showId} className="block" style={css('textReset')} top>
         <h1 style={css('m0 mb1')}>{ name }</h1>
-        {showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2>}
-        {reception && <Reception date={reception} extra={extraChild && extraChild.reception} />}
+        { showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2> }
+        { reception && <Reception date={reception} extra={extraChild && extraChild.reception} /> }
         <ul style={css('lsNone mt1 p0')}>
-          {program && map(program, (item, key) => <li style={css('mb0p5')} key={key}>{item.name}</li>)}
+          { program && map(program, (item, key) => <li style={css('mb0p5')} key={key}>{item.name}</li>) }
         </ul>
       </Link>
     </ShowItem>
@@ -59,11 +60,7 @@ ShowGroup.propTypes = {
   name: PropTypes.string.isRequired,
 }
 ShowGroup.defaultProps = {
-  endDate: '',
-  name: '[name here...]',
-  program: { name: 'Teaching, M.A.' },
-  showDate: 'February 26 – March 13, 2017',
-  showName: 'Teaching',
-  startDate: '',
+  extraChild: null,
+  reception: null,
 }
 export default ShowGroup

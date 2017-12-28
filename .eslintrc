@@ -11,13 +11,15 @@
       "min": 3,
       "max": 30,
       "properties": "never",
-      "exceptions": ["t", "id", "db", "Me", "me"]
+      "exceptions": ["t", "s", "id", "db", "Me", "me"]
     }],
     "import/no-named-as-default": 0,
     "jsx-a11y/img-has-alt": "off",
     "no-console": 1,
     "no-alert": 1,
     "no-trailing-spaces": 2,
-    "semi": [ 2, "never" ]
+    "semi": [ 2, "never" ],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "jsx-a11y/anchor-is-valid": 0,
   }
 }

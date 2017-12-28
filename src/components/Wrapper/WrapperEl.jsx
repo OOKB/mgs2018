@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mgsLogo from '../../mgs2018logoarrow.svg'
 import Page from '../Page'
-import Logo from '../Logo/Logo'
 
 import { Wrapper, LogoWrapper, MicaLogo } from './styles'
 
@@ -35,12 +33,11 @@ const micaLogo = `
 </g>
 </svg>`
 
-function WrapperEl({ children, siteName }) {
+function WrapperEl({ children }) {
   return (
     <Page className="App">
       <Wrapper>
         <LogoWrapper top>
-          {/* {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />} */}
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
         {children}
@@ -50,10 +47,8 @@ function WrapperEl({ children, siteName }) {
 }
 WrapperEl.propTypes = {
   children: PropTypes.node.isRequired,
-  siteName: PropTypes.string.isRequired,
 }
 WrapperEl.defaultProps = {
-  siteName: 'MICA Grad Show 2018',
 }
 
 export default WrapperEl

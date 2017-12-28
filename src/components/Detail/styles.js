@@ -15,14 +15,6 @@ export const MapContainer = styled.div`
   height: 0;
   padding-bottom: 100%;
   width: auto;
-  ${'' /* .google-map-container {
-    height: 0;
-    padding-bottom: 100%;
-    min-height: initial;
-    > div {
-      position: absolute !important;
-    }
-  } */}
 `
 
 export const MapWrapper = styled.div`

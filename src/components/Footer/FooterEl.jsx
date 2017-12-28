@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import micaLogo from '../../micaLogo18.svg'
-// import './Footer.css'
 import Links from './Links'
 import Menu from '../Header/Menu'
 import { Wrapper, Footer, Chunk, Atag, MicaLogo, FlexList, ListItem, MenuWrapper } from './styles'
@@ -53,10 +52,22 @@ function FooterEl({ archive, social }) {
   )
 }
 FooterEl.propTypes = {
-  archive: PropTypes.array,
-  siteId: PropTypes.string,
-  social: PropTypes.array,
+  archive: PropTypes.arrayOf(PropTypes.shape({
+    link: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })),
+  social: PropTypes.arrayOf(PropTypes.shape({
+    href: PropTypes.string.isRequired,
+    icon: PropTypes.shape({
+      className: PropTypes.string.isRequired,
+      symbol: PropTypes.string.isRequired,
+    }),
+    title: PropTypes.string.isRequired,
+  })),
 }
 FooterEl.defaultProps = {
+  archive: null,
+  social: null,
 }
 export default FooterEl

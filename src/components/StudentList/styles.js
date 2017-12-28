@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { transparentize } from 'polished'
-import { colors, sizes } from '../../util'
+import { sizes } from '../../util'
 
 export const GroupHeader = styled.span`
   display: flex;
