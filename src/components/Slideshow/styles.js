@@ -92,7 +92,11 @@ export const ImageTest = styled.img`
   max-height: 600px;
 `
 export const SliderWrapper = styled.div`
+  .swiper-wrapper {
+    align-items: center;
+  }
   .swiper-slide {
+    height: 100%;
     width: auto;
     max-width: 80vw;
     &:hover {
