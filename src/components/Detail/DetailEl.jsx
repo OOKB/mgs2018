@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { map, size } from 'lodash'
+import { map, size, sortBy } from 'lodash'
 import css from 'cape-style'
 // import './Detail.css'
 import DetailMap from './DetailMap'
@@ -18,7 +18,7 @@ function AllStudents({ program }) {
     <div>
       <Divider />
       <ul style={css('m0 mt1 p0 lsNone')} >
-        { size(program) > 0 && map(program, ({ students }) => map(students, student => (
+        { size(program) > 0 && map(program, ({ students }) => map(sortBy(students, 'name'), student => (
           <NameLink hasDetail={student.hasDetail} key={student.id}>
             <StudentLink {...student}><span className="name">{student.name}</span></StudentLink>
           </NameLink>
