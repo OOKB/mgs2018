@@ -43,10 +43,10 @@ export const Caption = styled.div`
   padding: .5rem .5rem;
   background: ${colors.white};
   border: 2px solid ${props => props.theme.color};
-  bottom: 0;
+  bottom: 50%;
   position: absolute;
   transform-origin: top center;
-  transform: translateY(50%) translateX(-3rem) scaleY(0);
+  transform: translateY(50%) translateX(-3rem) scale(0);
   section {
     margin: 0 .5rem;
     svg, img, svg path, svg polygon, svg polyline {
@@ -94,5 +94,14 @@ export const ImageTest = styled.img`
 export const SliderWrapper = styled.div`
   .swiper-slide {
     width: auto;
+    max-width: 80vw;
+    &:hover {
+      div {
+        transform: translateY(50%) translateX(-3rem) scale(1);
+        p {
+          opacity: 1;
+        }
+      }
+    }
   }
 `

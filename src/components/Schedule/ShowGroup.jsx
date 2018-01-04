@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { map, propertyOf } from 'lodash'
+import { map, propertyOf, sortBy } from 'lodash'
 import Link from 'redux-history-component'
 import css from 'cape-style'
 
@@ -40,8 +40,8 @@ function ShowGroup({ extraChild, name, program, reception, showDate, ...props })
         <h1 style={css('m0 mb1')}>{ name }</h1>
         { showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2> }
         { reception && <Reception date={reception} extra={extraChild && extraChild.reception} /> }
-        <ul style={css('lsNone mt1 p0')}>
-          { program && map(program, (item, key) => <li style={css('mb0p5')} key={key}>{item.name}</li>) }
+        <ul style={css('lsNone mt1p5 p0')}>
+          { program && map(sortBy(program, 'name'), (item, key) => <li style={css('mb0p75')} key={key}>{item.name}</li>) }
         </ul>
       </Link>
     </ShowItem>
