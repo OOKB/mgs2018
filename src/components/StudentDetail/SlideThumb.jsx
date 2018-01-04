@@ -1,21 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import css from 'cape-style'
 
 import Video from './Video'
-import { Caption, CaptionItem } from './styles'
 
-function SlideThumb({ alt, classNames, src, title, handleClick, videoInfo, width, event, person }) {
+function SlideThumb({ alt, src, title, handleClick, videoInfo, width }) {
   return (
-    <li className={classnames(classNames)}>
+    <li style={css('mb1')}>
       { videoInfo && videoInfo.url ? <Video {...videoInfo} /> : (
         <div>
           <img src={`${src}?w=${width}`} title={title} alt={alt || title} onClick={handleClick} />
-          <Caption>
-            {event && <CaptionItem bold caps>{event}</CaptionItem> }
-            {title && <CaptionItem italic>{title}</CaptionItem> }
-            {person && <CaptionItem>{person.name && <span>{person.name}</span>}{person.program && <span>, {person.program}</span>}</CaptionItem> }
-          </Caption>
         </div>
       )}
     </li>

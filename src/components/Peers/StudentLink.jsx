@@ -9,8 +9,9 @@ function StudentLink({ children, hasDetail, id }) {
 StudentLink.propTypes = {
   children: PropTypes.node.isRequired,
   id: PropTypes.string.isRequired,
-  hasDetail: PropTypes.bool.isRequired,
+  hasDetail: PropTypes.bool,
 }
 StudentLink.defaultProps = {
+  hasDetail: false,
 }
 export default StudentLink

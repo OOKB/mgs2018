@@ -61,7 +61,7 @@ function DetailEl({ showGroup, detailClose }) {
             </MapContainer>
             <div>
               { size(show) > 0 && map(show, ({ documentation }) => map(documentation, item => (
-                <img src={item.url} alt={item.filename} />
+                <img src={item.url} alt={item.filename} style={css('mb1')} />
               )))}
             </div>
           </MapWrapper>

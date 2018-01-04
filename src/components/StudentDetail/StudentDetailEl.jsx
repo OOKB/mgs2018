@@ -16,7 +16,6 @@ import mgsLogo from '../../mgs2018logoarrow.svg'
 import { Flex, ImageContainer, InfoContainer, Divider, Back, Loading } from './styles'
 
 function StudentDetail({ closePopup, student }) {
-  const hasArt = student.art && student.art.length > 0
   return (
     <Wrapper>
       <Back onClick={closePopup}>
@@ -27,9 +26,9 @@ function StudentDetail({ closePopup, student }) {
         <Flex>
 
           <ImageContainer>
-            { hasArt && <ImageStack collection={student.art} /> }
-            { hasArt && <ImageHeaderMobile collection={student.art} /> }
-            { !hasArt && <NoImages /> }
+            { student.art && student.art.length > 0 && <ImageStack collection={student.art} /> }
+            { student.art && student.art.length > 0 && <ImageHeaderMobile collection={student.art} /> }
+            { !student.art && <NoImages /> }
           </ImageContainer>
 
           <InfoContainer>
@@ -41,7 +40,7 @@ function StudentDetail({ closePopup, student }) {
                 <Divider />
               </div>
             }
-            { hasArt && <ImageStackMobile collection={student.art} /> }
+            { student.art && student.art.length > 0 && <ImageStackMobile collection={student.art} /> }
             <ProgramList {...student.program} />
           </InfoContainer>
 
