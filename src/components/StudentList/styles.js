@@ -74,8 +74,12 @@ export const Cell = styled.span`
   }
   a {
     color: ${props => props.theme.color};
-    text-decoration: underline;
     border-bottom: none;
+    background-image: linear-gradient(to right, ${props => props.theme.color} 0%, ${props => props.theme.color} 100%);
+    background-repeat: repeat-x;
+    background-position: 0 95%;
+    background-size: 100% 1px;
+
     &:hover {
       opacity: 0.5;
   }

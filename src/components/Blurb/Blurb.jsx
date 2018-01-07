@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Wrapper, Tagline, Description, DescriptionWrapper, EventDate } from './styles'
+import { Wrapper, Tagline, Underline, Description, DescriptionWrapper, EventDate } from './styles'
 
 const Blurb = ({ description, tagline, eventDate }) => (
   <Wrapper>
     <div>
-      <Tagline>{tagline}</Tagline>
+      <Tagline>
+        <Underline>{tagline}</Underline>
+      </Tagline>
       <EventDate>{eventDate}</EventDate>
     </div>
     <DescriptionWrapper>

@@ -4,7 +4,7 @@ import { map, propertyOf, sortBy } from 'lodash'
 import Link from 'redux-history-component'
 import css from 'cape-style'
 
-import { ShowItem } from './styles'
+import { ShowItem, Underline } from './styles'
 
 export const linkMap = propertyOf({
   recL5bU5855qMhQT4: 'recy5OLOvJNnpWuAD',
@@ -37,7 +37,9 @@ function ShowGroup({ extraChild, name, program, reception, showDate, ...props })
   return (
     <ShowItem>
       <Link routeId="details" showId={showId} className="block" style={css('textReset')} top>
-        <h1 style={css('m0 mb1')}>{ name }</h1>
+        <h1 style={css('m0 mb1')}>
+          <Underline>{ name }</Underline>
+        </h1>
         { showDate && <h2 style={css('m0 mb1')} className="dateRange">{showDate}</h2> }
         { reception && <Reception date={reception} extra={extraChild && extraChild.reception} /> }
         <ul style={css('lsNone mt1p5 p0')}>
