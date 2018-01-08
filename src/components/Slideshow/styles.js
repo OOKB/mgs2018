@@ -38,7 +38,7 @@ export const Caption = styled.div`
   display: ${props => (props.flex ? 'flex' : 'block')};
   align-items: center;
   transition: .25s;
-  width: ${props => (props.flex ? 'auto' : '100%')};;
+  width: ${props => (props.flex ? 'auto' : '100%')};
   margin: 0;
   padding: .5rem .5rem;
   background: ${colors.white};
@@ -79,19 +79,31 @@ export const Refresh = styled.button`
   span { text-decoration: underline; }
 `
 export const TestWrap = styled.div`
-  padding: 0 0 600px;
-  margin: 8rem 0 0;
+  padding: 0 0 400px;
+  margin: 5rem 0 0;
+  @media (min-width: ${sizes.medium}) {
+    padding: 0 0 600px;
+    margin: 8rem 0 0;
+  }
 `
 export const Test = styled.div`
-  height: 600px;
+  height: 400px;
   position: absolute;
   left: 0;
   right: 0;
+  @media (min-width: ${sizes.medium}) {
+    height: 600px;
+  }
 `
 export const ImageTest = styled.img`
-  max-height: 600px;
+  max-height: 400px;
+  @media (min-width: ${sizes.medium}) {
+    max-height: 600px;
+  }
 `
 export const SliderWrapper = styled.div`
+  opacity: ${props => (props.loading ? 0 : 1)};
+  transition: opacity 2s;
   .swiper-wrapper {
     align-items: center;
   }
@@ -108,4 +120,12 @@ export const SliderWrapper = styled.div`
       }
     }
   }
+`
+export const Loading = styled.p`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: initial !important;
+  min-height: initial !important;
+  color: ${props => props.theme.color};
 `

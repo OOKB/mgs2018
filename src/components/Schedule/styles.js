@@ -39,7 +39,6 @@ export const ShowItem = styled.section`
     font-weight: 400;
     color: ${props => props.theme.color};
     font-size: 2.25rem;
-    text-decoration: underline;
     &:hover {
       opacity: 0.5;
     }
@@ -63,7 +62,6 @@ export const ShowItem = styled.section`
     }
   }
 `
-
 export const Blurb = styled.p`
   width: 100%;
   margin: 0 0 5rem;
@@ -77,4 +75,10 @@ export const Blurb = styled.p`
     width: calc(100% / 3 );
     padding-right: 4rem;
   }
+`
+export const Underline = styled.span`
+  background-image: linear-gradient(to right, ${props => props.theme.color} 0%, ${props => props.theme.color} 100%);
+  background-repeat: repeat-x;
+  background-position: 0 95%;
+  background-size: 100% 1px;
 `
