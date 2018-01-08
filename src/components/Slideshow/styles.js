@@ -38,7 +38,7 @@ export const Caption = styled.div`
   display: ${props => (props.flex ? 'flex' : 'block')};
   align-items: center;
   transition: .25s;
-  width: ${props => (props.flex ? 'auto' : '100%')};;
+  width: ${props => (props.flex ? 'auto' : '100%')};
   margin: 0;
   padding: .5rem .5rem;
   background: ${colors.white};
@@ -102,6 +102,8 @@ export const ImageTest = styled.img`
   }
 `
 export const SliderWrapper = styled.div`
+  opacity: ${props => (props.loading ? 0 : 1)};
+  transition: opacity 2s;
   .swiper-wrapper {
     align-items: center;
   }
@@ -118,4 +120,12 @@ export const SliderWrapper = styled.div`
       }
     }
   }
+`
+export const Loading = styled.p`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: initial !important;
+  min-height: initial !important;
+  color: ${props => props.theme.color};
 `

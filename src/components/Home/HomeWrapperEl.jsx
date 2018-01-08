@@ -71,10 +71,12 @@ const artPropType = PropTypes.shape({
 })
 HomeWrapperEl.propTypes = {
   children: PropTypes.node.isRequired,
+  siteName: PropTypes.string,
   studentArt: PropTypes.arrayOf(artPropType),
 }
 HomeWrapperEl.defaultProps = {
   studentArt: null,
+  siteName: null,
 }
 
 export default HomeWrapperEl

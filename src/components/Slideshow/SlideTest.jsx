@@ -5,7 +5,7 @@ import 'react-dynamic-swiper/lib/styles.css'
 
 import StudentLink from '../Peers/StudentLink'
 
-import { SliderWrapper, ImageTest, Test, TestWrap, Refresh, Caption, CaptionItem } from './styles'
+import { Loading, SliderWrapper, ImageTest, Test, TestWrap, Refresh, Caption, CaptionItem } from './styles'
 
 const arrowIcon = `
 <svg width="33px" height="22px" viewBox="0 0 33 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -22,38 +22,60 @@ const arrowIcon = `
 </svg>`
 
 class SlideTest extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
     }
     this.handleClick = this.handleClick.bind(this)
+    this.isLoaded = this.isLoaded.bind(this)
   }
 
   handleClick() {
     console.log('click')
   }
 
+  isLoaded() {
+    this.setState({ loading: false })
+  }
+
   render() {
     const { collection } = this.props
+    const { loading } = this.state
     return (
       <TestWrap>
         <Test>
-          <SliderWrapper>
+          <Loading className="flex loading">loading...</Loading>
+          <SliderWrapper loading={loading}>
             <Swiper
               swiperOptions={{
                 slidesPerView: 'auto',
                 centeredSlides: true,
                 spaceBetween: 60,
-                autoplay: 3500,
+                initialSlide: 0,
+                autoplay: 4500,
+                loop: true,
                 grabCursor: true,
               }}
               navigation={false}
               pagination={false}
+              onAutoplay={() => this.isLoaded()}
             >
               { map(collection, (item) => (
-                <Slide>
-                  <ImageTest src={item.image.url} />
+                <Slide key={item.id}>
+                  <ImageTest
+                    srcSet={`${item.image.url}?w=2048 2048w,
+                             ${item.image.url}?w=1792 1792w,
+                             ${item.image.url}?w=1536 1536w,
+                             ${item.image.url}?w=1280 1280w,
+                             ${item.image.url}?w=1024 1024w,
+                             ${item.image.url}?w=768 768w,
+                             ${item.image.url}?w=512 512w`}
+                    src={item.image.url}
+                    sizes="80vw"
+                    title={item.title}
+                    alt={item.alt || item.title}
+                  />
                   <StudentLink hasDetail id={item.studentId}>
                     <Caption flex>
                       <section>
