@@ -95,7 +95,7 @@ class SlideTest extends Component {
                 </Slide>
               ))}
             </Swiper>
-            <Refresh prefix="refresh-art" />
+            {/* <Refresh prefix="refresh-art" /> */}
           </SliderWrapper>
         </Test>
       </TestWrap>
