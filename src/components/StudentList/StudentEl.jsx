@@ -50,7 +50,18 @@ function StudentEl(props) {
           { youtube && <LinkEl href={youtubeStr} icon="youtube" /> }
         </div>
       </Cell>
-      { art && art.length > 0 && <CellImage src={art[0].image.url} /> }
+      { art && art.length > 0 &&
+        <CellImage
+          srcSet={`${art[0].image.url}?w=1280 1280w,
+                   ${art[0].image.url}?w=1024 1024w,
+                   ${art[0].image.url}?w=768 768w,
+                   ${art[0].image.url}?w=512 512w`}
+          src={art[0].image.url}
+          sizes="35rem"
+          title={art[0].image.title}
+          alt={art[0].image.alt || art[0].image.title}
+        />
+      }
     </GroupBody>
   )
 }
