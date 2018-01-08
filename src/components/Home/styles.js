@@ -12,7 +12,10 @@ export const Wrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   position: relative;
-  margin: ${props => (props.top ? '1.5rem 0' : '-4rem 0')};
+  margin: ${props => (props.top ? '1.5rem 0' : '-2rem 0')};
+  @media (min-width: ${sizes.medium}) {
+    margin: ${props => (props.top ? '1.5rem 0' : '-4rem 0')};
+  }
 `
 
 export const MicaLogo = styled.div`

@@ -79,17 +79,27 @@ export const Refresh = styled.a`
   span { text-decoration: underline; }
 `
 export const TestWrap = styled.div`
-  padding: 0 0 600px;
-  margin: 8rem 0 0;
+  padding: 0 0 400px;
+  margin: 5rem 0 0;
+  @media (min-width: ${sizes.medium}) {
+    padding: 0 0 600px;
+    margin: 8rem 0 0;
+  }
 `
 export const Test = styled.div`
-  height: 600px;
+  height: 400px;
   position: absolute;
   left: 0;
   right: 0;
+  @media (min-width: ${sizes.medium}) {
+    height: 600px;
+  }
 `
 export const ImageTest = styled.img`
-  max-height: 600px;
+  max-height: 400px;
+  @media (min-width: ${sizes.medium}) {
+    max-height: 600px;
+  }
 `
 export const SliderWrapper = styled.div`
   .swiper-wrapper {
