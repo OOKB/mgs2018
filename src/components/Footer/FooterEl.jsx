@@ -26,7 +26,6 @@ function FooterEl({ archive, social }) {
         <Chunk mdOrder="5" lgOrder="2" span>
           <FlexList columns>
             <ListItem link><Atag href="https://www.mica.edu/Admission_and_Financial_Aid/Graduate_Admission_and_Financial_Aid.html?utm_source=mica%20grad%20show2017">MICA Graduate Admissions</Atag></ListItem>
-            <ListItem link><Atag href="http://micagradstudies.tumblr.com/?utm_source=mica%20grad%20show2017">MICA Grad Show Blog</Atag></ListItem>
             <ListItem link><Atag href="http://eepurl.com/bciqMT">Sign up for the MICA Grad Show mailing list</Atag></ListItem>
             <ListItem link><Atag href="http://www.micagradcommunity.org/?utm_source=mica%20grad%20show2017">MICA Grad Community</Atag></ListItem>
           </FlexList>
