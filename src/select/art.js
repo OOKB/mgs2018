@@ -4,6 +4,7 @@ import {
 import { isEmpty, map, reduce } from 'lodash'
 import { setField } from 'cape-lodash'
 import { buildFullEntity, entityTypeSelector, getGraphNode } from 'redux-graph'
+import { selectForm } from 'redux-field'
 import { createSelector } from 'reselect'
 import { getGraphSlice } from './util'
 import { studentsFilled } from './student'
@@ -58,9 +59,10 @@ export const slideStudentsArtOnly = students => reduce(
     result.concat(map(art, item => ({ ...item, studentId: id, studentName: name }))), []
 )
 
-// Selected student
+// Selected student art for splash slideshow.
 export const studentSplashArt = createSelector(
   createSelector(getSlideStudentsArt, slideStudentsArtOnly),
+  flow(selectForm, get('refresh-art.value')),
   sampleSize(7)
 )
 export const studentSlideArt = createSelector(
