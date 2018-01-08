@@ -68,7 +68,7 @@ export const CaptionItem = styled.p`
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
   margin: .5rem 0;
 `
-export const Refresh = styled.a`
+export const Refresh = styled.button`
   color: ${props => props.theme.color};
   text-decoration: underline;
   margin-left: 1.5rem;

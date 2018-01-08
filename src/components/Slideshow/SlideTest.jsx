@@ -4,8 +4,9 @@ import { map } from 'lodash'
 import 'react-dynamic-swiper/lib/styles.css'
 
 import StudentLink from '../Peers/StudentLink'
+import Refresh from './Refresh'
 
-import { SliderWrapper, ImageTest, Test, TestWrap, Refresh, Caption, CaptionItem } from './styles'
+import { SliderWrapper, ImageTest, Test, TestWrap, Caption, CaptionItem } from './styles'
 
 const arrowIcon = `
 <svg width="33px" height="22px" viewBox="0 0 33 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -72,9 +73,7 @@ class SlideTest extends Component {
                 </Slide>
               ))}
             </Swiper>
-            <Refresh onClick={this.handleClick}>
-              &#x21bb; <span>More Artwork</span>
-            </Refresh>
+            <Refresh prefix="art-refresh" />
           </SliderWrapper>
         </Test>
       </TestWrap>
