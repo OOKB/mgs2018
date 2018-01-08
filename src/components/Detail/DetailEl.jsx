@@ -8,10 +8,11 @@ import LocationList from './LocationList'
 import StudentLink from '../Peers/StudentLink'
 import Logo from '../Logo/Logo'
 import Wrapper from '../Wrapper/WrapperEl'
+import ImageStack from '../StudentDetail/ImageStack'
 
 import mgsLogo from '../../mgs2018logoarrow.svg'
 
-import { MapWrapper, MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider, Back, Loading } from './styles'
+import { MapWrapper, MapContainer, InfoContainer, Title, Subtitle, Description, NameLink, Divider, Back, Loading, HideDesktop, HideMobile } from './styles'
 
 function AllStudents({ program }) {
   return (
@@ -59,23 +60,13 @@ function DetailEl({ showGroup, detailClose }) {
                 mapElement={<div style={{ top: '0', bottom: '0', left: '0', right: '0', position: 'absolute' }} />}
               />
             </MapContainer>
-            <div>
-              { size(show) > 0 && map(show, ({ documentation }) => map(documentation, item => (
-                <img
-                  srcSet={`${item.url}?w=2048 2048w,
-                           ${item.url}?w=1792 1792w,
-                           ${item.url}?w=1536 1536w,
-                           ${item.url}?w=1280 1280w,
-                           ${item.url}?w=1024 1024w,
-                           ${item.url}?w=768 768w,
-                           ${item.url}?w=512 512w`}
-                  src={item.url}
-                  sizes="(min-width: 48rem) 50vw, 100vw"
-                  style={css('mt1 w100')}
-                  alt={item.filename}
-                />
-              )))}
-            </div>
+            { size(show) > 0 && map(show, ({ documentation }) => (
+              <HideMobile>
+                { documentation && size(documentation) > 0 &&
+                  <ImageStack collection={documentation} />
+                }
+              </HideMobile>
+            ))}
           </MapWrapper>
           <InfoContainer>
             <Title>{ name }</Title>
@@ -86,6 +77,13 @@ function DetailEl({ showGroup, detailClose }) {
               <LocationList show={extraChild.show} reception={extraChild.reception} />
             }
             {isShowThree && program && <AllStudents program={program} />}
+            { size(show) > 0 && map(show, ({ documentation }) => (
+              <HideDesktop>
+                { documentation && size(documentation) > 0 &&
+                  <ImageStack collection={documentation} />
+                }
+              </HideDesktop>
+            ))}
           </InfoContainer>
         </div>
       </detail>

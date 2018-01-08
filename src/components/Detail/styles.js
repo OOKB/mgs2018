@@ -117,3 +117,17 @@ export const Back = styled.button`
 export const Loading = styled.p`
   color: ${props => props.theme.color};
 `
+export const HideDesktop = styled.div`
+  margin-top: 2rem;
+  display: block;
+  @media (min-width: ${sizes.medium}) {
+    display: none;
+  }
+`
+export const HideMobile = styled.div`
+  margin-top: 2rem;
+  display: none;
+  @media (min-width: ${sizes.medium}) {
+    display: block;
+  }
+`

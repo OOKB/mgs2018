@@ -21,6 +21,7 @@ function SlideThumb({ alt, src, title, handleClick, videoInfo, width }) {
             sizes="(min-width: 48rem) 50vw, 100vw"
             title={title}
             alt={alt || title}
+            style={css('w100')}
             onClick={handleClick}
           />
         </div>

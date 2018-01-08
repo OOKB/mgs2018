@@ -5,13 +5,12 @@ import css from 'cape-style'
 import SlideThumb from './SlideThumb'
 
 function ImageStack({ collection }) {
-
   return (
     <ul className="image-stack" style={css('m0 p0 lsNone')}>
       {map(collection, item => (
         <SlideThumb
           key={item.id}
-          src={item.image.url}
+          src={item.url ? item.url : item.image.url}
           title={item.title}
           videoInfo={item.videoInfo}
           handleClick={item.handleClick}

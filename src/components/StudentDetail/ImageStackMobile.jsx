@@ -11,7 +11,7 @@ function ImageStackMobile({ collection }) {
       {map(slice(collection, 1), item => (
         <SlideThumb
           key={item.id}
-          src={item.image.url}
+          src={item.url ? item.url : item.image.url}
           title={item.title}
           videoInfo={item.videoInfo}
           handleClick={item.handleClick}
