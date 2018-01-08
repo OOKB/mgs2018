@@ -63,7 +63,10 @@ export const Cell = styled.span`
   &.show { flex: 4; }
   &.social {
     margin-right: 0;
-    a { color: black; }
+    a {
+      color: black;
+      background: none;
+    }
     @media (min-width: ${sizes.medium}) {
       flex: none;
       width: 8rem;
