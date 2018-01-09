@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { map } from 'lodash'
 import micaLogo from '../../micaLogo18.svg'
 import Links from './Links'
-import Menu from '../Home/Menu'
+import Menu from './Menu'
 import { Wrapper, Footer, Chunk, Atag, MicaLogo, FlexList, ListItem, MenuWrapper } from './styles'
 
 function FooterEl({ archive, social }) {

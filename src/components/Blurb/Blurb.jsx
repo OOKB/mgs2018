@@ -8,7 +8,7 @@ const Blurb = ({ description, tagline, eventDate }) => (
   <Wrapper>
     <div>
       <Tagline>
-        <LinkEl routeId="students">
+        <LinkEl routeId="studentList">
           <Underline>{tagline}</Underline>
         </LinkEl>
       </Tagline>
