@@ -5,11 +5,8 @@ import css from 'cape-style'
 import SlideThumb from './SlideThumb'
 
 function ImageHeaderMobile({ collection }) {
-  console.log(collection)
   const aaa = toArray(collection)
   const filter = first(aaa)
-  console.log(filter)
-  console.log(collection)
   return (
     <ul className="image-header-mobile" style={css('m0 p0 lsNone')}>
       <SlideThumb

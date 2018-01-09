@@ -85,8 +85,8 @@ export const ShowTitle = styled.h3`
   }
 `
 export const Back = styled.button`
-  height: 5rem;
-  width: 13rem;
+  height: 3.5rem;
+  width: 9rem;
   background: transparent;
   border: none;
   position: fixed;
@@ -101,7 +101,10 @@ export const Back = styled.button`
     opacity: 0.5;
     cursor: pointer;
   }
-
+  @media (min-width: ${sizes.small}) {
+    height: 5rem;
+    width: 13rem;
+  }
   @media (min-width: ${sizes.medium}) {
     height: 6rem;
     width: 16rem;
