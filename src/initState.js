@@ -5,11 +5,11 @@ import reducer, { addRoutes } from 'location-info'
 export const routes = {
   filmfest: '/details/recPkxpU5hm2lfIWC',
   details: '/details/:showId',
-  home: '/home',
+  home: '/',
   me: '/me(/:artId)',
   studentList: '/students',
   studentDetail: '/students/:studentId',
-  splash: '/',
+  splash: '/splash',
 }
 export const locInfo = reducer(undefined, addRoutes(routes))
 
