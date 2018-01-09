@@ -122,6 +122,8 @@ export const SliderWrapper = styled.div`
   }
 `
 export const Loading = styled.p`
+  opacity: ${props => (props.loading ? 1 : 0)};
+  transition: opacity 2s;
   position: absolute;
   left: 50%;
   top: 50%;

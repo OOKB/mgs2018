@@ -5,10 +5,10 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin: 8rem 1.5rem 4rem;
+  margin: 8rem 1.5rem;
   @media (min-width: ${sizes.large}) {
     flex-direction: row;
-    margin: 12rem 1.5rem 4rem;
+    margin: 12rem 1.5rem 8rem;
   }
 `
 export const Tagline = styled.h1`

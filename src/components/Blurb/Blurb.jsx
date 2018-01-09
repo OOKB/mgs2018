@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import LinkEl from 'cape-mixer/lib/Link/Link'
+
 import { Wrapper, Tagline, Underline, Description, DescriptionWrapper, EventDate } from './styles'
 
 const Blurb = ({ description, tagline, eventDate }) => (
   <Wrapper>
     <div>
       <Tagline>
-        <Underline>{tagline}</Underline>
+        <LinkEl routeId="students">
+          <Underline>{tagline}</Underline>
+        </LinkEl>
       </Tagline>
       <EventDate>{eventDate}</EventDate>
     </div>

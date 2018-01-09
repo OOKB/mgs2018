@@ -18,6 +18,8 @@ export const MapContainer = styled.div`
 `
 
 export const MapWrapper = styled.div`
+  height: 0;
+  padding-bottom: 100%;
   flex: 2 !important;
 `
 

@@ -15,7 +15,7 @@ export const ImageContainer = styled.div`
   }
 `
 export const InfoContainer = styled.div`
-  margin-top: 3.5rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   flex: 2;

@@ -46,7 +46,7 @@ class SlideTest extends Component {
     return (
       <TestWrap>
         <Test>
-          <Loading className="flex loading">loading...</Loading>
+          <Loading loading={loading} className="flex loading">loading...</Loading>
           <SliderWrapper loading={loading}>
             <Swiper
               swiperOptions={{

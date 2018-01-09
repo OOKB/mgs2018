@@ -55,7 +55,7 @@ function DetailEl({ showGroup, detailClose }) {
                 zoom={zoom}
                 locations={locations}
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWW7BwZB4inhmk-k5RWdXRo2pD-5X--YA&v=3.exp&libraries=geometry,drawing,places"
-                loadingElement={<div style={{ height: '100%' }} />}
+                loadingElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
                 containerElement={<div style={{ height: '0', paddingBottom: '100%', position: 'relative' }} />}
                 mapElement={<div style={{ top: '0', bottom: '0', left: '0', right: '0', position: 'absolute' }} />}
               />
