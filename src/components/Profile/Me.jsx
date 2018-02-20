@@ -41,7 +41,8 @@ function Me(props) {
 
   return (
     <Page id="profile">
-      {micaNoInfo && <Alert type="danger">{authStudentMissing}</Alert>}
+      {/* Disabling this, as it is constantly a false positive */}
+      {/* {micaNoInfo && <Alert type="danger">{authStudentMissing}</Alert>} */}
       {!hasMicaEmail && <Alert type="danger">{template(authWarn)(user)}</Alert>}
       <flex className="bg-white" style={css('pb3 pl1 pr1')}>
         <h2 style={css('pl1 pr1 w100')}>{name}</h2>
