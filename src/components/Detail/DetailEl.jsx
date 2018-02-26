@@ -41,6 +41,7 @@ function DetailEl({ showGroup, detailClose }) {
     reception, show, showDate, zoom,
   } = showGroup
   const isShowThree = id === 'recLTqHoop0NcGOrb'
+  const isShowFilm = id === 'recyN8KTSaa9IVb7z'
   return (
     <Wrapper>
       <Back onClick={detailClose}>
@@ -72,12 +73,12 @@ function DetailEl({ showGroup, detailClose }) {
             <Title>{ name }</Title>
             { showDate && <Subtitle className="dateRange">{ showDate }</Subtitle>}
             { description && <Description className="description">{ description }</Description>}
-            <LocationList show={show} reception={reception} />
-            {extraChild &&
+            <LocationList show={show} reception={reception} isShowFilm={isShowFilm} />
+            { !isShowFilm && extraChild &&
               <LocationList show={extraChild.show} reception={extraChild.reception} />
             }
-            {isShowThree && program && <AllStudents program={program} />}
-            { size(show) > 0 && map(show, ({ documentation }) => (
+            { isShowThree && program && <AllStudents program={program} />}
+            { !isShowThree && size(show) > 0 && map(show, ({ documentation }) => (
               <HideDesktop>
                 { documentation && size(documentation) > 0 &&
                   <ImageStack collection={documentation} />

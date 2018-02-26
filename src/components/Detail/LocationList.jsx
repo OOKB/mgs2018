@@ -48,11 +48,28 @@ LocationItem.defaultProps = {
   students: null,
 }
 
-function LocationList({ show, reception }) {
+function LocationList({ show, reception, isShowFilm }) {
   return (
     <div>
+      { isShowFilm &&
+        <div>
+          for more information check <a href="http://micafilmmaking.org/">http://micafilmmaking.org/</a>
+        </div>
+      }
       <Divider />
-      { reception &&
+      { isShowFilm &&
+        <div>
+          <Reception style={css('mb1')}>
+            <h3>Reception</h3>
+            <p>April 10 & April 11, 6:00 – 7:00 p.m.</p>
+          </Reception>
+          <Reception>
+            <h3>Screening</h3>
+            <p>begins at 7:00 p.m.</p>
+          </Reception>
+        </div>
+      }
+      { !isShowFilm && reception &&
         <Reception>
           <h3>Reception</h3>
           <p>{ reception }</p>
