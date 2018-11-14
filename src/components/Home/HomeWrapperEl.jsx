@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import mgsLogo from '../../mgs2018logo.svg'
-import yearLogo from '../../mgs2018year.svg'
+import mgsLogo from "../../mgs2018logo.svg";
+import yearLogo from "../../mgs2018year.svg";
 
-import Page from '../Page'
-import Logo from '../Logo/Logo'
-import Slideshow from '../Slideshow/SlideTest'
-import Blurb from '../Blurb/Blurb'
-import Menu from './Menu'
+import Page from "../Page";
+import Logo from "../Logo/Logo";
+import Slideshow from "../Slideshow/SlideTest";
+import Blurb from "../Blurb/Blurb";
+import Menu from "./Menu";
 
-import { Wrapper, LogoWrapper, MicaLogo, MenuWrapper } from './styles'
+import { Wrapper, LogoWrapper, MicaLogo, MenuWrapper } from "./styles";
 
 const micaLogo = `
 <svg width="90px" height="23px" viewBox="0 0 90 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -38,17 +38,21 @@ const micaLogo = `
         <path d="M5.706,15.52 L7.042,15.52 L7.042,19.196 L0,19.196 L0,15.52 L1.638,15.52 L1.638,8.125 L0,8.125 L0,4.47 L11.092,4.47 C11.491,5.794 11.995,7.075 12.373,8.399 C12.793,7.054 13.318,5.773 13.823,4.47 L23.445,4.47 L23.445,8.125 L21.806,8.125 L21.806,15.52 L23.445,15.52 L23.445,19.196 L14.817,19.196 L14.817,15.52 L16.056,15.52 L16.056,9.106 L12.264,19.196 L9.794,19.196 L5.706,9.337 L5.706,15.52 L5.706,15.52 Z M79.853,8.117 C79.623,9.104 78.848,11.15 78.553,12.117 L81.188,12.117 C80.916,11.13 80.084,9.125 79.853,8.117 L79.853,8.117 Z M80.727,19.196 L80.727,15.52 L82.325,15.52 C82.157,14.954 81.903,14.386 81.756,13.818 L78.008,13.818 C77.861,14.386 77.63,14.954 77.462,15.52 L79.097,15.52 L79.097,19.196 L72.942,19.196 L72.942,15.52 L74.244,15.52 C75.484,11.844 76.681,8.146 77.942,4.47 L84.623,4.47 C85.7723968,8.17095847 86.9765287,11.8546956 88.235,15.52 L90,15.52 L90,19.196 L80.727,19.196 L80.727,19.196 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
     </g>
 </g>
-</svg>`
+</svg>`;
 
 function HomeWrapperEl({ children, siteName, studentArt }) {
   return (
     <Page className="App">
       <Wrapper>
         <LogoWrapper top>
-          {siteName && <Logo primary left logoSrc={mgsLogo} siteName={siteName} />}
+          {siteName && (
+            <Logo primary left logoSrc={mgsLogo} siteName={siteName} />
+          )}
           <MicaLogo dangerouslySetInnerHTML={{ __html: micaLogo }} />
         </LogoWrapper>
-        {studentArt && studentArt.length > 0 && <Slideshow collection={studentArt} />}
+        {studentArt && studentArt.length > 0 && (
+          <Slideshow collection={studentArt} />
+        )}
         <LogoWrapper>
           <Logo right primary logoSrc={yearLogo} siteName={siteName} />
         </LogoWrapper>
@@ -59,24 +63,24 @@ function HomeWrapperEl({ children, siteName, studentArt }) {
         {children}
       </Wrapper>
     </Page>
-  )
+  );
 }
 const artPropType = PropTypes.shape({
   id: PropTypes.string,
   image: PropTypes.shape({
     id: PropTypes.string,
-    url: PropTypes.string,
+    url: PropTypes.string
   }),
-  title: PropTypes.string,
-})
+  title: PropTypes.string
+});
 HomeWrapperEl.propTypes = {
   children: PropTypes.node.isRequired,
   siteName: PropTypes.string,
-  studentArt: PropTypes.arrayOf(artPropType),
-}
+  studentArt: PropTypes.arrayOf(artPropType)
+};
 HomeWrapperEl.defaultProps = {
   studentArt: null,
-  siteName: null,
-}
+  siteName: null
+};
 
-export default HomeWrapperEl
+export default HomeWrapperEl;
