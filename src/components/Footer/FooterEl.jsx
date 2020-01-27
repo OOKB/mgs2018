@@ -11,13 +11,13 @@ function FooterEl({ archive, social }) {
     <Wrapper>
       <Footer>
         <Chunk mdOrder="1" lgOrder="1">
-          <a href="http://www.mica.edu/?utm_source=mica%20grad%20show2017">
+          <a href="http://www.mica.edu/?utm_source=mica%20grad%20show2020">
             <MicaLogo src={micaLogo} alt="MICA logo" />
           </a>
         </Chunk>
         <Chunk mdOrder="3" lgOrder="4">
           <FlexList columns>
-            <ListItem link><Atag href="http://www.micagradcommunity.org/?utm_source=mica%20grad%20show2017">Office of Graduate Studies</Atag></ListItem>
+            <ListItem link><Atag href="http://www.micagradcommunity.org/?utm_source=mica%20grad%20show2020">Office of Graduate Studies</Atag></ListItem>
             <ListItem>131 West North Avenue</ListItem>
             <ListItem>Baltimore, MD 21201</ListItem>
             <ListItem>(410) 225-5274</ListItem>
@@ -25,9 +25,8 @@ function FooterEl({ archive, social }) {
         </Chunk>
         <Chunk mdOrder="5" lgOrder="2" span>
           <FlexList columns>
-            <ListItem link><Atag href="https://www.mica.edu/Admission_and_Financial_Aid/Graduate_Admission_and_Financial_Aid.html?utm_source=mica%20grad%20show2017">MICA Graduate Admissions</Atag></ListItem>
-            <ListItem link><Atag href="http://eepurl.com/bciqMT">Sign up for the MICA Grad Show mailing list</Atag></ListItem>
-            <ListItem link><Atag href="http://www.micagradcommunity.org/?utm_source=mica%20grad%20show2017">MICA Grad Community</Atag></ListItem>
+		  <ListItem link><Atag href="https://www.mica.edu/graduate-programs/?utm_source=mica%20grad%20show2020">MICA Graduate Admissions</Atag></ListItem>
+            <ListItem link><Atag href="http://www.mica.edu/?utm_source=mica%20grad%20show2020">MICA.edu</Atag></ListItem>
           </FlexList>
         </Chunk>
         <Chunk mw="10rem" start mdOrder="2" lgOrder="3">

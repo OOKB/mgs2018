@@ -66,10 +66,20 @@ function DetailEl({ showGroup, detailClose }) {
     reception,
     show,
     showDate,
-    zoom
+    zoom,
+    groupType
   } = showGroup;
-  const isShowThree = id === "recLTqHoop0NcGOrb";
-  const isShowFilm = id === "recyN8KTSaa9IVb7z";
+
+  const isShowTwo = id === "recesud5HA1rcy0uq";
+  const isShowThree = id === "recsTPYsKxM3gBL7C";
+  const isShowFilm = id === "recR1TeH47Qy4ftSo";
+  const firstShow = show[Object.keys(show)[0]] || null;
+  const firstStudent =
+    (firstShow &&
+      firstShow.student &&
+      firstShow.student[Object.keys(firstShow.student)[0]]) ||
+    null;
+
   return (
     <Wrapper>
       <Back onClick={detailClose}>
@@ -78,7 +88,7 @@ function DetailEl({ showGroup, detailClose }) {
           sttc
           left
           logoSrc={mgsLogo}
-          siteName="MICA Grad Show 2018"
+          siteName="MICA Grad Show 2020"
         />
       </Back>
       <detail className={id}>
@@ -133,18 +143,28 @@ function DetailEl({ showGroup, detailClose }) {
           <InfoContainer>
             <Title>{name}</Title>
             {showDate && <Subtitle className="dateRange">{showDate}</Subtitle>}
-            {description && (
-              <Description className="description">{description}</Description>
+            {groupType === "City Wide" && firstStudent && firstStudent.name && (
+              <Subtitle>{firstStudent.name}</Subtitle>
             )}
+            <Description
+              className="description"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
             <LocationList
               show={show}
               reception={reception}
               isShowFilm={isShowFilm}
+              isShowThree={isShowThree}
+              isShowTwo={isShowTwo}
+              program={program}
             />
             {!isShowFilm && extraChild && (
               <LocationList
                 show={extraChild.show}
                 reception={extraChild.reception}
+                isShowThree={isShowThree}
+                isShowTwo={isShowTwo}
+                program={program}
               />
             )}
             {isShowThree && program && <AllStudents program={program} />}

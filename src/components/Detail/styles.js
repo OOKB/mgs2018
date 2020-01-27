@@ -5,6 +5,7 @@ export const InfoContainer = styled.div`
   position: relative;
   flex: 1;
   padding-top: 3rem;
+  counter-reset: location;
   @media (min-width: ${sizes.medium}) {
     padding-top: 0;
     padding-left: 3rem;
@@ -19,12 +20,26 @@ export const MapContainer = styled.div`
 
 export const MapWrapper = styled.div`
   flex: 2 !important;
+  width: 100%;
+  height: 75vh;
+  @media (max-width: ${sizes.medium}) {
+    height: 50vh;
+  }
 `
-
 export const MarkerWrapper = styled.div`
-  svg, img, svg path, svg polygon, svg polyline {
-    transition: .25s;
-    fill: ${props => props.theme.color} !important;
+  position: relative;
+  background: ${props => props.theme.color};
+  color: white;
+  font-size: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 100%;
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    content: '${props => props.text}';
   }
 `
 
@@ -67,6 +82,10 @@ export const PlaceName = styled.p`
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  &::before {
+    counter-increment: location;
+    content: counter(location) '. ';
+  }
 `
 export const PlaceBuilding = styled.p`
   margin: 0;

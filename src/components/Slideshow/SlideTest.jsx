@@ -1,12 +1,21 @@
-import React, { Component } from 'react'
-import { Swiper, Slide } from 'react-dynamic-swiper'
-import { map } from 'lodash'
-import 'react-dynamic-swiper/lib/styles.css'
+import React, { Component } from "react";
+import { Swiper, Slide } from "react-dynamic-swiper";
+import { map } from "lodash";
+import "react-dynamic-swiper/lib/styles.css";
 
-import StudentLink from '../Peers/StudentLink'
-import Refresh from './Refresh'
+import StudentLink from "../Peers/StudentLink";
+import Refresh from "./Refresh";
 
-import { Loading, SliderWrapper, ImageTest, Test, TestWrap, Caption, CaptionItem } from './styles'
+import {
+  Loading,
+  SliderWrapper,
+  PlaceholderWrapper,
+  ImageTest,
+  Test,
+  TestWrap,
+  Caption,
+  CaptionItem
+} from "./styles";
 
 const arrowIcon = `
 <svg width="33px" height="22px" viewBox="0 0 33 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -20,49 +29,56 @@ const arrowIcon = `
         </g>
     </g>
 </g>
-</svg>`
+</svg>`;
 
 class SlideTest extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      loading: true,
-    }
-    this.handleClick = this.handleClick.bind(this)
-    this.isLoaded = this.isLoaded.bind(this)
+      loading: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.isLoaded = this.isLoaded.bind(this);
   }
 
   handleClick() {
-    console.log('click')
+    console.log("click");
   }
 
   isLoaded() {
-    this.setState({ loading: false })
+    this.setState({ loading: false });
   }
 
   render() {
-    const { collection } = this.props
-    const { loading } = this.state
+    const { collection } = this.props;
+    const { loading } = this.state;
     return (
       <TestWrap>
         <Test>
-          <Loading loading={loading} className="flex loading">loading...</Loading>
+          <PlaceholderWrapper loading={loading}>
+            <div />
+            <div />
+            <div />
+          </PlaceholderWrapper>
+          <Loading loading={loading} className="flex loading">
+            loading...
+          </Loading>
           <SliderWrapper loading={loading}>
             <Swiper
               swiperOptions={{
-                slidesPerView: 'auto',
+                slidesPerView: "auto",
                 centeredSlides: true,
                 spaceBetween: 60,
                 initialSlide: 0,
                 autoplay: 4500,
                 loop: true,
-                grabCursor: true,
+                grabCursor: true
               }}
               navigation={false}
               pagination={false}
               onAutoplay={() => this.isLoaded()}
             >
-              { map(collection, (item) => (
+              {map(collection, item => (
                 <Slide key={item.id}>
                   <ImageTest
                     srcSet={`${item.image.url}?w=2048 2048w,
@@ -80,16 +96,28 @@ class SlideTest extends Component {
                   <StudentLink hasDetail id={item.studentId}>
                     <Caption flex>
                       <section>
-                        { item.studentName && <CaptionItem bold caps>{item.studentName}</CaptionItem> }
-                        { item.title && <CaptionItem italic>{item.title}</CaptionItem> }
-                        { item.person &&
-                          <CaptionItem>
-                            { item.person.name && <span>{item.person.name}</span> }
-                            { item.person.program && <span>, {item.person.program}</span> }
+                        {item.studentName && (
+                          <CaptionItem bold caps>
+                            {item.studentName}
                           </CaptionItem>
-                        }
+                        )}
+                        {item.title && (
+                          <CaptionItem italic>{item.title}</CaptionItem>
+                        )}
+                        {item.person && (
+                          <CaptionItem>
+                            {item.person.name && (
+                              <span>{item.person.name}</span>
+                            )}
+                            {item.person.program && (
+                              <span>, {item.person.program}</span>
+                            )}
+                          </CaptionItem>
+                        )}
                       </section>
-                      <section dangerouslySetInnerHTML={{ __html: arrowIcon }} />
+                      <section
+                        dangerouslySetInnerHTML={{ __html: arrowIcon }}
+                      />
                     </Caption>
                   </StudentLink>
                 </Slide>
@@ -99,8 +127,8 @@ class SlideTest extends Component {
           </SliderWrapper>
         </Test>
       </TestWrap>
-    )
+    );
   }
 }
 
-export default SlideTest
+export default SlideTest;

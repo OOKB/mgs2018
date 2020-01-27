@@ -101,6 +101,26 @@ export const ImageTest = styled.img`
     max-height: 600px;
   }
 `
+export const PlaceholderWrapper = styled.div`
+  opacity: ${props => (props.loading ? 1 : 0)};
+  transition: opacity 0.5s;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  div {
+    width: 100%;
+    height: 66%;
+    background: #eee;
+    &:nth-child(even) {
+      width: 300%;
+      height: 100%;
+      margin: 0 3rem;
+    }
+  }
+  position: absolute;
+`
+
 export const SliderWrapper = styled.div`
   opacity: ${props => (props.loading ? 0 : 1)};
   transition: opacity 2s;

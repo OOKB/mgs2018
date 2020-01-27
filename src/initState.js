@@ -17,12 +17,12 @@ export default {
   db: {},
   firebase: {
     config: {
-      apiKey: "AIzaSyBXnqaw3N3bCPm-mrq9H-cYzUcRT1buqpI",
-      authDomain: "mgs-2018-restore.firebaseapp.com",
-      databaseURL: "https://mgs-2018-restore.firebaseio.com",
-      projectId: "mgs-2018-restore",
-      storageBucket: "mgs-2018-restore.appspot.com",
-      messagingSenderId: "662621338083"
+	    apiKey: "AIzaSyAFJETZe1x0RGyMdCo1rSzNZ2iybo0tGiw",
+      authDomain: "mgs-2020.firebaseapp.com",
+      databaseURL: "https://mgs-2020.firebaseio.com",
+      projectId: "mgs-2020",
+      storageBucket: "mgs-2020.appspot.com",
+      messagingSenderId: "202635837400"
     },
     entityType: {
       CreativeWork: true,

@@ -18,7 +18,7 @@ export const GroupHeader = styled.span`
   &.show { flex: 4; }
   &.social {
     flex: none;
-    width: 8rem;
+    width: 9rem;
     display: flex;
     padding-right: 0;
   }
@@ -69,7 +69,7 @@ export const Cell = styled.span`
     }
     @media (min-width: ${sizes.medium}) {
       flex: none;
-      width: 8rem;
+      width: 9rem;
       justify-content: flex-end;
       display: flex;
       a { margin-left: .5rem; }
