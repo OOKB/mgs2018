@@ -11,7 +11,7 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "axios": "^0.17.0",
+    "axios": "^0.21.1",
     "cape-firebase": "^1.0.9",
     "cape-lodash": "^1.13.1",
     "cape-mixer": "^2.4.1",
