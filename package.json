@@ -31,7 +31,7 @@
     "location-info": "^4.5.0",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "polished": "^1.9.0",
     "prop-types": "^15.6.0",
     "radium": "^0.19.4",
